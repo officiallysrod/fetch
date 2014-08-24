@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
   has_secure_password
 
   #? has_and_belongs_to_many :nearby_users, dependent: :destroy
-  #? has_one :location, dependent: :destroy
-  #? has_many :conversations, through: :matches, dependent: :destroy
-  #? has_many :messages, through: :conversations, dependent: :destroy
-  
+
+ 
+  has_one :location, dependent: :destroy
+
   #rejection data relationships
   has_many :rejections, foreign_key: "rejector_id", dependent: :destroy
   has_many :rejectees, through: :rejections
@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
   #match relationships
   has_many :matches, dependent: :destroy
   has_many :friends, through: :matches
+
+  #conversation and message relationships
+  has_many :conversations, through: :matches, dependent: :destroy
+  has_many :messages, through: :conversations, dependent: :destroy
 
 
   #need to add Paperclip gem for has_attached_file
