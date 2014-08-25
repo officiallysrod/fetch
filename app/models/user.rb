@@ -20,8 +20,8 @@ class User < ActiveRecord::Base
   has_many :likers, through: :reverse_likes
 
   #match relationships
-  has_many :matches, dependent: :destroy
-  has_many :friends, through: :matches
+  has_many :user_matches, dependent: :destroy
+  has_many :matches, through: :user_matches, dependent: :destroy 
 
   #conversation and message relationships
   has_many :conversations, through: :matches, dependent: :destroy

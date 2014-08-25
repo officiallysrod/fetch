@@ -1,11 +1,9 @@
 class Match < ActiveRecord::Base
 
-  belongs_to :user
-  belongs_to :friend, class_name: "User"
+  has_many :user_matches
+  has_many :users, through: :user_matches
+
   has_one :conversation, dependent: :destroy
   has_many :messages, through: :conversations
-
-  validates :user_id, presence: true
-  validates :friend_id, presence: true
 
 end

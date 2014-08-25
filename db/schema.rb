@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140824204156) do
+ActiveRecord::Schema.define(version: 20140825210758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,15 +47,9 @@ ActiveRecord::Schema.define(version: 20140824204156) do
   add_index "locations", ["user_id"], name: "index_locations_on_user_id", using: :btree
 
   create_table "matches", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "friend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "matches", ["friend_id"], name: "index_matches_on_friend_id", using: :btree
-  add_index "matches", ["user_id", "friend_id"], name: "index_matches_on_user_id_and_friend_id", unique: true, using: :btree
-  add_index "matches", ["user_id"], name: "index_matches_on_user_id", using: :btree
 
   create_table "messages", force: true do |t|
     t.integer  "sender_id"
@@ -80,6 +74,16 @@ ActiveRecord::Schema.define(version: 20140824204156) do
   add_index "rejections", ["rejectee_id"], name: "index_rejections_on_rejectee_id", using: :btree
   add_index "rejections", ["rejector_id", "rejectee_id"], name: "index_rejections_on_rejector_id_and_rejectee_id", unique: true, using: :btree
   add_index "rejections", ["rejector_id"], name: "index_rejections_on_rejector_id", using: :btree
+
+  create_table "user_matches", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "match_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_matches", ["match_id"], name: "index_user_matches_on_match_id", using: :btree
+  add_index "user_matches", ["user_id"], name: "index_user_matches_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email"
