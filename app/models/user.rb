@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   #? has_and_belongs_to_many :nearby_users, dependent: :destroy
 
- 
+  #user's location
   has_one :location, dependent: :destroy
 
   #rejection data relationships
@@ -27,10 +27,21 @@ class User < ActiveRecord::Base
   has_many :conversations, through: :matches, dependent: :destroy
   has_many :messages, through: :conversations, dependent: :destroy
 
-
   #need to add Paperclip gem for has_attached_file
   # has_attached_file :profile_pic
 
-  #need to add validations
+  #validations
+  validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+  validates :fname, presence: true, length: { in: 3..30 }
+  validates :lname, presence: true, length: { in: 3..30 }
+  validates :dog_name, presence: true, length: { in: 3..30 }
+  validates :bio, presence: true
+  validates :password, presence: true, length: { in: 6..20 }
+
+  #formatting user inputs before save
+  before_save { self.email = email.downcase }
+  before_save { self.fname = fname.titleize }
+  before_save { self.lname = lname.titleize }
+  before_save { self.dog_name = dog_name.titleize }
 
 end
