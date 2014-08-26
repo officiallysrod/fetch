@@ -26,6 +26,13 @@ $border-gray: 1px solid $gray-object-color;
 	border-radius: $radius;
 }
 
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html { font-size: 100%; }
 html, body { height: 100%; }
 .btn-fetch-primary { 
 	background-color: $primary-color; 

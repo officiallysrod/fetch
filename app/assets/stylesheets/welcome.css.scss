@@ -9,7 +9,8 @@ $primary-color: #55BEFA;
 .tight-container { 
 	margin: 0 auto;
 	padding: 0 50px;
-	width: 80%;
+	width: 90%;
+	max-width: 48rem;
 }
 .logo { max-width: 50px; }
 .logo-name { max-width: 150px; }
@@ -17,7 +18,24 @@ $primary-color: #55BEFA;
 .headline { 
 	h2 { display: none; }
 	margin: 50px 0;
+	width: 100%;
+	float: none;
 }
-// .logo { max-width: 100px; }
-// .logo-name { max-width: 300px; }
-.signup-button { height: 49px; }
+.picture-container {
+	// width: 100%;
+	// margin: 0 auto;
+}
+
+@media (min-width: 40rem) {
+	.column {
+    float: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+	.column.full { width: 100%; }
+  .column.half { width: 50%; }
+	.logo { max-width: 100px; }
+	.logo-name { max-width: 300px; }
+	.headline h2 { display: block; }
+	.signup-button { height: 49px; display: block; }
+}
