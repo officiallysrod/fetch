@@ -15,91 +15,82 @@
  *= require_self
  */
 
-/* Global 
+/* Global Properties (and variables)
 ==================== */
-.modal-header { border-bottom: none; }
-
-
 $primary-color: #55BEFA;
 $gray-object-color: #f3f3f3;
 $main-text-color: #000;
-$gray-text-color: #d1d1d1; 
-body { height: 100%; }
-
-.logo { max-width: 100px; }
-.logo-name { max-width: 300px; }
-
-.signup-button { 
-	background-color: $primary-color; 
-	border: none; 
-	height: 49px; 
+$gray-text-color: #d1d1d1;
+$border-gray: 1px solid $gray-object-color;
+@mixin border-radius($radius) {
+	border-radius: $radius;
 }
+
+html, body { height: 100%; }
+.btn-fetch-primary { 
+	background-color: $primary-color; 
+	border: none;
+}
+
+/* Cards
+=============== */
 .cards { position: absolute; }
+
 .picture { 
+	width: 250px; 
+	height: 250px;
+	cursor: pointer;
 	overflow: hidden;
 	img { padding: 10px; }
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-	height: 250px; 
-	width: 250px; 
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,.2); 
 	background: $gray-object-color; 
-	cursor: pointer;
 }
+
 .circle-option {
-	margin-top: 20px;
-	border-radius: 50%;
-	display: inline-block;
-	cursor: pointer;
 	width: 72px;
 	height: 72px;
-	background: $gray-object-color;
-	border: 3px solid #E9E9E9;
+	display: inline-block;
+	cursor: pointer;
 	position: relative;
 	left: 36px;
-	margin-right: 36px;
+	margin: 20px 36px 0 0;
+	@include border-radius(50%);
+	border: 3px solid #E9E9E9;
+	background: $gray-object-color;
+	background-repeat: no-repeat;
 }
 .circle-option:nth-of-type(2) { 
 	background-image: url('x.svg'); 
-	background-position-x: -15px;
-	background-position-y: -13px;
+	background-position: -15px -13px;
 }
 .circle-option:nth-of-type(3) { 
 	background-image: url('heart.svg');
-	background-repeat: no-repeat;
-	background-size: 43px;
-	background-position-x: 11px;
-	background-position-y: 14px;
-}
-.conversations {
-	border-right: 1px solid $gray-object-color;
-	height: 100vh;
-	z-index: -99;
-	.row {
-		h4 { color: $gray-text-color; }
-		cursor: pointer;
-		border-bottom: 1px solid $gray-object-color;
-	}
-	.row:hover {
-		background-color: $gray-object-color;
-	}
+	background-size: 37px;
+	background-position: 14.5px 16px;
 }
 
-/* Modals
+
+/* Global Modals
 ================ */
+// .email-hidden { display: none; }
+.modal-header { border-bottom: none; }
+.glyphicon { font-size: 11px;  }
 .modal-dialog {
-	.model-header { border-bottom: none; }
-	.modal-content { border-radius:2px; }
-	#signupModal,
-	#loginModal { width: 315px; }
+	width: 315px;
 	margin: 30px auto;
+	
+	.modal-content { @include border-radius(2px); }
+
 	.divider { 
 		margin: 25px 0;
+		hr { margin-top: -15px; }
 		span {
 			display: inline-block; 
 			padding: 6px; 
 			background-color: white;
 		}
 	}
-	hr { margin-top: -15px; }
+
 	#facebook-img,
 	#email-img {		
  			width: 40px; 
@@ -108,19 +99,19 @@ body { height: 100%; }
 			right: 139px; 
 			top: 20px;
 	}
-	#facebook-img { top:20px; }
+	#facebook-img { top: 20px; }
 	#email-img { top: 122.5px; }
  	.btn-facebook { 
  		background-color: #3B5998;
  		position: relative;
  		width: 100%; 
- 		border-radius: 2px; 
  		height: 51px;
+ 		@include border-radius(2px);
  	}
  	.btn-email {
  		width: 100%; 
- 		border-radius: 2px; 
  		height: 51px;
  		background-color: $primary-color;
+ 		@include border-radius(2px);
  	}
 }

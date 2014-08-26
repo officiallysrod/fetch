@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :login, :signup # Login/Signup from User view
+
   def index
   end
 
@@ -16,7 +18,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id.to_s
-      #add a redirect
+      redirect_to users_path
     else
       render 'new'
     end
@@ -38,6 +40,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.where(params[:id]).first
     @user.destroy
+    reset_session
     redirect_to root_path
   end
 

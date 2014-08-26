@@ -1,11 +1,26 @@
 <h1>New User</h1>
-<%= form_for @user, url: {action: "create"} do |f| %>
-  <%= f.text_field :email, placeholder: 'email' %>
-  <%= f.text_field :fname %>
-  <%= f.text_field :lname %>
-	<%= f.text_field :dog_name %>
-	<%= f.text_field :bio %>
-	<%= f.password_field :password %>
-	<%= f.password_field :password_confirmation %>
-	<%= f.submit %>
+<%= form_for @user_signup, url: {action: "create"}, html: {class: "email-hidden"} do |f| %>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+      <%= f.text_field :fname, placeholder: "What's your first name?", :class => "form-control" %>
+      <%= f.text_field :lname, placeholder: "Last name?", :class => "form-control" %>
+      <%= f.text_field :dog_name, placeholder: "What is your dogs name?", :class => "form-control" %>
+      <%= f.text_field :bio, placeholder: "Say something about yourself", :class => "form-control" %><br />
+    </div>
+    <div class="input-group">
+      <div class="input-group-addon" id="at-symbol-glyph">@</div>
+      <%= f.text_field :email, placeholder: "Enter email", :class => "form-control" %><br />
+    </div>
+    <div class="input-group">
+      <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+      <%= f.password_field :password, placeholder: "Password", :class => "form-control" %><br />
+    </div>
+    <div class="input-group">
+      <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+      <%= f.password_field :password_confirmation, placeholder: "Confirm password", :class => "form-control" %><br />
+    </div>
+  </div>
+  Already a member? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#loginModal">Log In</a>
+  <%= f.submit "Sign up", class: 'btn btn-primary btn-fetch-primary' %>
 <% end %>

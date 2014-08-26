@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :login, :signup # Login/Signup from Sessions view
+
   def new
     @user = User.new
     @is_login = true

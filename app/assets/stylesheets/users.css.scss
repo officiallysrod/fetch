@@ -1,3 +1,33 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$gray-object-color: #f3f3f3;
+$gray-text-color: #d1d1d1; 
+$border-gray: 1px solid $gray-object-color;
+
+/* Show Modal
+============== */
+#showModal .modal-dialog { 
+	width: 600px; 
+	.picture { 
+		width: 220px; 
+		height: 220px; 
+	}
+}
+
+/* Conversations
+================ */
+.conversations {
+	border-right: $border-gray;
+	height: 100vh;
+	z-index: -99;
+	.row {
+		h4 { color: $gray-text-color; }
+		cursor: pointer;
+		border-bottom: $border-gray;
+	}
+	.row:hover {
+		background-color: $gray-object-color;
+	}
+}

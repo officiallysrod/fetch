@@ -1,3 +1,23 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$primary-color: #55BEFA;
+
+/* Landing Page
+================ */
+.tight-container { 
+	margin: 0 auto;
+	padding: 0 50px;
+	width: 80%;
+}
+.logo { max-width: 50px; }
+.logo-name { max-width: 150px; }
+.signup-button { display: none; }
+.headline { 
+	h2 { display: none; }
+	margin: 50px 0;
+}
+// .logo { max-width: 100px; }
+// .logo-name { max-width: 300px; }
+.signup-button { height: 49px; }

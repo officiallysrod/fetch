@@ -15,10 +15,34 @@
         </div>
         <%= image_tag "email.svg", id: "email-img" %>
         <button class="btn btn-email"><span id="email-span"></span></button>
+        <!-- if user selects email -->
+        <%= form_for @user_signup, html: {class: "email-hidden"} do |f| %>
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+              <%= f.text_field :fname, placeholder: "What's your first name?", :class => "form-control" %>
+              <%= f.text_field :lname, placeholder: "Last name?", :class => "form-control" %>
+              <%= f.text_field :dog_name, placeholder: "What is your dogs name?", :class => "form-control" %>
+              <%= f.text_field :bio, placeholder: "Say something about yourself", :class => "form-control" %><br />
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon" id="at-symbol-glyph">@</div>
+              <%= f.text_field :email, placeholder: "Enter email", :class => "form-control" %><br />
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+              <%= f.password_field :password, placeholder: "Password", :class => "form-control" %><br />
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+              <%= f.password_field :password_confirmation, placeholder: "Confirm password", :class => "form-control" %><br />
+            </div>
+          </div>
+          Already a member? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#loginModal">Log In</a>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+          <%= f.submit "Sign up", class: 'btn btn-primary btn-fetch-primary' %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -31,14 +55,34 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Log in</h4>
+        <h4 class="modal-title text-center" id="myModalLabel">Log in</h4>
       </div>
       <div class="modal-body">
-        ...
+        <%= image_tag "facebook.svg", id: "facebook-img" %>
+        <button class="btn btn-facebook"></button>
+        <div class="divider text-center">
+          <span>or</span>
+          <hr>
+        </div>
+        <%= image_tag "email.svg", id: "email-img" %>
+        <button class="btn btn-email"><span id="email-span"></span></button>
+        <!-- if user selects email -->
+        <%= form_for @user_login, url: session_path, html: {class: "email-hidden"}  do |f| %>
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon">@</div>
+              <%= f.text_field :email, placeholder: "Enter email", :class => "form-control" %><br />
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+              <%= f.password_field :password, placeholder: "Password", :class => "form-control" %><br />
+            </div>
+          </div>
+          Not a member yet? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#signupModal">Sign Up</a>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+          <%= f.submit "Login", {:class => 'btn btn-primary btn-fetch-primary'} %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -52,7 +96,9 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
       </div>
       <div class="modal-body clearfix">
-        <div class="picture pull-left"></div>
+        <div class="picture pull-left">
+          <%= image_tag "userpicture", class: "picture-img" %>
+        </div>
         <div class="bio">
           <h3>Dakota</h3>
           <p>Hi I’m Lacy and this is my puppy Dakota. Dakota is the friendliest pitbull you’ll ever meet and she and I want to meet some other local pups. Send me a like and send me a message!</p>
