@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def new
     @user = User.new
     @is_login = true
-    #redirect_to user_path(current_user) if current_user
+    # redirect_to user_path(current_user) if current_user
   end
 
   def create
