@@ -1,0 +1,126 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require bootstrap
+ *= require_tree .
+ *= require_self
+ */
+
+/* Global 
+==================== */
+.modal-header { border-bottom: none; }
+
+
+$primary-color: #55BEFA;
+$gray-object-color: #f3f3f3;
+$main-text-color: #000;
+$gray-text-color: #d1d1d1; 
+body { height: 100%; }
+
+.logo { max-width: 100px; }
+.logo-name { max-width: 300px; }
+
+.signup-button { 
+	background-color: $primary-color; 
+	border: none; 
+	height: 49px; 
+}
+.cards { position: absolute; }
+.picture { 
+	overflow: hidden;
+	img { padding: 10px; }
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+	height: 250px; 
+	width: 250px; 
+	background: $gray-object-color; 
+	cursor: pointer;
+}
+.circle-option {
+	margin-top: 20px;
+	border-radius: 50%;
+	display: inline-block;
+	cursor: pointer;
+	width: 72px;
+	height: 72px;
+	background: $gray-object-color;
+	border: 3px solid #E9E9E9;
+	position: relative;
+	left: 36px;
+	margin-right: 36px;
+}
+.circle-option:nth-of-type(2) { 
+	background-image: url('x.svg'); 
+	background-position-x: -15px;
+	background-position-y: -13px;
+}
+.circle-option:nth-of-type(3) { 
+	background-image: url('heart.svg');
+	background-repeat: no-repeat;
+	background-size: 43px;
+	background-position-x: 11px;
+	background-position-y: 14px;
+}
+.conversations {
+	border-right: 1px solid $gray-object-color;
+	height: 100vh;
+	z-index: -99;
+	.row {
+		h4 { color: $gray-text-color; }
+		cursor: pointer;
+		border-bottom: 1px solid $gray-object-color;
+	}
+	.row:hover {
+		background-color: $gray-object-color;
+	}
+}
+
+/* Modals
+================ */
+.modal-dialog {
+	.model-header { border-bottom: none; }
+	.modal-content { border-radius:2px; }
+	#signupModal,
+	#loginModal { width: 315px; }
+	margin: 30px auto;
+	.divider { 
+		margin: 25px 0;
+		span {
+			display: inline-block; 
+			padding: 6px; 
+			background-color: white;
+		}
+	}
+	hr { margin-top: -15px; }
+	#facebook-img,
+	#email-img {		
+ 			width: 40px; 
+			position: absolute;
+			z-index: 100; 
+			right: 139px; 
+			top: 20px;
+	}
+	#facebook-img { top:20px; }
+	#email-img { top: 122.5px; }
+ 	.btn-facebook { 
+ 		background-color: #3B5998;
+ 		position: relative;
+ 		width: 100%; 
+ 		border-radius: 2px; 
+ 		height: 51px;
+ 	}
+ 	.btn-email {
+ 		width: 100%; 
+ 		border-radius: 2px; 
+ 		height: 51px;
+ 		background-color: $primary-color;
+ 	}
+}
