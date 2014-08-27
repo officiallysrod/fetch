@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id.to_s
-      redirect_to user_path
+      redirect_to users_path
     else
       flash.now[:error] = "Your email address or password is incorrect."
       redirect_to root_path
