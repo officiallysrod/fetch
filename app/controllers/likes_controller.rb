@@ -1,6 +1,4 @@
 class LikesController < ApplicationController
-  
-  before_action :login, :signup
 
   def new
     @like = Like.new

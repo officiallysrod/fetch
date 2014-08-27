@@ -1,20 +1,17 @@
 class UsersController < ApplicationController
-  before_action :login, :signup # Login/Signup from User view
 
   def index
-    
     available_users
-
   end
 
   def show
     @user = User.find(params[:id])
   end
 
-  # def new
-  #   @user = User.new
-  #   @is_signup = true
-  # end
+  def new
+    @user = User.new
+    @is_signup = true
+  end
 
   def create
     @user = User.new(user_params)

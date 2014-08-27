@@ -9,16 +9,4 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.where(id: session[:user_id]).first
   end
 
-  # Login is now accessible from any controller
-  def login
-    @user_login = User.new
-    @is_login = true
-  end
-  
-  # Setup is now accessible from any controller
-  def signup
-    @user_signup = User.new
-    @is_signup = true
-  end
-
 end

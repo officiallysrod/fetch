@@ -1,6 +1,8 @@
 class WelcomeController < ApplicationController
-  before_action :login, :signup # Login/Signup from Welcome view
 
   def index
+    @user = User.new
+    @is_signup = true
   end
+  
 end

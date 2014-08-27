@@ -1,4 +1,10 @@
+<%= render 'partials/loginSignupModals' %>
+
 <!-- Welcome Page -->
+<% unless current_user %>
+	<a href="#" class="nav-links" data-toggle="modal" data-target="#loginModal">Log in</a>
+	<a href="#" class="nav-links" data-toggle="modal" data-target="#signupModal">Sign up</a>
+<% end %>
 <div class="tight-container clearfix text-center">
 	<div class="column half headline">
 		<div class="text-center">
