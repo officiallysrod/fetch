@@ -5,8 +5,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    # Must be find, otherwise WHERE will 
-    # accept anything you pass in
     @user = User.find(params[:id])
   end
 

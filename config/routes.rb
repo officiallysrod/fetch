@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'usermatches/new'
+
+  get 'usermatches/create'
+
+  get 'usermatches/destroy'
+
+  get 'matches/index'
+
+  get 'matches/show'
+
+  get 'matches/new'
+
+  get 'matches/create'
+
+  get 'matches/destroy'
+
   root 'welcome#index'
 
   resource :session, only: [:create, :destroy]
