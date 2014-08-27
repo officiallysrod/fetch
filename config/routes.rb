@@ -1,26 +1,18 @@
 Rails.application.routes.draw do
 
-  get 'usermatches/new'
-
-  get 'usermatches/create'
-
-  get 'usermatches/destroy'
-
-  get 'matches/index'
-
-  get 'matches/show'
-
-  get 'matches/new'
-
-  get 'matches/create'
-
-  get 'matches/destroy'
-
   root 'welcome#index'
 
   resource :session, only: [:create, :destroy]
 
   resources :users, except: [:new]
+
+  resources :likes, only: [:new, :create]
+
+  resources :usermatches, only: [:new, :create, :destroy]
+
+  resources :matches, only: [:index, :show, :new, :create, :destroy]
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

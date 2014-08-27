@@ -2,6 +2,9 @@ class UsersController < ApplicationController
   before_action :login, :signup # Login/Signup from User view
 
   def index
+    
+    available_users
+
   end
 
   def show
@@ -48,6 +51,15 @@ private
 
   def user_params
     params.require(:user).permit(:fname, :lname, :dog_name, :bio, :email, :password, :password_confirmation)
+  end
+
+  def available_users
+    @users = []
+    User.all.each do |user|
+      unless user == current_user
+        @users.push(user)
+      end
+    end
   end
 
 end
