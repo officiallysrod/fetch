@@ -1,9 +1,42 @@
 <!-- Profile Page -->
-
-<%= render 'partials/conversations' %>
-
-<div class="">
-	<%= image_tag 'User Image' %>
-	<h3>Dakota</h3>
-	<p>Stuff</p>
+<div class="profile">
+	<%= render 'partials/conversations' %>
+	
+	<div class="">
+		<%# link_to "Back to Fetching", users_path, class: 'back-btn' %>
+		<div class="profile col-md-4">
+			<%= image_tag 'User Image' %>
+			<h3>Dakota</h3>
+			<p>Hi I’m Lacy and this is my puppy Dakota. Dakota is the friendliest pitbull you’ll ever meet and she and I want to meet some other local pups. Send me a like and send me a message!</p>
+		</div>
+		
+		<div class="message-widget col-md-4">
+			<div class="messages">
+				<ul class="activity-stream">
+		
+					<li class="activity">
+						<div class="activity-row">
+							<div class="content-text">Hey! Let's chat about our dogs.</div>
+						</div>
+						<div class="activity-row">
+							<div class="timestamp"></div>
+						</div>
+					</li>
+						<li class="activity">
+						<div class="activity-row">
+							<div class="content-text">Hey! Let's chat about our dogs.</div>
+						</div>
+						<div class="activity-row">
+							<div class="timestamp"></div>
+						</div>
+					</li>
+		
+				</ul>
+			</div>
+			<div class="message-input">
+				<input type="text" value="" placeholder="Message" class="message-input-field">
+				<button class="send-message-btn">Send</button>
+		 	</div>
+		</div>
+	</div>
 </div>

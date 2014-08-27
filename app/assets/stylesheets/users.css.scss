@@ -19,9 +19,13 @@ $border-gray: 1px solid $gray-object-color;
 /* Conversations
 ================ */
 .conversations {
+	.conversations-title { padding: 10px; }
 	border-right: $border-gray;
-	height: 100vh;
+	max-height: 92vh;
 	z-index: -99;
+	padding: 0 0 0 15px;
+	overflow: scroll;
+	overflow-x: hidden;
 	.row {
 		h4 { color: $gray-text-color; }
 		cursor: pointer;
@@ -29,5 +33,123 @@ $border-gray: 1px solid $gray-object-color;
 	}
 	.row:hover {
 		background-color: $gray-object-color;
+	}
+}
+
+/* Profile
+================== */
+.profile {
+	border: 1px solid #F3F3F3;
+}
+
+/* Chat Widget
+================== */
+.message-widget {
+  margin: 0 auto;
+  max-width: 320px;
+	height: 600px;
+  border: 1px solid #F3F3F3;
+  position: relative;
+}
+.messages {}
+.activity-stream { 
+	list-style: none; 
+	overflow: auto; 
+	margin: 0;
+	background-color: white;
+	min-height: 100px;
+	max-height: 400px;
+	margin-right: 10px;
+}
+.activity {
+	position: relative;
+	border-bottom: 1px solid #EBEBEB;
+	min-height: 48px;
+	clear: both;
+	display: block;
+	outline: none;
+	margin-top: -1px;
+	border-top: 1px solid transparent;
+	overflow: auto;
+	margin: 0 0 0.5em;
+  border-radius: 1em;
+  padding: 0.5em 1em;
+  background: #e5e5ea;
+  max-width: 75%;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: -0.5em;
+    bottom: 0;
+    width: 0.5em;
+    height: 1em;
+    border-right: 0.5em solid #cfdae1;
+    border-bottom-right-radius: 1em 0.5em;
+  }
+  // This will need to change depending on user
+  // NOT on odds/evens
+  &:nth-child(even) {
+  	float: right;
+    background-color: #1289fe;
+    color: white;
+    &::after {
+			content: "";
+      position: absolute;
+      right: -0.5em;
+      bottom: 0;
+      width: 0.5em;
+      height: 1em;
+      border-left: 0.5em solid #1289fe;
+      border-bottom-left-radius: 1em 0.5em;
+    }
+  }
+}
+.activity-row {
+	display: block;
+	position: relative;
+	line-height: 15px;
+}
+.content-text {
+	padding: 0;
+	font-family: "Helvetica Neue",sans-serif;
+	line-height: 19px;
+	word-wrap: break-word;
+}
+.timestamp {}
+
+.message-input {
+	background: #e4eaee;
+	padding: 4px;	
+	overflow: hidden;
+	position: relative;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-top: 1px solid #cfdae1;
+
+	.message-input-field {	
+		width: 230px;
+		border: 1px solid #cfdae1;
+		border-radius: 5px;
+		overflow: hidden;
+		float: left;
+		height: 30px;
+		line-height: 30px;
+		margin: 0;
+		padding: 0 10px;
+		outline: none;
+		color: #5D7185;
+	}
+	.send-message-btn {
+		border: none;
+	  letter-spacing:1px;
+		font-weight: bold;
+		float:right;
+		line-height: 30px;
+		cursor: pointer;
+		background-color: #e4eaee;
+		color: #cfdae1;
+		outline: none;
 	}
 }

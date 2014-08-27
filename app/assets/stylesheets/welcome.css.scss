@@ -27,13 +27,6 @@ $primary-color: #55BEFA;
 }
 
 @media (min-width: 40rem) {
-	.column {
-    float: left;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-	.column.full { width: 100%; }
-  .column.half { width: 50%; }
 	.logo { max-width: 100px; }
 	.logo-name { max-width: 300px; }
 	.headline h2 { display: block; }

@@ -7,14 +7,20 @@
         <h4 class="modal-title text-center" id="myModalLabel">Sign up</h4>
       </div>
       <div class="modal-body">
-        <%= image_tag "facebook.svg", id: "facebook-img" %>
-        <button class="btn btn-facebook"></button>
+        <button class="btn btn-facebook">
+          <%= image_tag "facebook.svg", id: "facebook-img" %>
+        </button>
         <div class="divider text-center">
           <span>or</span>
           <hr>
         </div>
-        <%= image_tag "email.svg", id: "email-img" %>
-        <button class="btn btn-email"><span id="email-span"></span></button>
+        <button class="btn btn-email">
+          <%= image_tag "email.svg", id: "email-img" %>
+        </button>
+        <br />
+        <br />
+        <hr>
+        Already a member? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#loginModal">Log In</a>
         <!-- if user selects email -->
         <%= form_for @user_signup, html: {class: "email-hidden"} do |f| %>
           <div class="form-group">
@@ -38,12 +44,17 @@
               <%= f.password_field :password_confirmation, placeholder: "Confirm password", :class => "form-control" %><br />
             </div>
           </div>
-          Already a member? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#loginModal">Log In</a>
-      </div>
+
+      <!-- Possible breakage -->
+
       <div class="modal-footer">
           <%= f.submit "Sign up", class: 'btn btn-primary btn-fetch-primary' %>
         <% end %>
       </div>
+
+
+      </div>
+
     </div>
   </div>
 </div>
@@ -58,14 +69,20 @@
         <h4 class="modal-title text-center" id="myModalLabel">Log in</h4>
       </div>
       <div class="modal-body">
-        <%= image_tag "facebook.svg", id: "facebook-img" %>
-        <button class="btn btn-facebook"></button>
+        <button class="btn btn-facebook">
+          <%= image_tag "facebook.svg", id: "facebook-img" %>
+        </button>
         <div class="divider text-center">
           <span>or</span>
           <hr>
         </div>
-        <%= image_tag "email.svg", id: "email-img" %>
-        <button class="btn btn-email"><span id="email-span"></span></button>
+        <button class="btn btn-email">
+          <%= image_tag "email.svg", id: "email-img" %>
+        </button>
+        <br />
+        <br />
+        <hr>
+        Not a member yet? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#signupModal">Sign Up</a>
         <!-- if user selects email -->
         <%= form_for @user_login, url: session_path, html: {class: "email-hidden"}  do |f| %>
           <div class="form-group">
@@ -78,12 +95,16 @@
               <%= f.password_field :password, placeholder: "Password", :class => "form-control" %><br />
             </div>
           </div>
-          Not a member yet? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#signupModal">Sign Up</a>
-      </div>
+
+      <!-- Possible breakage -->
+
       <div class="modal-footer">
           <%= f.submit "Login", {:class => 'btn btn-primary btn-fetch-primary'} %>
         <% end %>
       </div>
+
+      </div>
+
     </div>
   </div>
 </div>
