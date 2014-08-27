@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.where(params[:id]).first
+    @user = User.find(params[:id])
   end
 
   def new
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       #add a redirect
     else
       render 'new'
-    end
+    end2222
   end
 
   def edit

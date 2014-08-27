@@ -4,7 +4,7 @@ class MatchesController < ApplicationController
   end
 
   def show
-    @match = Match.where(params[:id]).first
+    @match = Match.find(params[:id])
   end
 
   def new
@@ -12,15 +12,18 @@ class MatchesController < ApplicationController
   end
 
   def create
-    @match = Match.new(params.require(:match))
+    
+    #move all of this to the likes_controller create action
+    # @match = Match.new(params.require(:match))
 
     # match = @match.save
     # user1 = current_user
-    # user2 = current_user.likes.last...
+    # user2 = user1.likes.last...
 
     # usermatch1 = UserMatch.new(params.require(:user_match).permit(:user_id, :match_id))
     # usermatch1.user_id = user1.id
     # usermatch1.match_id = match.id
+    # usermatch1.save?
 
     # usermatch2 = UserMatch.new(params.require(:user_match).permit(:user_id, :match_id))
     # usermatch2.user_id = user2.id
