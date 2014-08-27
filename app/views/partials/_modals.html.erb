@@ -20,7 +20,10 @@
         <br />
         <br />
         <hr>
-        Already a member? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#loginModal">Log In</a>
+        <!-- Toggle other modal -->
+        <p class="modal-toggle">
+          Already a member? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#loginModal">Log in</a>
+        </p>
         <!-- if user selects email -->
         <%= form_for @user_signup, html: {class: "email-hidden"} do |f| %>
           <div class="form-group">
@@ -44,17 +47,11 @@
               <%= f.password_field :password_confirmation, placeholder: "Confirm password", :class => "form-control" %><br />
             </div>
           </div>
-
-      <!-- Possible breakage -->
-
-      <div class="modal-footer">
-          <%= f.submit "Sign up", class: 'btn btn-primary btn-fetch-primary' %>
-        <% end %>
+        <div class="modal-footer">
+            <%= f.submit "Sign up", class: 'btn btn-primary btn-fetch-primary' %>
+          <% end %>
+        </div>
       </div>
-
-
-      </div>
-
     </div>
   </div>
 </div>
@@ -82,7 +79,10 @@
         <br />
         <br />
         <hr>
-        Not a member yet? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#signupModal">Sign Up</a>
+        <!-- Toggle other modal -->
+        <p class="modal-toggle">
+          Not a member yet? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#signupModal">Sign up</a>
+        </p>
         <!-- if user selects email -->
         <%= form_for @user_login, url: session_path, html: {class: "email-hidden"}  do |f| %>
           <div class="form-group">
@@ -95,14 +95,10 @@
               <%= f.password_field :password, placeholder: "Password", :class => "form-control" %><br />
             </div>
           </div>
-
-      <!-- Possible breakage -->
-
-      <div class="modal-footer">
-          <%= f.submit "Login", {:class => 'btn btn-primary btn-fetch-primary'} %>
-        <% end %>
-      </div>
-
+        <div class="modal-footer">
+            <%= f.submit "Login", {:class => 'btn btn-primary btn-fetch-primary'} %>
+          <% end %>
+        </div>
       </div>
 
     </div>

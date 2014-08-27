@@ -15,3 +15,12 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+
+	$('.btn-email').on('click', function(e) {
+		e.preventDefault();
+		$('.email-hidden').show();
+	});
+
+});
