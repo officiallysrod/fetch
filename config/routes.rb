@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resource :session, only: [:new, :create, :destroy]
+  resource :session, only: [:create, :destroy]
 
-  resources :users
+  resources :users, except: [:new]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

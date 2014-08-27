@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.where(params[:id]).first
+    @user = User.find(params[:id])
   end
 
-  def new
-    @user = User.new
-    @is_signup = true
-  end
+  # def new
+  #   @user = User.new
+  #   @is_signup = true
+  # end
 
   def create
     @user = User.new(user_params)
