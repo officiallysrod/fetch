@@ -7,12 +7,12 @@ class LikesController < ApplicationController
   end
 
   def create
-    @like = Like.new(params.require(:like).permit(:liker_id, :likee_id))
-    @like.liker_id = current_user
-    @like.likee_id = User.find(params[:id])
+    @like = Like.new(like_params)
+    @like.liker = current_user
     @current_likee = @like.likee
 
-    if @like.save
+    if @like.save 
+      
       #if the likee of the current like object has already liked the current user
       if @current_likee.likees.include?(current_user)
         
@@ -35,7 +35,6 @@ class LikesController < ApplicationController
       end
 
       redirect_to users_path
-      flash.now[:alert] = 'Like successfully saved!'
 
     else
       redirect_to users_path
@@ -46,7 +45,7 @@ class LikesController < ApplicationController
 private
 
   def like_params
-    params.require(:like).permit(:liker_id, :likee_id)
+    params.require(:like).permit(:liker_id, :likee_id) if params[:like] 
   end
 
   def user_match_params

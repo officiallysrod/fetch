@@ -2,9 +2,8 @@ class UsersController < ApplicationController
   before_action :login, :signup # Login/Signup from User view
 
   def index
-    
     available_users
-
+    @like = Like.new
   end
 
   def show
