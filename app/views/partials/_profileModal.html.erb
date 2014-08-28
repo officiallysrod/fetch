@@ -1,5 +1,5 @@
 <!-- Show Modal -->
-<div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -10,8 +10,8 @@
           <%= image_tag "userpicture", class: "picture-img" %>
         </div>
         <div class="bio">
-          <h3 class="bio-name">Dakota</h3>
-          <p class="bio-description">Hi I’m Lacy and this is my puppy Dakota. Dakota is the friendliest pitbull you’ll ever meet and she and I want to meet some other local pups. Send me a like and send me a message!</p>
+          <h3 class="bio-name"><%= user.fname %> <%= user.lname %></h3>
+          <p class="bio-description"><%= user.bio %></p>
         </div>
       </div>
     </div>

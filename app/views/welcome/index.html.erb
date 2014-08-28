@@ -1,7 +1,9 @@
 <%= render 'partials/loginSignupModals' %>
 
 <!-- Welcome Page -->
-<% unless current_user %>
+<% if current_user %>
+	<%= link_to "Go Fetch", users_path %>
+<% else %>
 	<a href="#" class="nav-links" data-toggle="modal" data-target="#loginModal">Log in</a>
 	<a href="#" class="nav-links" data-toggle="modal" data-target="#signupModal">Sign up</a>
 <% end %>

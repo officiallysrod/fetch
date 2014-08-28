@@ -1,2 +1,29 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<!-- Edit Page -->
+<div class="edit container">
+  <%= link_to "Back to Fetching!", users_path, class: 'back-btn' %>
+
+  <%= form_for @user do |f| %>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+      <%= f.text_field :fname, placeholder: "What's your first name?", :class => "form-control" %>
+      <%= f.text_field :lname, placeholder: "Last name?", :class => "form-control" %>
+      <%= f.text_field :dog_name, placeholder: "What is your dogs name?", :class => "form-control" %>
+      <%= f.text_area :bio, placeholder: 'Say something about yourself', class: 'form-control' %><br />
+    </div>
+    <div class="input-group">
+      <div class="input-group-addon" id="at-symbol-glyph">@</div>
+      <%= f.email_field :email, placeholder: "Enter email", class: "form-control" %><br />
+    </div>
+    <div class="input-group">
+      <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+      <%= f.password_field :password, placeholder: "Password", :class => "form-control" %><br />
+    </div>
+    <div class="input-group">
+      <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+      <%= f.password_field :password_confirmation, placeholder: "Confirm password", :class => "form-control" %><br />
+    </div>
+  </div>
+  <%= f.submit "Update", class: 'btn btn-primary btn-fetch-primary' %>
+  <% end %>
+</div>

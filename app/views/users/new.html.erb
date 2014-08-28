@@ -1,3 +1,5 @@
+<%
+=begin
 <h1>New User</h1>
 <%= form_for @user_signup, url: {action: "create"}, html: {class: "email-hidden"} do |f| %>
   <div class="form-group">
@@ -24,3 +26,5 @@
   Already a member? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#loginModal">Log In</a>
   <%= f.submit "Sign up", class: 'btn btn-primary btn-fetch-primary' %>
 <% end %>
+<%
+=end %>

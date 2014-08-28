@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    render :edit if @user == current_user
   end
 
   def new
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.where(params[:id]).first
+    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       #add a redirect
     else
