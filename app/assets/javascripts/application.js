@@ -18,7 +18,7 @@
 
 $(document).ready(function() {
 
-	$('.btn-email').on('click', function(e) {
+	$('.modal-dialog').on('click', '.btn-email', function(e) {
 		e.preventDefault();
 		$('.email-hidden').show();
 	});

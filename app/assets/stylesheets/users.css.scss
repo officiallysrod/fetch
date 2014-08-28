@@ -6,6 +6,19 @@ $gray-object-color: #f3f3f3;
 $gray-text-color: #d1d1d1; 
 $border-gray: 1px solid $gray-object-color;
 
+.back-btn { 
+	background: url('back.svg') no-repeat;  
+	display: inline-block;
+	height: 30px;
+	padding-left: 17px;
+	padding-top: 2px;
+	margin: 10px 0 20px 0;
+	background-size: 23px;
+	background-position-x: -5px;
+	font-size: 13px;
+	&:hover { text-decoration: none; }
+}
+
 /* Show Modal
 ============== */
 #showModal .modal-dialog { 
@@ -19,17 +32,19 @@ $border-gray: 1px solid $gray-object-color;
 /* Conversations
 ================ */
 .conversations {
-	.conversations-title { padding: 10px; }
+	.conversations-title { padding: 18px 0; }
 	border-right: $border-gray;
 	max-height: 92vh;
 	z-index: -99;
-	padding: 0 0 0 15px;
 	overflow: scroll;
 	overflow-x: hidden;
 	.row {
 		h4 { color: $gray-text-color; }
+		p { font-size: 13px; word-wrap: break-word; }
 		cursor: pointer;
+		min-height: 80px;
 		border-bottom: $border-gray;
+		padding: 0 0 0 15px;
 	}
 	.row:hover {
 		background-color: $gray-object-color;
@@ -39,26 +54,38 @@ $border-gray: 1px solid $gray-object-color;
 /* Profile
 ================== */
 .profile {
-	border: 1px solid #F3F3F3;
+	.back-btn { margin: 20px 0 10px 60px; }
 }
+.bio {
+	img { width: 90%; height: 90%; }
+	padding: 0 13px 13px 13px;
+	overflow: scroll;
+	margin: 0 0 0 47px;
+}
+.bio-name { font-size: 30px; color: $gray-text-color; }
+.bio-description { font-size: 15px; width: 93%; }
+.dash .cards { margin-top: 100px; }
 
 /* Chat Widget
 ================== */
 .message-widget {
   margin: 0 auto;
-  max-width: 320px;
-	height: 600px;
+	height: 80vh;
   border: 1px solid #F3F3F3;
+  border-radius: 5px;
   position: relative;
+  overflow: scroll;
+  max-height: 80vh;
 }
-.messages {}
+// .messages { overflow: scroll; }
 .activity-stream { 
 	list-style: none; 
-	overflow: auto; 
+	// overflow: scroll; 
 	margin: 0;
+	padding: 10px;
 	background-color: white;
 	min-height: 100px;
-	max-height: 400px;
+	// max-height: 400px;
 	margin-right: 10px;
 }
 .activity {
@@ -119,17 +146,18 @@ $border-gray: 1px solid $gray-object-color;
 .timestamp {}
 
 .message-input {
-	background: #e4eaee;
+	border-radius: 2px;
+	background: #f7f7f7;
 	padding: 4px;	
 	overflow: hidden;
-	position: relative;
+	position: absolute;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	border-top: 1px solid #cfdae1;
 
 	.message-input-field {	
-		width: 230px;
+		// width: 285px;
 		border: 1px solid #cfdae1;
 		border-radius: 5px;
 		overflow: hidden;
@@ -140,6 +168,7 @@ $border-gray: 1px solid $gray-object-color;
 		padding: 0 10px;
 		outline: none;
 		color: #5D7185;
+		width: 85%;
 	}
 	.send-message-btn {
 		border: none;
@@ -148,8 +177,13 @@ $border-gray: 1px solid $gray-object-color;
 		float:right;
 		line-height: 30px;
 		cursor: pointer;
-		background-color: #e4eaee;
-		color: #cfdae1;
+		background-color: #f7f7f7;
+		color: #8E8E93;
 		outline: none;
+		width: 15%;
+		-webkit-transition: color .5s ease;
+		-o-transition: color .5s ease;
+		transition: color .5s ease;
+		&:hover { color: #1289fe; }
 	}
 }
