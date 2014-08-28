@@ -2,7 +2,10 @@ class UsersController < ApplicationController
 
   def index
     available_users
+<<<<<<< HEAD
+=======
     @like = Like.new
+>>>>>>> shawn
   end
 
   def show

@@ -16,11 +16,17 @@
 
 </div>
 
-<div>
+<!-- placeholder to test like function -->
+<div>  
   <% @users.each do |user| %>
     <%= user.fname %> <%= user.lname %>
-    <%= link_to "Like!", likes_path, method: :post %>
-    <br>
+    <%= form_for [user, @like], url: likes_path do |f| %>
+      <%= user.id %>
+      <%= f.hidden_field(:likee_id, value: user.id) %>
+      <%= f.submit "Like!", class: "btn btn-primary btn-xs" %>
+      <br>
+    <% end %>
   <% end %>
 </div>
+
 

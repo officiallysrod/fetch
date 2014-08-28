@@ -5,46 +5,44 @@ class LikesController < ApplicationController
   end
 
   def create
-    @like = Like.new(params.require(:like).permit(:liker_id, :likee_id))
-    @like.liker_id = current_user
-    @like.likee_id = User.find(params[:id])
+    @like = Like.new(like_params)
+    @like.liker = current_user
     @current_likee = @like.likee
 
-    if @like.save
+    if @like.save 
+      
       #if the likee of the current like object has already liked the current user
       if @current_likee.likees.include?(current_user)
         
         # creates a new match object that will belong to both users through UserMatch
-        @match = Match.new(params.require(:match))
-        match = @match.save
+        match = Match.new
+        match.save
 
         #creates a new user_match object belonging to the first of the two users who are being matched
-        user_match_1 = UserMatch.new(user_match_params)
+        user_match_1 = UserMatch.new
         user_match_1.user_id = current_user.id
         user_match_1.match_id = match.id
+        user_match_1.save
 
         #creates a new user_match object belonging to the second of the two users who are being matched
-        user_match_2 = UserMatch.new(user_match_params)
+        user_match_2 = UserMatch.new
         user_match_2.user_id = @current_likee.id
         user_match_2.match_id = match.id
-
-        flash.now[:alert] = 'Match made!'
+        user_match_2.save
 
       end
 
       redirect_to users_path
-      flash.now[:alert] = 'Like successfully saved!'
 
     else
       redirect_to users_path
-      flash.now[:alert] = 'No match made!'
     end
   end
 
 private
 
   def like_params
-    params.require(:like).permit(:liker_id, :likee_id)
+    params.require(:like).permit(:liker_id, :likee_id) 
   end
 
   def user_match_params

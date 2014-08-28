@@ -5,3 +5,14 @@
     <br>
   <% end %>
 </div>
+
+<div>
+  
+  <% @users.each do |user| %>
+    <%= form_for @like do |f| %>
+      <%= user.fname %> <%= user.lname %>
+      <%= f.submit "Like!", class: "btn btn-primary btn-xs" %>
+      <br>
+    <% end %>
+  <% end %>
+</div>
