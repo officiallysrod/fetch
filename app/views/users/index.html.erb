@@ -20,10 +20,20 @@
 <div>  
   <% @users.each do |user| %>
     <%= user.fname %> <%= user.lname %>
+    
+    <!-- creates the "like" button -->
     <%= form_for [user, @like], url: likes_path do |f| %>
       <%= user.id %>
       <%= f.hidden_field(:likee_id, value: user.id) %>
       <%= f.submit "Like!", class: "btn btn-primary btn-xs" %>
+      <br>
+    <% end %>
+
+    <!-- creates the "reject" button -->
+    <%= form_for [user, @rejection], url: rejections_path do |f| %>
+      <%= user.id %>
+      <%= f.hidden_field(:rejectee_id, value: user.id) %>
+      <%= f.submit "Reject!", class: "btn btn-primary btn-xs" %>
       <br>
     <% end %>
   <% end %>

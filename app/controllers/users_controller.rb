@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def index
     available_users
     @like = Like.new
+    @rejection = Rejection.new
   end
 
   def show

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :likes, only: [:new, :create]
 
+  resources :rejections, only: [:new, :create]
+
   resources :usermatches, only: [:new, :create, :destroy]
 
   resources :matches, only: [:index, :show, :new, :create, :destroy]
