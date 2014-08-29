@@ -1,25 +1,28 @@
 <!-- Dash Page -->
 
+<<<<<<< HEAD
+=======
 <% @users.each do |user| %>
-    <!-- Must be refactored, cannot have (up to) 20 modals on one page -->
-    <%= render partial: 'partials/profileModal', locals: { user: user } %>
+	<% render partial: 'partials/profileModal', locals: { user: user } %>
 <% end %>
 
+>>>>>>> nick
 <div class="dash">
 	
   <%# render 'partials/conversations' %>
 	<h5>Who am I? (For testing purposes): <%= current_user.fname %></h5>
 	
 <!-- Cards -->
-<div class="cards col-sm-6 col-sm-offset-5">
+<div class="cards col-sm-6 col-sm-offset-6">
   <div class="people">
   <% @users.each do |user| %>
     <%# image_tag "userpicture", class: "picture-img" %>
     <div class="person" data-toggle="modal" data-target="#<%= user.id %>">
       <%= user.fname %> <%= user.lname %>
     </div>
+    <!-- Must be refactored, cannot have (up to) 20 modals on one page -->
+    <%= render partial: 'partials/profileModal', locals: { user: user } %>
   <% end %>
-    <%= link_to "Refresh?", users_url, class: "person" %>
   </div>
   <div class="controls">
     <div class="button no">

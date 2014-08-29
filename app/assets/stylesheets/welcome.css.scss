@@ -21,11 +21,9 @@ $primary-color: #55BEFA;
 	width: 100%;
 	float: none;
 }
-.picture-container {
-	// width: 100%;
-	// margin: 0 auto;
+#welcome-signup-card {
+	a { display: block; }
 }
-
 @media (min-width: 40rem) {
 	.logo { max-width: 100px; }
 	.logo-name { max-width: 300px; }
