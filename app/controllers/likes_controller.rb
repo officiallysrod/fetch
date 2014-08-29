@@ -32,10 +32,10 @@ class LikesController < ApplicationController
 
       end
 
-      redirect_to users_path
+      redirect_to :back
 
     else
-      redirect_to users_path
+      redirect_to :back
     end
   end
 
