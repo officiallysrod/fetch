@@ -52,48 +52,209 @@ html { font-size: 100%; height: 100%; }
 
 /* Global Cards
 =============== */
-.cards { position: absolute; }
-
-.picture { 
-	width: 250px; 
-	height: 250px;
-	cursor: pointer;
+.cards { 
 	overflow: hidden;
-	img { padding: 10px; }
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,.2); 
-	background: $gray-object-color; 
+	width: 280px;
+	height: 400px;
+	position: absolute;
 }
-
-.circle-option {
-	width: 72px;
-	height: 72px;
-	display: inline-block;
-	cursor: pointer;
+.people, .person {
+	width: 250px;
+	height: 265px;
+}
+.people {
 	position: relative;
-	left: 36px;
-	margin: 20px 36px 0 0;
-	border-radius: 50%;
-	border: 3px solid #E9E9E9;
-	background: $gray-object-color;
-	background-repeat: no-repeat;
+	margin: 0 auto;
 }
-.circle-option:nth-of-type(2) { 
-	background-image: url('x.svg'); 
-	background-position: -15px -13px;
-}
-.circle-option:nth-of-type(3) { 
-	background-image: url('heart.svg');
-	background-size: 37px;
-	background-position: 14.5px 16px;
+.person {
+	overflow: hidden;
+	position: absolute;
+	background-color: #fff;
+	// background-color: transparent;
+	cursor: pointer;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,.2);
+	box-shadow: 0 1px 5px rgba(0,0,0,.2);
+	border: 1px solid  rgba(0,0,0,.2);
+	-webkit-transition: all .1s linear;
+	transition: all .1s linear;
+
+	&:nth-child(1) { z-index: 5; }
+	&:nth-child(2) { 
+		z-index: 4;
+		top: 7px;
+		-webkit-transform: scale(0.98);
+		transform: scale(0.98);
+	}
+	&:nth-child(3) {
+		z-index: 3;
+		top: 14px;
+		-webkit-transform: scale(0.96);
+		transform: scale(0.96);
+	}
+	&:nth-child(n+4) {
+		z-index: 2;
+		-webkit-transform: scale(0.7);
+		transform: scale(0.7);
+	}
+	&:before {
+		position: absolute;
+		top:0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: block;
+		content: "";
+	}
+	img {
+		width: 105%;
+		background-color: white;
+	}
+	span {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background-color: white;
+		width: 100%;
+		padding: 10px;
+		font-size: 16px;
+		line-height: 30px;
+		color: #555;
+	}
 }
 
+// Card Controls
+.controls {
+	position: relative;
+	margin: 15px auto 0;
+	width: 250px;
+
+	.button {
+		width: 65px; 
+		height: 65px;
+		background: #eee;
+		position: absolute;
+		top: 5px;
+		border-radius: 50%;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+	}
+
+	.trigger {
+    background: white;
+    display: block;
+    border-radius: 50%;
+    width: 75%;
+    height: 75%;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: all .05s linear;
+    transition: all .05s linear;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); 
+
+	  &:active {
+	  	-webkit-transform: translateY(-50%) scale(0.75);
+	  	transform: translateY(-50%) scale(0.75);
+	  	-webkit-transition: all .05s linear;
+	  	transition: all .05s linear;
+	  }
+  	&:before {
+	  	position: absolute;
+	  	top: 50%;
+	  	left: 50%;
+	  	-webkit-transform: translateY(-50%) scale(-50%);
+	  	transform: translateY(-50%) scale(-50%);
+  	}
+	}
+
+  .no { left: 38px; }
+	.no.trigger { 
+		color: #c33; 
+		background-image: url('x.svg'); 
+		background-position: -15px -13px;
+	}
+	.yes { right: 38px; }
+	.yes.trigger { 
+		color: #3b7;
+		background: url('heart.svg') no-repeat;
+		background-size: 37px;
+		background-position: 14.5px 16px;
+	}
+}
+
+/* Animations
+================ */
+
+@-webkit-keyframes yes {
+  0% {
+    -webkit-transform: scale(1) rotateZ(0deg);
+    transform: scale(1) rotateZ(0deg);
+    left: 0;
+  }
+  30% { 
+    -webkit-transform: scale(1.05) rotateZ(0deg);
+    transform: scale(1.05) rotateZ(0deg);
+    left: 0;
+  }
+  100% {
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+    left: 400px;
+  }
+}
+
+.animateYes {
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: yes 0.6s linear;
+  animation: yes 0.6s linear;
+	&:before {
+		-webkit-transform: rotateZ(-35deg);
+	  transform: rotateZ(-35deg);
+	  background: url(http://i.imgur.com/Zkwj970.png) no-repeat center 10px;
+	}
+}
+
+@-webkit-keyframes no {
+  0% {
+    -webkit-transform: scale(1) rotateZ(360deg);
+    transform: scale(1) rotateZ(360deg);
+    right: 0;
+  }
+  30% {
+    -webkit-transform: scale(1.05) rotateZ(360deg);
+    transform: scale(1.05) rotateZ(360deg);
+    right: 0;
+  }
+  100% {
+    -webkit-transform: rotateZ(315deg);
+    transform: rotateZ(315deg);
+    right: 400px;
+  } 
+}
+
+.animateNo {
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: no 0.6s linear;
+  animation: no 0.6s linear;
+	&:before {
+		-webkit-transform: rotateZ(35deg);
+	  transform: rotateZ(35deg);  
+	  background: url(http://i.imgur.com/XqQZ4KR.png) no-repeat center 10px;
+	}
+}
 
 /* Global Modals
 ================ */
 .email-hidden { display: none; }
 .modal-header { border-bottom: none; padding-bottom: 0;}
 .modal-title { font-size: 22px; }
-.glyphicon { font-size: 11px;  }
+.glyphicon { font-size: 11px; }
 .modal-dialog {
 	width: 315px;
 	margin: 70px auto;

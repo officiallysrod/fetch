@@ -1,21 +1,33 @@
 <!-- Dash Page -->
 
-<% @users.each do |user| %>
-	<%= render partial: 'partials/profileModal', locals: { user: user } %>
-<% end %>
-
 <div class="dash">
 	
   <%= render 'partials/conversations' %>
 	<h5>Who am I? (For testing purposes): <%= current_user.fname %></h5>
 	
-	<%# renders the partial passing in the user object %>
-	<% @users.each do |user| %>
-  	<%= render partial: 'partials/cards', locals: { user: user } %>
-	<% end %>
-
+<!-- Cards -->
+<div class="cards col-sm-6 col-sm-offset-6">
+  <div class="people">
+  <% @users.each do |user| %>
+    <%# image_tag "userpicture", class: "picture-img" %>
+    <div class="person" data-toggle="modal" data-target="#<%= user.id %>">
+      <%= user.fname %> <%= user.lname %>
+    </div>
+    <!-- Must be refactored, cannot have (up to) 20 modals on one page -->
+    <%= render partial: 'partials/profileModal', locals: { user: user } %>
+  <% end %>
+  </div>
+  <div class="controls">
+    <div class="button no">
+      <div class="trigger"></div>
+    </div>
+    <div class="button yes">
+      <div class="trigger"></div>
+    </div>
+  </div>
 </div>
 
+</div> <!-- end of .dash -->
 <!-- placeholder to test like function -->
 <div>  
   <% @users.each do |user| %>

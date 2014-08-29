@@ -1,11 +1,18 @@
-<!-- Cards -->
+<!-- Cards Static Version -->
 <div class="cards col-sm-6 col-sm-offset-6">
-	<div class="picture" data-toggle="modal" data-target="#<%= user.id %>">
-		<%= image_tag "userpicture", class: "picture-img" %>
-		<div id="picture-name">
-			<%= user.fname %> <%= user.lname %>
-		</div>
-	</div>
-  <div class="circle-option col-sm-4"></div>
-  <div class="circle-option col-sm-4"></div>
+  <div class="people">
+    <%# image_tag "userpicture", class: "picture-img" %>
+    <div class="person"></div>
+    <!-- <div id="picture-name">
+      <%= user.fname %> <%= user.lname %>
+    </div> -->
+  </div>
+  <div class="controls">
+    <div class="button no">
+      <div class="trigger"></div>
+    </div>
+    <div class="button yes">
+      <div class="trigger"></div>
+    </div>
+  </div>
 </div>
