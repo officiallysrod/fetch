@@ -54,12 +54,22 @@ private
   end
 
   def available_users
-    @users = []
-    User.all.each do |user|
-      unless user == current_user
-        @users.push(user)
-      end
-    end
+    # @users = []
+    # User.all.each do |user|
+    #   unless user == current_user
+    #     @users.push(user)
+    #   end
+    # end
+
+    # @users = User.find_by_sql("SELECT * FROM users WHERE id = #{current_user.id};")
+
+    #query to return all users who have not been liked by and not been rejected by current_user, 
+    #as well as users who have not rejected the current user
+    @users = User.find_by_sql("SELECT u.* FROM users AS u 
+      LEFT OUTER JOIN likes AS l_requestee ON u.id = l_requestee.likee_id AND l_requestee.liker_id = #{current_user.id} 
+      LEFT OUTER JOIN rejections AS r_rejector ON u.id = r_rejector.rejector_id AND r_rejector.rejectee_id = #{current_user.id} 
+      LEFT OUTER JOIN rejections AS r_rejectee ON u.id = r_rejectee.rejectee_id AND r_rejectee.rejector_id = #{current_user.id} 
+      WHERE u.id != #{current_user.id} AND l_requestee.id IS NULL AND r_rejector.id IS NULL AND r_rejectee.id IS NULL;")
   end
 
 end
