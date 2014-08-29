@@ -1,12 +1,12 @@
 <!-- Dash Page -->
 
 <% @users.each do |user| %>
-	<%= render partial: 'partials/profileModal', locals: { user: user } %>
+	<% render partial: 'partials/profileModal', locals: { user: user } %>
 <% end %>
 
 <div class="dash">
 	
-  <%= render 'partials/conversations' %>
+  <%# render 'partials/conversations' %>
 	<h5>Who am I? (For testing purposes): <%= current_user.fname %></h5>
 	
 	<%# renders the partial passing in the user object %>
