@@ -1,2 +1,17 @@
-<h1>Matches#index</h1>
-<p>Find me in app/views/matches/index.html.erb</p>
+<!-- Matches -->
+<div class="matches">
+	<div class="profile">
+		<%= render 'partials/conversations' %>
+		<%= link_to "Back to Fetching!", users_path, class: 'back-btn' %>
+		
+		<div class="">
+			<div class="bio col-sm-4">
+				<%= image_tag 'User Image' %>
+				<h3 class="bio-name"><%= @user.fname %> <%= @user.lname %></h3>
+				<p class="bio-description"><%= @user.bio %></p>
+			</div>
+			
+			<%= render 'partials/messenger' %>
+		</div>
+	</div>
+</div>
