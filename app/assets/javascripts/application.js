@@ -17,7 +17,7 @@
 //= require_tree .
 
 ready = function() {
-	$('a[href*=#]').click(function(){return false;});
+	$('a[href*=#]').click(function(){ preventDefault(); });
 
 		// Clicking the email button reveals the signup/login form
 		$('.modal-dialog').on('click', '.btn-email', function(e) {
