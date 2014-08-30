@@ -1,6 +1,16 @@
 class MatchesController < ApplicationController
   def index
-    @matches = Match.all
+    @matches = current_user.matches.all
+    @friends = []
+
+    #finds all users in the current_user's matches array 
+    #who are not the current_user and pushes them into a friends array
+    @matches.each do |match|
+      @friends.push(match.users.where.not(id: current_user.id).first)
+    end
+
+    @friends = @friends * 5
+
   end
 
   def show
@@ -12,22 +22,6 @@ class MatchesController < ApplicationController
   end
 
   def create
-    
-    #move all of this to the likes_controller create action
-    # @match = Match.new(params.require(:match))
-
-    # match = @match.save
-    # user1 = current_user
-    # user2 = user1.likes.last...
-
-    # usermatch1 = UserMatch.new(params.require(:user_match).permit(:user_id, :match_id))
-    # usermatch1.user_id = user1.id
-    # usermatch1.match_id = match.id
-    # usermatch1.save?
-
-    # usermatch2 = UserMatch.new(params.require(:user_match).permit(:user_id, :match_id))
-    # usermatch2.user_id = user2.id
-    # usermatch2.match_id = match.id
 
   end
 
