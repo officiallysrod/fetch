@@ -28,19 +28,19 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.where(params[:id]).first
+    @user = User.find(params[:id])
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      #add a redirect
+      redirect_to users_path
     else
       render 'edit'
     end
   end
 
-  def destroy
+  def destroy 
     @user = User.where(params[:id]).first
     @user.destroy
     reset_session
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:fname, :lname, :dog_name, :bio, :email, :password, :password_confirmation)
+    params.require(:user).permit(:fname, :lname, :dog_name, :bio, :email, :password, :password_confirmation, :profile_pic)
   end
 
   def available_users

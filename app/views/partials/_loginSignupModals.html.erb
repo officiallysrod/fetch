@@ -46,6 +46,10 @@
               <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
               <%= f.password_field :password_confirmation, placeholder: "Confirm password", :class => "form-control" %><br />
             </div>
+            <div class="input-group">
+              <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+              <%= f.file_field :profile_pic %><br />
+            </div>
           </div>
         <div class="modal-footer">
             <%= f.submit "Sign up", class: 'btn btn-primary btn-fetch-primary' %>
