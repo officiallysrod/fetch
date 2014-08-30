@@ -1,7 +1,7 @@
 <!-- Dash Page -->
 
 <% @users.each do |user| %>
-    <!-- Must be refactored, cannot have (up to) 20 modals on one page -->
+    <!-- Must be refactored, probably cannot have (up to) 20 modals on one page -->
     <%= render partial: 'partials/profileModal', locals: { user: user } %>
 <% end %>
 
@@ -21,15 +21,16 @@
         </div>
         <div class="controls">
           <div class="button no">
-            <div class="trigger"></div>
+            <%= form_for [user, @like], remote: true, url: likes_path do |f| %>
+              <%= f.hidden_field(:likee_id, value: user.id) %>
+              <%= f.submit "", class: 'trigger remove-btn' %>
+            <% end %>
           </div>
           <div class="button yes">
-            <div class="trigger">
-              <%= form_for [user, @like], remote: true, url: likes_path do |f| %>
-                <%= f.hidden_field(:likee_id, value: user.id) %>
-                <%= f.submit "" %>
-              <% end %>
-            </div>
+            <%= form_for [user, @like], remote: true, url: likes_path do |f| %>
+              <%= f.hidden_field(:likee_id, value: user.id) %>
+              <%= f.submit "", class: 'trigger remove-btn' %>
+            <% end %>
           </div>
         </div>
       </div>
