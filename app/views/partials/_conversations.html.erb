@@ -6,13 +6,15 @@
   <div class="conversation">
     <% if @friends.length >=1 %>
       <% @friends.each do |friend| %>
-        <div class="row">
-          <%= image_tag "truth", class: 'pull-left img-rounded' %>
-          <div class="row-details pull-left">
-            <h4><%= friend.dog_name %> &amp <%= friend.fname %></h4>
-            <p><%= friend.bio.truncate(50, separator: /\s/) %></p>
+        <a href="#">
+          <div class="row">
+            <%= image_tag "truth", class: 'pull-left img-rounded' %>
+            <div class="row-details pull-left">
+              <h4><%= friend.dog_name %> &amp; <%= friend.fname %></h4>
+              <p><%= friend.bio.truncate(50, separator: /\s/) %></p>
+            </div>
           </div>
-        </div>
+        </a>
       <% end %>
     <% else %>
       <h4 class="text-center">You don't have any matches yet!</h4>
