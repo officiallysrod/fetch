@@ -4,9 +4,13 @@ Rails.application.routes.draw do
 
   resource :session, only: [:create, :destroy]
 
+<<<<<<< HEAD
   resources :users, except: [:new] do
     resources :matches, only: [:index, :show, :new, :create, :destroy]
   end
+=======
+  resources :users, except: [:new]  
+>>>>>>> Tony
 
   resources :likes, only: [:new, :create]
 

@@ -1,6 +1,13 @@
 source 'https://rubygems.org'
 
+# Uploading Files to S3 in Ruby with Paperclip
+gem 'paperclip'
+gem 'aws-sdk'
 
+#factory_girl is a fixtures replacement with a straightforward definition syntax, support for multiple build strategies (saved instances, unsaved instances, attribute hashes, and stubbed objects), and support for multiple factories for the same class (user, admin_user, and so on), including factory inheritance.
+group :development do
+	gem 'factory_girl_rails'
+end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use postgresql as the database for Active Record
