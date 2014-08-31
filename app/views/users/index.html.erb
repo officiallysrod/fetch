@@ -21,15 +21,15 @@
           </div>
           <div class="controls">
             <div class="button no">
-              <%= form_for [user, @like], remote: true, url: likes_path do |f| %>
-                <%= f.hidden_field(:likee_id, value: user.id) %>
-                <%= f.submit "", class: 'trigger no' %>
+              <%= form_for [user, @rejection], remote: true, url: rejections_path do |f| %>
+                <%= f.hidden_field(:rejectee_id, value: user.id) %>
+                <%= f.submit "", class: 'trigger' %>
               <% end %>
             </div>
             <div class="button yes">
               <%= form_for [user, @like], remote: true, url: likes_path do |f| %>
                 <%= f.hidden_field(:likee_id, value: user.id) %>
-                <%= f.submit "", class: 'trigger yes' %>
+                <%= f.submit "", class: 'trigger' %>
               <% end %>
             </div>
           </div>

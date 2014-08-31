@@ -58,7 +58,8 @@ ready = function() {
 				var self = this;
 				if (!this.blocked) {
 				  this.blocked = true;
-				  	$('.person').eq(0).addClass(animate).one(animationEndEvent, function(){
+				  	$('.card').eq(0).addClass(animate).one(animationEndEvent, function(){
+			   			$('.person').eq(0).remove();
 			   			$(this).remove();
 						// Person.add();
 						self.blocked = false;
