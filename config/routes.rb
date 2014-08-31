@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resource :session, only: [:create, :destroy]
 
-  resources :users, except: [:new]
+  resources :users, except: [:new]  
 
   resources :likes, only: [:new, :create]
 
