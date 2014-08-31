@@ -58,27 +58,17 @@ html { font-size: 100%; height: 100%; }
 	height: 400px;
 	position: absolute;
 }
-.people, .person {
+.card {
 	width: 250px;
 	height: 265px;
 }
-.people {
+#people {
 	position: relative;
 	margin: 0 auto;
 }
 .person {
-	overflow: hidden;
 	position: absolute;
-	background-color: #fff;
-	// background-color: transparent;
-	cursor: pointer;
-	border-radius: 5px;
-	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,.2);
-	box-shadow: 0 1px 5px rgba(0,0,0,.2);
-	border: 1px solid  rgba(0,0,0,.2);
-	-webkit-transition: all .1s linear;
-	transition: all .1s linear;
-
+	&:not(:nth-child(1)) { pointer-events: none; }
 	&:nth-child(1) { z-index: 5; }
 	&:nth-child(2) { 
 		z-index: 4;
@@ -94,9 +84,23 @@ html { font-size: 100%; height: 100%; }
 	}
 	&:nth-child(n+4) {
 		z-index: 2;
-		-webkit-transform: scale(0.7);
-		transform: scale(0.7);
+		-webkit-transform: scale(.7);
+		transform: scale(.7);
 	}
+}
+.card {
+	overflow: hidden;
+	position: absolute;
+	// position: relative;
+	background-color: #fff;
+	// background-color: transparent;
+	cursor: pointer;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,.2);
+	box-shadow: 0 1px 5px rgba(0,0,0,.2);
+	border: 1px solid  rgba(0,0,0,.2);
+	-webkit-transition: all .1s linear;
+	transition: all .1s linear;	
 	&:before {
 		position: absolute;
 		top:0;
@@ -128,6 +132,7 @@ html { font-size: 100%; height: 100%; }
 	position: relative;
 	margin: 15px auto 0;
 	width: 250px;
+	top: 279px;
 
 	.button {
 		width: 65px; 
@@ -144,8 +149,8 @@ html { font-size: 100%; height: 100%; }
     background: white;
     display: block;
     border-radius: 50%;
-    width: 75%;
-    height: 75%;
+    width: 75px;
+    height: 75px;
     margin: 0 auto;
     position: relative;
     top: 50%;
@@ -154,10 +159,19 @@ html { font-size: 100%; height: 100%; }
     -webkit-transition: all .05s linear;
     transition: all .05s linear;
     text-align: center;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    // box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     cursor: pointer; 
     // width: 65px;
 		// height: 65px;
+		width: 65px; 
+		height: 65px;
+		background: #eee;
+		position: absolute;
+		border: 5px solid rgba(0,0,0,.05);
+		border-radius: 50%;
+		background-color: #fff;
+		// -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+		// box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
 
 	  &:active {
 	  	-webkit-transform: translateY(-50%) scale(0.75);
@@ -173,22 +187,18 @@ html { font-size: 100%; height: 100%; }
 	  	transform: translateY(-50%) scale(-50%);
   	}
 	}
-	.remove-btn {
-		-webkit-appearance: none;
-	}
 
-  .no { left: 38px; }
 	.no.trigger { 
 		color: #c33; 
 		background-image: url('x.svg'); 
-		background-position: -15px -13px;
+		background-position: -20px -18px;;
 	}
 	.yes { right: 38px; }
 	.yes.trigger { 
 		color: #3b7;
 		background: url('heart.svg') no-repeat;
 		background-size: 37px;
-		background-position: 14.5px 16px;
+		background-position: 9.5px 13px;
 	}
 }
 

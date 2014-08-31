@@ -12,29 +12,29 @@
 	
   <!-- Cards -->
   <div class="cards col-sm-6 col-sm-offset-5">
-    <div class="people">
-    <% @users.each do |user| %>
-      <%# image_tag "userpicture", class: "picture-img" %>
-      <div class="person" data-toggle="modal" data-target="#<%= user.id %>">
-        <div class="card">
-          <%= user.fname %> <%= user.lname %>
-        </div>
-        <div class="controls">
-          <div class="button no">
-            <%= form_for [user, @like], remote: true, url: likes_path do |f| %>
-              <%= f.hidden_field(:likee_id, value: user.id) %>
-              <%= f.submit "", class: 'trigger remove-btn' %>
-            <% end %>
+    <div id="people">
+      <% @users.each do |user| %>
+        <%# image_tag "userpicture", class: "picture-img" %>
+        <div class="person">
+          <div class="card" data-toggle="modal" data-target="#<%= user.id %>">
+            <%= user.fname %> <%= user.lname %>
           </div>
-          <div class="button yes">
-            <%= form_for [user, @like], remote: true, url: likes_path do |f| %>
-              <%= f.hidden_field(:likee_id, value: user.id) %>
-              <%= f.submit "", class: 'trigger remove-btn' %>
-            <% end %>
+          <div class="controls">
+            <div class="button no">
+              <%= form_for [user, @like], remote: true, url: likes_path do |f| %>
+                <%= f.hidden_field(:likee_id, value: user.id) %>
+                <%= f.submit "", class: 'trigger no' %>
+              <% end %>
+            </div>
+            <div class="button yes">
+              <%= form_for [user, @like], remote: true, url: likes_path do |f| %>
+                <%= f.hidden_field(:likee_id, value: user.id) %>
+                <%= f.submit "", class: 'trigger yes' %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
     </div>
   </div>
 
