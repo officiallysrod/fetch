@@ -9,7 +9,10 @@ class LikesController < ApplicationController
     @like.liker = current_user
     @current_likee = @like.likee
 
-    if @like.save 
+    #prevent user from liking someone if they have already rejected them
+    @like.save unless @current_likee.rejectors.include?(current_user)
+
+    if @like.persisted? 
       
       #if the likee of the current like object has already liked the current user
       if @current_likee.likees.include?(current_user)
