@@ -33,6 +33,11 @@ class LikesController < ApplicationController
         user_match_2.match_id = match.id
         user_match_2.save
 
+        #creates a new conversation for the match
+        conversation = Conversation.new
+        conversation.match_id = match.id
+        conversation.save
+
       end
 
       redirect_to :back
