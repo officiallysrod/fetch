@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   has_many :messages, through: :conversations, dependent: :destroy
 
   #need to add Paperclip gem for has_attached_file
-  # has_attached_file :profile_pic
+  has_attached_file :profile_pic, styles: { large: "500x500>", medium: "300x300>", small: "100x100>", thumb: "30x30>" }, default_url: "images/:style/missing.png"
 
   #validations
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
   validates :dog_name, presence: true, length: { in: 3..30 }
   validates :bio, presence: true
   validates :password, presence: true, length: { in: 6..20 }
+  validates_attachment :profile_pic, presence: true, content_type: { content_type: ["image/jpeg", "image/jpg", "image/gif", "image/png"] }
 
   #formatting user inputs before save
   before_save { self.email = email.downcase }

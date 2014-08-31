@@ -6,9 +6,13 @@
 		
 		<div class="">
 			<div class="bio col-sm-4">
-				<%= image_tag 'User Image' %>
-				<h3 class="bio-name"><%= @user.fname %> <%= @user.lname %></h3>
-				<p class="bio-description"><%= @user.bio %></p>
+				<% if @friends.length >= 1 %>
+					<%= image_tag @friends.last.profile_pic.url(:large) %>
+					<h3 class="bio-name"><%= @friends.last.dog_name %> &amp <%= @friends.last.fname %></h3>
+					<p class="bio-description"><%= @friends.last.bio %></p>
+				<% else %>
+					<h3 class="bio-name">You don't have any matches yet!</h3>
+				<% end %>
 			</div>
 			
 			<%= render 'partials/messenger' %>

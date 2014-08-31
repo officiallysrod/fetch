@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resource :session, only: [:create, :destroy]
 
-  resources :users, except: [:new]
+  resources :users, except: [:new] do
+    resources :matches, only: [:index, :show, :new, :create, :destroy]
+  end
 
   resources :likes, only: [:new, :create]
 
@@ -12,9 +14,9 @@ Rails.application.routes.draw do
 
   resources :usermatches, only: [:new, :create, :destroy]
 
-  resources :matches, only: [:index, :show, :new, :create, :destroy]
+  # resources :matches, only: [:index, :show, :new, :create, :destroy]
 
-
+  #=========================================================
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

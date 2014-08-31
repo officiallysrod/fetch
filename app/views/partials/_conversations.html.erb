@@ -1,129 +1,24 @@
 <!-- Conversations -->
-<%# matches.each do |m| %>
 <div class="conversations col-sm-3">
   <div class="conversations-title">
-    <h3 class="text-center">Conversations</h4>
+    <h3 class="text-center">Matches</h3>
   </div>
-    <%# m. %>
   <div class="conversation">
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
-    <div class="row">
-      <%= image_tag "truth", class: 'pull-left img-rounded' %>
-      <div class="row-details pull-left">
-        <h4>Dakota</h4>
-        <p>Hey! Let's chat about our dogs.</p>
-      </div>
-    </div>
+    <% if @friends.length >=1 %>
+      <% @friends.each do |friend| %>
+        <div class="row">
+          <%= image_tag "truth", class: 'pull-left img-rounded' %>
+          <div class="row-details pull-left">
+            <h4><%= friend.dog_name %> &amp <%= friend.fname %></h4>
+            <p><%= friend.bio.truncate(50, separator: /\s/) %></p>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <h4 class="text-center">You don't have any matches yet!</h4>
+    <% end %>
   </div>
 </div>
+
+
+
