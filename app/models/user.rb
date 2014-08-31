@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   validates :dog_name, presence: true, length: { in: 3..30 }
   validates :bio, presence: true
   validates :password, presence: true, length: { in: 6..20 }
-  validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\Z/
+  validates_attachment :profile_pic, presence: true, content_type: { content_type: ["image/jpeg", "image/jpg", "image/gif", "image/png"] }
 
   #formatting user inputs before save
   before_save { self.email = email.downcase }
