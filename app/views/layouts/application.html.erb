@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="fetchApp">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fetch</title>
@@ -12,7 +12,7 @@
 <body>
 <%= render 'partials/nav' %>
 
-<div class="wrapper">
+<div class="wrapper" ng-controller="appCtrl">
 	<%= yield %>
 </div>
 

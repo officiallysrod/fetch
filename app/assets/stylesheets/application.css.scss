@@ -68,6 +68,7 @@ html { font-size: 100%; height: 100%; }
 }
 .person {
 	position: absolute;
+	// if an element is not the first person
 	&:not(:nth-child(1)) { 
 		pointer-events: none; 
 		.controls { display: none; }
