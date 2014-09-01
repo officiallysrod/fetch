@@ -1,14 +1,19 @@
 class UsersController < ApplicationController
 
+  before_action :verify_user, only: [:show, :edit, :update, :destroy]
+
   def index
-    available_users
-    @like = Like.new
-    @rejection = Rejection.new
+    if current_user
+      available_users
+      @like = Like.new
+      @rejection = Rejection.new
+    else
+      redirect_to root_path
+    end
   end
 
   def show
     @user = User.find(params[:id])
-    render :edit if @user == current_user
   end
 
   def new
@@ -53,8 +58,14 @@ private
     params.require(:user).permit(:fname, :lname, :dog_name, :bio, :email, :password, :password_confirmation, :profile_pic)
   end
 
+  #verifies user access and redirects to users_path
+  #if user is not authorized
+  def verify_user
+    @user = User.find(params[:id])
+    redirect_to users_path unless @user == current_user
+  end
+
   def available_users
-    
     #query to return all users who have not been liked by and not been rejected by current_user, 
     #as well as users who have not rejected the current user
     @users = User.find_by_sql("SELECT u.* FROM users AS u 
