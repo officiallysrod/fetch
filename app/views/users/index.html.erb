@@ -12,9 +12,8 @@
 	
   <!-- Cards -->
   <div class="cards col-sm-6 col-sm-offset-5">
-    <div id="people">
+    <div class="people">
       <% @users.each do |user| %>
-        <%# image_tag "userpicture", class: "picture-img" %>
         <div class="person">
           <div class="card" data-toggle="modal" data-target="#<%= user.id %>">
             <%= user.fname %> <%= user.lname %>
