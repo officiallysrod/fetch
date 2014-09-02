@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   has_many :conversations, through: :matches, dependent: :destroy
   has_many :messages, through: :conversations, dependent: :destroy
 
-  #need to add Paperclip gem for has_attached_file
+  #user profile picture upload using paperclip gem
   has_attached_file :profile_pic, styles: { large: "500x500>", medium: "300x300>", small: "100x100>", thumb: "30x30>" }, default_url: "images/:style/missing.png"
 
   #validations
