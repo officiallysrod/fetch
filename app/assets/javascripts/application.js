@@ -12,14 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular
+//= require angular-resource
+//= require angular-rails-templates
+// require_tree ../templates
 //= require bootstrap
-//= require turbolinks
 //= require_tree .
 
 
-/* Angular! */
-angular.module('fetchApp', []).controller('appCtrl', ['$scope', function($scope) {
-	
+ready = function() {
 	// Prevent links with href="#" from doing their default action
 	$('a[href*=#]').click(function(){ preventDefault(); });
 
@@ -57,16 +58,9 @@ angular.module('fetchApp', []).controller('appCtrl', ['$scope', function($scope)
 	App.noButton.on('mousedown', function(){
 		App.like(false);
 	});
-
-
-	$scope.conversation = ["fasdfasdfasd", "dasdasdsad", "dsadsadsads"];
-	$scope.sendMessage() = function() {
-		if ($scope.messageContent) {
-			$scope.conversation.push(this.messageContent);
-			$scope.messageContent = '';
-		}
-	}
-}]);
+}
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
 // For welcome page
 	// var Person = {

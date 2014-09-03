@@ -1,12 +1,18 @@
 <!-- Dash Page -->
+<div class="dash" ng-controller="UserCtrl">
 
-<% @users.each do |user| %>
+  <h1>{{ test }}</h1>
+  <div ng-repeat="user in users">
+    <ul>
+      <li>{{ user.fname }}</li>
+    </ul>
+  </div>
+  
+  <% @users.each do |user| %>
     <!-- Must be refactored, probably cannot have (up to) 20 modals on one page -->
     <%= render partial: 'partials/profileModal', locals: { user: user } %>
-<% end %>
+  <% end %>
 
-<div class="dash">
-	
   <%# render 'partials/conversations' %>
 	<h5>Who am I? (For testing purposes): <%= current_user.fname %></h5>
 	

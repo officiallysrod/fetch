@@ -2,9 +2,14 @@ class UsersController < ApplicationController
 
   before_action :verify_user, only: [:show, :edit, :update, :destroy]
 
+  respond_to :html, :json
+
   def index
     if current_user
       available_users
+
+      respond_with @users, each_serializer: UserSerializer
+
       @like = Like.new
       @rejection = Rejection.new
     else

@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  scope '/api' do
+    resources :users, only: [:index, :show], defaults: { format: :json }
+  end
+
   resource :session, only: [:create, :destroy]
 
   resources :users, except: [:new] do
