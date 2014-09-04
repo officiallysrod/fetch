@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :matches, only: [:index, :show], defaults: { format: :json }
     resources :likes, only: [:new, :create], defaults: { format: :json }
     resources :rejections, only: [:new, :create], defaults: { format: :json }
+    resources :conversations, only: [:index], defaults: { format: :json }
   end
 
   resource :session, only: [:create, :destroy]
