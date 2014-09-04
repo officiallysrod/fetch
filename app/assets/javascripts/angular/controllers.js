@@ -31,7 +31,13 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', function($scope, Match){
   // GET the #index of friends (matches) from API
   Match.query(function(json){
     $scope.friends = json;
+    $scope.friendIndex = 0; //will need to be refactored when polling is added
   });
+
+  $scope.showFriend = function(index){
+    $scope.friend = $scope.friends[index];
+    $scope.friendIndex = index;
+  }
 
 }]);
 

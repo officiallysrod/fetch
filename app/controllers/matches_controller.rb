@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
   
-  before_action :verify_user, only: [:show, :destroy]
+  # before_action :verify_user, only: [:show, :destroy]
 
   respond_to :html, :json
 

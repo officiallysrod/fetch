@@ -1,0 +1,10 @@
+<div class="bio col-sm-4">
+  <div ng-show="friends.length >= 1">
+    <img src="{{friends[friendIndex].profile_pic_large}}">
+    <h3 class="bio-name">{{friends[friendIndex].dog_name}} &amp {{friends[friendIndex].fname}}</h3>
+    <p class="bio-description">{{friends[friendIndex].bio}}</p>
+    </div>
+  <div ng-show="friends.length < 1">
+    <h3 class="bio-name">You don't have any matches yet!</h3>
+  </div>
+</div>
