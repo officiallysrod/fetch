@@ -1,5 +1,7 @@
 class LikesController < ApplicationController
 
+  respond_to :html, :json
+
   def new
     @like = Like.new
   end
@@ -12,7 +14,9 @@ class LikesController < ApplicationController
     #prevent user from liking someone if they have already rejected them
     @like.save unless @current_likee.rejectors.include?(current_user)
 
-    if @like.persisted? 
+    if @like.persisted?
+
+      render json: @like, status: :created 
       
       #if the likee of the current like object has already liked the current user
       if @current_likee.likees.include?(current_user)
@@ -40,10 +44,10 @@ class LikesController < ApplicationController
 
       end
 
-      redirect_to :back
+      # redirect_to :back
 
     else
-      redirect_to :back
+      # redirect_to :back
     end
   end
 

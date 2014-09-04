@@ -1,75 +1,93 @@
 <!-- Dash Page -->
 <div class="dash" ng-controller="UserCtrl">
-
+  <%= current_user.fname %> is currently logged in.
   <h1>{{ test }}</h1>
-  <div ng-repeat="user in users">
-    <ul>
-      <li>{{ user.fname }}</li>
-    </ul>
-  </div>
-  
-  <% @users.each do |user| %>
-    <!-- Must be refactored, probably cannot have (up to) 20 modals on one page -->
-    <%= render partial: 'partials/profileModal', locals: { user: user } %>
-  <% end %>
-
-  <%# render 'partials/conversations' %>
-	<h5>Who am I? (For testing purposes): <%= current_user.fname %></h5>
-	
-  <!-- Cards -->
-  <div class="cards col-sm-6 col-sm-offset-5">
-    <div class="people">
-      <% @users.each do |user| %>
-        <div class="person">
-          <div class="card" data-toggle="modal" data-target="#<%= user.id %>">
-            <%= image_tag user.profile_pic.url(:medium) %>
+  <div>
+    <!-- profileModal partial -->
+    <%= render partial: 'partials/profileModal' %>
+    <!-- Cards -->
+    <div class="cards col-sm-6 col-sm-offset-5">
+      <div class="people">
+        <div class="person" ng-repeat="user in users">
+          <div class="card" data-toggle="modal" data-target="#{{user.id}}">
+            <img src="{{user.profile_pic_large}}">
           </div>
           <div class="controls">
-            <div class="button no">
-              <%= form_for [user, @rejection], remote: true, url: rejections_path do |f| %>
-                <%= f.hidden_field(:rejectee_id, value: user.id) %>
-                <%= f.submit "", class: 'trigger' %>
-              <% end %>
+            <div class="button no" ng-controller="RejectionCtrl as rejection">
+              <form ng-submit="rejection.add(user.id)">
+                <input type="submit" value="" class="trigger">
+              </form>
             </div>
-            <div class="button yes">
-              <%= form_for [user, @like], remote: true, url: likes_path do |f| %>
-                <%= f.hidden_field(:likee_id, value: user.id) %>
-                <%= f.submit "", class: 'trigger' %>
-              <% end %>
+            <div class="button yes" ng-controller="LikeCtrl as like">
+              <form ng-submit="like.add(user.id)">
+                <input type="submit" value="" class="trigger">
+              </form>
             </div>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    </div> <!-- end of cards -->
   </div>
+  
+  <%# @users.each do |user| %>
+    <!-- Must be refactored, probably cannot have (up to) 20 modals on one page -->
+    <%#= render partial: 'partials/profileModal', locals: { user: user } %>
+  <%# end %>
 
-</div>
-
-</div> <!-- end of .dash -->
+  <%# render 'partials/conversations' %>
+	<!-- <h5>Who am I? (For testing purposes): <%= current_user.fname %></h5> -->
+	
+  <!-- Cards -->
+  <!-- <div class="cards col-sm-6 col-sm-offset-5">
+    <div class="people"> -->
+      <%# @users.each do |user| %>
+        <!-- <div class="person"> -->
+          <!--<div class="card" data-toggle="modal" data-target="#<%#= user.id %>"> -->
+            <%#= image_tag user.profile_pic.url(:medium) %>
+          <!-- </div>
+          <div class="controls">
+            <div class="button no"> -->
+              <%#= form_for [user, @rejection], remote: true, url: rejections_path do |f| %>
+                <%#= f.hidden_field(:rejectee_id, value: user.id) %>
+                <%#= f.submit "", class: 'trigger' %>
+              <%# end %>
+            <!-- </div>
+            <div class="button yes"> -->
+              <%#= form_for [user, @like], remote: true, url: likes_path do |f| %>
+                <%#= f.hidden_field(:likee_id, value: user.id) %>
+                <%#= f.submit "", class: 'trigger' %>
+              <%# end %>
+            <!-- </div>
+          </div>
+        </div> -->
+      <%# end %>
+    <!-- </div>
+  </div> --> <!-- end of cards -->
+<!-- </div> --> <!-- end of .dash -->
 
 
 <!-- placeholder to test like function -->
-<div>  
-  <% @users.each do |user| %>
-    <%= user.fname %> <%= user.lname %>
+<!-- <div> -->  
+  <%# @users.each do |user| %>
+    <%#= user.fname %> <%#= user.lname %>
     
     <!-- creates the "like" button -->
-    <%= form_for [user, @like], remote: true, url: likes_path do |f| %>
-      <%= user.id %>
-      <%= f.hidden_field(:likee_id, value: user.id) %>
-      <%= f.submit "Like!", class: "btn btn-primary btn-xs" %>
-      <br>
-    <% end %>
+    <%#= form_for [user, @like], remote: true, url: likes_path do |f| %>
+      <%#= user.id %>
+      <%#= f.hidden_field(:likee_id, value: user.id) %>
+      <%#= f.submit "Like!", class: "btn btn-primary btn-xs" %>
+      <!-- <br> -->
+    <%# end %>
 
     <!-- creates the "reject" button -->
-    <%= form_for [user, @rejection], url: rejections_path do |f| %>
-      <%= user.id %>
-      <%= f.hidden_field(:rejectee_id, value: user.id) %>
-      <%= f.submit "Reject!", class: "btn btn-primary btn-xs" %>
-      <br>
-    <% end %>
-  <% end %>
-  <%= link_to "See your matches", user_matches_path(current_user.id) %>
+    <%#= form_for [user, @rejection], url: rejections_path do |f| %>
+      <%#= user.id %>
+      <%#= f.hidden_field(:rejectee_id, value: user.id) %>
+      <%#= f.submit "Reject!", class: "btn btn-primary btn-xs" %>
+      <!-- <br> -->
+    <%# end %>
+  <%# end %>
+  <%#= link_to "See your matches", user_matches_path(current_user.id) %>
 </div>
 
 

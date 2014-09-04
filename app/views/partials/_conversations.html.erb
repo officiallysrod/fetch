@@ -1,26 +1,24 @@
 <!-- Conversations -->
 <div class="conversations col-sm-3">
   <div class="conversations-title">
+    <h3>{{ test }}</h3>
     <h3 class="text-center">Matches</h3>
   </div>
   <div class="conversation">
-    <% if @friends.length >=1 %>
-      <% @friends.each do |friend| %>
-        <a href="#">
+
+    
+        <a href="#" ng-repeat="friend in friends" ng-show="friends.length >= 1">
           <div class="row">
-            <%= image_tag "truth", class: 'pull-left img-rounded' %>
+            <img src="{{friend.profile_pic_thumb}}" class='pull-left img-rounded'>
             <div class="row-details pull-left">
-              <h4><%= friend.dog_name %> &amp; <%= friend.fname %></h4>
-              <p><%= friend.bio.truncate(50, separator: /\s/) %></p>
+              <h4>{{friend.fname}} &amp; {{friend.dog_name}}</h4>
+              <p>{{friend.bio}}</p>
             </div>
           </div>
         </a>
-      <% end %>
-    <% else %>
-      <h4 class="text-center">You don't have any matches yet!</h4>
-    <% end %>
+     
+    
+      <h4 class="text-center" ng-show="friends.length < 1">You don't have any matches yet!</h4>
+    
   </div>
 </div>
-
-
-

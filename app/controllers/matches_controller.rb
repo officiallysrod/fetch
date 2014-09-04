@@ -2,10 +2,15 @@ class MatchesController < ApplicationController
   
   before_action :verify_user, only: [:show, :destroy]
 
+  respond_to :html, :json
+
   def index
     if current_user
       #private method - see below
       show_friends
+
+      respond_with @friends, each_serializer: MatchSerializer
+      
     else
       redirect_to root_path
     end
