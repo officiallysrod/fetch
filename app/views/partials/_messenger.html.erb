@@ -18,9 +18,8 @@
 			</ul>
 
 		</div>
-		<form ng-submit="sendMessage()" class="message-input">
-			<!-- <input type="text" ng-model="messageContent" value="" placeholder="Message" class="message-input-field"> -->
-			<input type="text" value="" placeholder="Message" class="message-input-field">
+		<form ng-submit="sendMessage(friend.id, message_body)" class="message-input">
+			<input type="text" value="" placeholder="Message" class="message-input-field" ng-model="message_body">
 			<button class="send-message-btn">Send</button>
 	 	</form>
 	</div>

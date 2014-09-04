@@ -12,6 +12,13 @@ fetchApp.factory('Match', ['$resource', function($resource){
     );
 }]);
 
+fetchApp.factory('Message', ['$resource', function($resource){
+  return $resource('api/messages/:id',
+    { id: '@id' },
+    { update: { method: 'PATCH' } }
+    );
+}]);
+
 fetchApp.factory('Like', ['$resource', function($resource){
   return $resource('api/likes/:id',
     { id: '@id' },

@@ -22,7 +22,7 @@ fetchApp.controller('UserCtrl', ['$scope', 'User', function($scope, User){
 
 }]);
 
-fetchApp.controller('MatchCtrl', ['$scope', 'Match', function($scope, Match){
+fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message', function($scope, Match, Message){
 
   // GET the #index of friends (matches) from API
   Match.query(function(json){
@@ -38,6 +38,15 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', function($scope, Match){
     $scope.friend = $scope.friends[index];
     $scope.messages = $scope.friend.conversation;
   } 
+
+  $scope.newMessage = new Message();
+
+  $scope.sendMessage = function(recipient_id, body){
+    $scope.newMessage.recipient_id = recipient_id;
+    $scope.newMessage.body = body;
+    $scope.newMessage.conversation_id = $scope.friend.conversation_id;
+    $scope.newMessage.$save();
+  }
 
 }]);
 
