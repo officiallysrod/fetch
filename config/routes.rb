@@ -18,7 +18,17 @@ Rails.application.routes.draw do
   resource :session, only: [:create, :destroy]
   resources :usermatches, only: [:new, :create, :destroy]
 
+  resources :inquiries, only: [:new, :create] do 
+    get 'thank_you', :on => :collection
+  end
+
   #=========================================================
+
+  # :on collection and :on => member are the style of route they produce and their associated route helpers.
+  # for example resources :posts
+  #    :on collection
+  # get 'search', on: :collection 
+  # --> generates '/posts/search' and search_posts_path
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

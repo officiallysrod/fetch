@@ -80,6 +80,8 @@ GEM
       mime-types
     pg (0.17.1)
     polyglot (0.3.5)
+    pony (1.10)
+      mail (>= 2.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -165,6 +167,7 @@ DEPENDENCIES
   jquery-rails
   paperclip (~> 4.2)
   pg
+  pony (~> 1.10)
   rails (= 4.1.1)
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)

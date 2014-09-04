@@ -47,3 +47,6 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# The express way to send mail from Ruby
+gem 'pony', '~> 1.10'
+
