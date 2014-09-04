@@ -24,39 +24,10 @@ ready = function() {
 	// Prevent links with href="#" from doing their default action
 	$('a[href*=#]').click(function(){ preventDefault(); });
 
-	// Clicking the email button reveals the signup/login form
+	// Clicking the email button reveals the signup/login form .. Refactor into WelcomeCTRL
 	$('.modal-dialog').on('click', '.btn-email', function(e) {
 		e.preventDefault();
 		$('.email-hidden').show();
-	});
-
-	/* Trigger Animations */
-	var animationEndEvent = "webkitAnimationEnd mozAnimationEnd animationend";
-	var App = {
-		yesButton: $('.button.yes .trigger'),
-		noButton: $('.button.no .trigger'),
-		blocked: false,
-		like: function(liked){
-			var animate = liked ? 'animateYes' : 'animateNo';
-			var self = this;
-			if (!this.blocked) {
-			  this.blocked = true;
-			  	$('.card').eq(0).addClass(animate).one(animationEndEvent, function(){
-		   			$('.person').eq(0).remove();
-		   			$(this).remove();
-					// Person.add();
-					self.blocked = false;
-				});
-			}
-		}
-	};
-	  
-	App.yesButton.on('mousedown', function(){
-		App.like(true);
-	});
-
-	App.noButton.on('mousedown', function(){
-		App.like(false);
 	});
 }
 $(document).ready(ready);
