@@ -2,23 +2,21 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resource :session, only: [:create, :destroy]
-
-<<<<<<< HEAD
-  resources :users, except: [:new] do
-    resources :matches, only: [:index, :show, :new, :create, :destroy]
-  end
-=======
-  resources :users, except: [:new]  
->>>>>>> Tony
-
+  resources :users, except: [:new]
+  resources :matches, only: [:index, :show, :new, :create, :destroy]
   resources :likes, only: [:new, :create]
-
   resources :rejections, only: [:new, :create]
+  
 
+  scope '/api' do
+    resources :users, only: [:index, :show], defaults: { format: :json }
+    resources :matches, only: [:index, :show], defaults: { format: :json }
+    resources :likes, only: [:new, :create], defaults: { format: :json }
+    resources :rejections, only: [:new, :create], defaults: { format: :json }
+  end
+
+  resource :session, only: [:create, :destroy]
   resources :usermatches, only: [:new, :create, :destroy]
-
-  # resources :matches, only: [:index, :show, :new, :create, :destroy]
 
   #=========================================================
 

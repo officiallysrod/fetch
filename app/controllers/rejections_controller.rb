@@ -1,5 +1,7 @@
 class RejectionsController < ApplicationController
 
+  respond_to :html, :json
+
   def new
     @rejection = Rejection.new
   end 
@@ -11,7 +13,9 @@ class RejectionsController < ApplicationController
     #prevent user from rejecting someone if they have already liked them
     @rejection.save unless @rejection.rejectee.likers.include?(current_user)
 
-    redirect_to :back
+    if @rejection.persisted?
+      render json: @rejection, status: :created
+    end
   end
 
 private

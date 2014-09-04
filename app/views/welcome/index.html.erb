@@ -1,48 +1,65 @@
+<!-- Welcome Page -->
+<div class="welcome" ng-controller="WelcomeCtrl">
 <%= render 'partials/loginSignupModals' %>
 
-<!-- Welcome Page -->
-<% if current_user %>
-	<%= link_to "Go Fetch", users_path %>
-<% else %>
-	<a href="#" class="nav-links" data-toggle="modal" data-target="#loginModal">Log in</a>
-	<a href="#" class="nav-links" data-toggle="modal" data-target="#signupModal">Sign up</a>
-<% end %>
-<div class="tight-container clearfix text-center">
-	<div class="column half headline">
-		<div class="text-center">
-			<%= image_tag 'Group.png', class: 'logo' %>
-			<%= image_tag 'Fetch.png', class: 'logo-name' %>
-			<h2>Are you #DTF(etch)?</h2>
-		</div>
-		
-		<a href="#" class="btn-primary signup-button btn-fetch-primary btn btn-lg col-sm-4 pull-right" data-toggle="modal" data-target="#signupModal">Sign up</a>
-	</div>
+	<% if current_user %>
+		<%= link_to "Go Fetch", users_path %>
+	<% else %>
+		<a href="#" class="nav-links" data-toggle="modal" data-target="#loginModal">Log in</a>
+		<a href="#" class="nav-links" data-toggle="modal" data-target="#signupModal">Sign up</a>
+	<% end %>
 
-	<div class="column half">
-		<!-- Cards -->
-		<div class="cards col-sm-6 col-sm-offset-1">
-		  <div class="people center-block">
-		    <div class="person"></div>
-			  <div class="person"></div>
-			  <div class="person"></div>
-			  <div class="person"></div>
-			  <div class="person"></div>
-			  <div class="person">
-			  	<p>Let's get to Fetching!</p>
-			  	<div id="welcome-signup-card">
-			  		<a href="#" class="btn-primary signup-button btn col-sm-4 col-sm-offset-2" data-toggle="modal" data-target="#loginModal">Log in</a>
-			  		<a href="#" class="btn-primary signup-button btn-fetch-primary btn col-sm-4" data-toggle="modal" data-target="#signupModal">Sign up</a>
-			  	</div>
+	<div class="tight-container clearfix text-center">
+		<div class="column half headline">
+			<div class="text-center">
+				<%= image_tag 'Group.png', class: 'logo' %>
+				<%= image_tag 'Fetch.png', class: 'logo-name' %>
+				<h2>Are you #DTF(etch)?</h2>
+			</div>
+			
+			<a href="#" class="btn-primary signup-button btn-fetch-primary btn btn-lg col-sm-4 pull-right" data-toggle="modal" data-target="#signupModal">Sign up</a>
+		</div>
+	
+		<div class="column half">
+			<!-- Cards -->
+			<div class="cards col-sm-6 col-sm-offset-1">
+			  <div class="people center-block">
+			    
+			    <div class="person">
+			    	<div class="card"></div>
+			    </div>
+			    <div class="person">
+			    	<div class="card"></div>
+			    </div>
+			    <div class="person">
+			    	<div class="card"></div>
+			    </div>
+			    <div class="person">
+			    	<div class="card"></div>
+			    </div>
+	
+				  <div class="person">
+				  	<div class="card">
+				  		<br />
+				  		<br />
+				  		<p>Let's get to Fetching!</p>
+				  		<div id="welcome-signup-card">
+				  			<a href="#" class="btn-primary signup-button btn col-sm-4 col-sm-offset-2" data-toggle="modal" data-target="#loginModal">Log in</a>
+				  			<a href="#" class="btn-primary signup-button btn-fetch-primary btn col-sm-4" data-toggle="modal" data-target="#signupModal">Sign up</a>
+				  		</div>
+				  	</div>
+				  </div>
+	
 			  </div>
-		  </div>
-		  <div class="controls">
-		    <div class="button no">
-		      <div class="trigger"></div>
-		    </div>
-		    <div class="button yes">
-		      <div class="trigger"></div>
-		    </div>
-		  </div>
+			  <div class="controls">
+			    <div class="button no">
+			      <div class="trigger" ng-mousedown="triggerAnimate('reject')"></div>
+			    </div>
+			    <div class="button yes">
+			      <div class="trigger" ng-mousedown="triggerAnimate('like')"></div>
+			    </div>
+			  </div>
+			</div>
 		</div>
 	</div>
 </div>

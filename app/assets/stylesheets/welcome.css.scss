@@ -11,6 +11,9 @@ $primary-color: #55BEFA;
 	padding: 0 50px;
 	width: 90%;
 	max-width: 48rem;
+	.controls {
+			top: 270px;
+	}
 }
 .logo { max-width: 50px; }
 .logo-name { max-width: 150px; }
