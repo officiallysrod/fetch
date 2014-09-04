@@ -1,7 +1,5 @@
 fetchApp.controller('UserCtrl', ['$scope', 'User', function($scope, User){
 
-  $scope.test = "This is totally working, beeyatch!";
-
   // GET the #index of available users from API
   User.query(function(json){
     $scope.users = json;
@@ -26,20 +24,23 @@ fetchApp.controller('UserCtrl', ['$scope', 'User', function($scope, User){
 
 fetchApp.controller('MatchCtrl', ['$scope', 'Match', function($scope, Match){
 
-  $scope.test = "This is totally working, beeyatch!";
-
   // GET the #index of friends (matches) from API
   Match.query(function(json){
     $scope.friends = json;
-    $scope.friendIndex = 0; //will need to be refactored when polling is added
+    
+    //sets an initial value for friend so the friendshow partial has something to render on load
+    //will need to be refactored when polling is added
+    $scope.friend = $scope.friends[0];
+    $scope.messages = $scope.friend.conversation;
   });
 
-  $scope.showFriend = function(index){
+  $scope.showMatch = function(index){
     $scope.friend = $scope.friends[index];
-    $scope.friendIndex = index;
-  }
+    $scope.messages = $scope.friend.conversation;
+  } 
 
 }]);
+
 
 fetchApp.controller('LikeCtrl', ['$scope', 'Like', function($scope, Like){
 

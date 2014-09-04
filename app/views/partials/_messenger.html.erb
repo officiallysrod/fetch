@@ -1,26 +1,22 @@
 <div class="col-sm-4">
+
 	<div class="message-widget">
 		<div class="messages">
+			
 			<ul class="activity-stream">
-	
-<!-- 				<li class="activity" ng-repeat="message in conversation">
+				
+				<li class="activity" ng-repeat="message in messages">
 					<div class="activity-row">
-						<div class="content-text">{{ message }}</div>
+						<div class="content-text">{{message.body}}</div>
 					</div>
 					<div class="activity-row">
-						<div class="timestamp"></div>
-					</div>
-				</li> -->
-				<li class="activity">
-					<div class="activity-row">
-						<div class="content-text">Hey! Let's chat about our dogs.</div>
-					</div>
-					<div class="activity-row">
+						<div class="timestamp">{{message.sender_id}}</div>
 						<div class="timestamp"></div>
 					</div>
 				</li>
-	
+
 			</ul>
+
 		</div>
 		<form ng-submit="sendMessage()" class="message-input">
 			<!-- <input type="text" ng-model="messageContent" value="" placeholder="Message" class="message-input-field"> -->

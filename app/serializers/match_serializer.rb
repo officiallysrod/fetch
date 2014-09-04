@@ -1,5 +1,5 @@
 class MatchSerializer < ActiveModel::Serializer
-  attributes :id, :fname, :lname, :dog_name, :bio, :short_bio, :profile_pic, :profile_pic_large, :profile_pic_medium, :profile_pic_small, :profile_pic_thumb, :conversation_id
+  attributes :id, :fname, :lname, :dog_name, :bio, :short_bio, :profile_pic, :profile_pic_large, :profile_pic_medium, :profile_pic_small, :profile_pic_thumb, :conversation
 
   delegate :current_user, to: :scope
 
@@ -20,19 +20,16 @@ class MatchSerializer < ActiveModel::Serializer
   end
 
   def short_bio
-    short = object.bio.truncate(50, separator: /\s/)
+    object.bio.truncate(50, separator: /\s/)
   end
 
-  def conversation_id
-    conversations = object.conversations.all
-    
-    conversations.each do |c|
+  def conversation
+    object.conversations.all.each do |c|
       if c.user_ids.include?(current_user.id)
-        @conversation_id = c.id
+        @user_conversation = c
       end
     end
-
-    @conversation_id
+    @conversation_messages = @user_conversation.messages.all
   end
 
 end

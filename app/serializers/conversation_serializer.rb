@@ -1,7 +1,7 @@
 class ConversationSerializer < ActiveModel::Serializer
-  attributes :id, :match_id, :users
+  attributes :id, :match_id, :messages
 
-  def users
-    object.users.all
+  def messages
+    object.messages.all
   end 
 end

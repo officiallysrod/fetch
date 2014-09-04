@@ -17,8 +17,4 @@ class UserSerializer < ActiveModel::Serializer
     object.profile_pic.url(:thumb)
   end
 
-  # def short_bio
-  #   object.bio.truncate(50, separator: /\s/)
-  # end
-
 end
