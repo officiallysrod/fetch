@@ -20,16 +20,15 @@ class MatchSerializer < ActiveModel::Serializer
   end
 
   def conversation_id
-    
-    @arr = []
     conversations = object.conversations.all
+    
     conversations.each do |c|
       if c.user_ids.include?(current_user.id)
-        @arr.push(c)
+        @conversation_id = c.id
       end
     end
 
-    conversation_id = @arr.first.id
+    @conversation_id
   end
 
 end
