@@ -3,12 +3,12 @@
   <%= current_user.fname %> is currently logged in.
   <h1>{{ test }}</h1>
   <div>
-    <!-- profileModal partial -->
-    <%= render partial: 'partials/profileModal' %>
     <!-- Cards -->
     <div class="cards col-sm-6 col-sm-offset-5">
       <div class="people">
         <div class="person" ng-repeat="user in users">
+          <!-- profileModal partial -->
+          <%= render partial: 'partials/profileModal' %>
           <div class="card" data-toggle="modal" data-target="#{{user.id}}">
             <img src="{{user.profile_pic_large}}">
           </div>
