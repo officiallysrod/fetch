@@ -11,8 +11,8 @@
           <div class="row">
             <img src="{{friend.profile_pic_thumb}}" class='pull-left img-rounded'>
             <div class="row-details pull-left">
-              <h4>{{friend.fname}} &amp; {{friend.dog_name}}</h4>
-              <p>{{friend.bio}}</p>
+              <h4>{{friend.dog_name}} &amp; {{friend.fname}}</h4>
+              <p>{{friend.bio | limitTo:50 }}</p>
             </div>
           </div>
         </a>
