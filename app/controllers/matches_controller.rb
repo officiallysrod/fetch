@@ -36,7 +36,6 @@ class MatchesController < ApplicationController
     50.times do
       Message.uncached do
         Message.where('created_at > ?', start).each do |message|
-          test = "hello world"
           show_friends
           response.stream.write "data: #{@friends.to_json}...\n\n"
           start = message.created_at
