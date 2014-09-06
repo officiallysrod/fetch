@@ -7,7 +7,6 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'rails_12factor', group: :production
 
 #for angular to play nicely with rails
 gem 'angularjs-rails'
@@ -45,6 +44,8 @@ end
 
 #Use unicorn as the app server
 gem 'unicorn'
+
+gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
