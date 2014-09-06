@@ -15,4 +15,4 @@
 /log/*.log
 /tmp
 /vendor
-/public/system/users/profile_pics
+/public/system/users/profile_pics.env
