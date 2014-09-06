@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :users, except: [:new]
-  resources :matches, only: [:index, :show, :new, :create, :destroy]
+  resources :matches, only: [:index, :show, :new, :create, :destroy] do
+    collection { get :events }
+  end
   resources :likes, only: [:new, :create]
   resources :rejections, only: [:new, :create]
   

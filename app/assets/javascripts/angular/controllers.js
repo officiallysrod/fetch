@@ -24,7 +24,6 @@ fetchApp.controller('UserCtrl', ['$scope', 'User', function($scope, User){
 
 fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, Match, Message){
 
-
   // GET the #index of friends (matches) from API
   Match.query(function(json){
     $scope.friends = json;
@@ -36,6 +35,7 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, 
   });
 
   $scope.showMatch = function(index){
+    $scope.indexValue = index;
     $scope.friend = $scope.friends[index];
     $scope.messages = $scope.friend.conversation;
   }
@@ -52,6 +52,22 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, 
       $scope.message_body = null;
     });
   }
+
+  source = new EventSource('/matches/events');
+  source.addEventListener('message', function(e){
+    Match.query(function(json){
+      $scope.friends = json;
+      
+      if($scope.indexValue == null){
+        $scope.friend = $scope.friends[0];
+      }
+      else {
+        $scope.friend = $scope.friends[$scope.indexValue];
+      };
+      
+      $scope.messages = $scope.friend.conversation;
+    })
+  })
 
 }]);
 

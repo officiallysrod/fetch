@@ -42,8 +42,11 @@ group :test do
   gem 'shoulda-matchers', require: false
 end
 
+#use Puma as our web server
+gem 'puma'
+
 #Use unicorn as the app server
-gem 'unicorn'
+# gem 'unicorn'
 
 gem 'rails_12factor', group: :production
 
