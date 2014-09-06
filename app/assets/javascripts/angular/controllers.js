@@ -22,12 +22,13 @@ fetchApp.controller('UserCtrl', ['$scope', 'User', function($scope, User){
 
 }]);
 
-fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message', function($scope, Match, Message){
+fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, Match, Message){
+
 
   // GET the #index of friends (matches) from API
   Match.query(function(json){
     $scope.friends = json;
-    
+
     //sets an initial value for friend so the friendshow partial has something to render on load
     //will need to be refactored when polling is added
     $scope.friend = $scope.friends[0];
@@ -37,7 +38,7 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message', function($scope,
   $scope.showMatch = function(index){
     $scope.friend = $scope.friends[index];
     $scope.messages = $scope.friend.conversation;
-  } 
+  }
 
   $scope.newMessage = new Message();
 
@@ -45,7 +46,11 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message', function($scope,
     $scope.newMessage.recipient_id = recipient_id;
     $scope.newMessage.body = body;
     $scope.newMessage.conversation_id = $scope.friend.conversation_id;
-    $scope.newMessage.$save();
+    $scope.newMessage.$save(function(){
+      $scope.messages.push($scope.newMessage);
+      $scope.newMessage = new Message();
+      $scope.message_body = null;
+    });
   }
 
 }]);

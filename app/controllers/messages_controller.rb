@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   respond_to :json
-
+  
   def new
     @message = Message.new
   end
