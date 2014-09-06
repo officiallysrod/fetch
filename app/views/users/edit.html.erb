@@ -1,5 +1,11 @@
+<!-- <div class="bio col-sm-4">
+    <%= image_tag "#{current_user.profile_pic}" %>
+    <h3 class="bio-name"><%= current_user.dog_name %> &amp; <%= current_user.fname %></h3>
+    <p class="bio-description"><%= current_user.bio %></p>
+</div> -->
+
 <!-- Edit Page -->
-<div class="edit container">
+<div class="edit container col-sm-4">
   <%= link_to "Back to Fetching!", users_path, class: 'back-btn' %>
 
   <%= form_for @user do |f| %>
