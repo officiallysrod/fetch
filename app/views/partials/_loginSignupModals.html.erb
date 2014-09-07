@@ -7,25 +7,26 @@
         <h4 class="modal-title text-center" id="myModalLabel">Sign up</h4>
       </div>
       <div class="modal-body">
-        <button class="btn btn-facebook">
-          <%= image_tag "facebook.svg", id: "facebook-img" %>
-        </button>
+        <!-- <button class="btn btn-facebook"> -->
+          <%# image_tag "facebook.svg", id: "facebook-img" %>
+        <!-- </button>
         <div class="divider text-center">
           <span>or</span>
           <hr>
-        </div>
-        <button class="btn btn-email">
-          <%= image_tag "email.svg", id: "email-img" %>
-        </button>
+        </div> -->
+        <!-- <button class="btn btn-email"> -->
+          <%# image_tag "email.svg", id: "email-img" %>
+        <!-- </button>
         <br />
         <br />
-        <hr>
+        <hr> -->
+        <!-- if user selects email -->
         <!-- Toggle other modal -->
         <p class="modal-toggle">
           Already a member? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#loginModal">Log in</a>
         </p>
-        <!-- if user selects email -->
-        <%= form_for @user, html: {class: "email-hidden"} do |f| %>
+        <br />
+        <%= form_for @user do |f| %>
           <div class="form-group">
             <div class="input-group">
               <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
@@ -45,11 +46,12 @@
               <br />
             </div>
             <div class="input-group">
+              <br />
               <%= f.file_field :profile_pic %><br />
             </div>
           </div>
         <div class="modal-footer">
-            <%= f.submit "Sign up", class: 'btn btn-primary btn-fetch-primary' %>
+          <%= f.submit "Sign up", class: 'btn btn-primary btn-fetch-primary' %>
           <% end %>
         </div>
       </div>
@@ -67,25 +69,25 @@
         <h4 class="modal-title text-center" id="myModalLabel">Log in</h4>
       </div>
       <div class="modal-body">
-        <button class="btn btn-facebook">
-          <%= image_tag "facebook.svg", id: "facebook-img" %>
-        </button>
+        <!-- <button class="btn btn-facebook"> -->
+          <%# image_tag "facebook.svg", id: "facebook-img" %>
+        <!-- </button>
         <div class="divider text-center">
           <span>or</span>
           <hr>
         </div>
-        <button class="btn btn-email">
-          <%= image_tag "email.svg", id: "email-img" %>
-        </button>
+        <button class="btn btn-email"> -->
+          <%# image_tag "email.svg", id: "email-img" %>
+        <!-- </button>
         <br />
         <br />
-        <hr>
+        <hr> -->
         <!-- Toggle other modal -->
         <p class="modal-toggle">
           Not a member yet? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#signupModal">Sign up</a>
         </p>
         <!-- if user selects email -->
-        <%= form_for @user, url: session_path, html: {class: "email-hidden"} do |f| %>
+        <%= form_for @user, url: session_path do |f| %>
           <div class="form-group">
             <div class="input-group">
               <div class="input-group-addon">@</div>
