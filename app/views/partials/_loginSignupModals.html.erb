@@ -31,13 +31,13 @@
             <div class="input-group">
               <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
               <%= f.text_field :fname, placeholder: "What's your first name?", :class => "form-control" %>
-              <%= f.text_field :lname, placeholder: "Last name?", :class => "form-control" %>
-              <%= f.text_field :dog_name, placeholder: "What is your dogs name?", :class => "form-control" %>
-              <%= f.text_area :bio, placeholder: 'Say something about yourself', class: 'form-control' %><br />
+              <%= f.text_field :lname, placeholder: "What's your last name?", :class => "form-control" %>
+              <%= f.text_field :dog_name, placeholder: "What is your dog's name?", :class => "form-control" %>
+              <%= f.text_area :bio, placeholder: 'Tell us something about yourself.', class: 'form-control' %><br />
             </div>
             <div class="input-group">
               <div class="input-group-addon" id="at-symbol-glyph">@</div>
-              <%= f.email_field :email, placeholder: "Enter email", class: "form-control" %><br />
+              <%= f.email_field :email, placeholder: "Email address", class: "form-control" %><br />
             </div>
             <div class="input-group">
               <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
@@ -47,6 +47,7 @@
             </div>
             <div class="input-group">
               <br />
+              <%= label_tag "Upload a picture of you and your pup." %>
               <%= f.file_field :profile_pic %><br />
             </div>
           </div>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :users, except: [:new]
+  resources :users
   resources :matches, only: [:index, :show, :new, :create, :destroy] do
     collection { get :events }
   end
@@ -17,10 +17,9 @@ Rails.application.routes.draw do
     resources :rejections, only: [:new, :create], defaults: { format: :json }
 
     resources :messages, only: [:new, :create], defaults: { format: :json }
-    # resources :conversations, only: [:index], defaults: { format: :json } not using the conversations API anymore
   end
 
-  resource :session, only: [:create, :destroy]
+  resource :session, only: [:new, :create, :destroy]
   resources :usermatches, only: [:new, :create, :destroy]
 
   #=========================================================

@@ -32,9 +32,9 @@ class User < ActiveRecord::Base
 
   #validations
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
-  validates :fname, presence: true, length: { in: 3..30 }
-  validates :lname, presence: true, length: { in: 3..30 }
-  validates :dog_name, presence: true, length: { in: 3..30 }
+  validates :fname, presence: true, length: { in: 2..30 }
+  validates :lname, presence: true, length: { in: 2..30 }
+  validates :dog_name, presence: true, length: { in: 1..30 }
   validates :bio, presence: true
   validates :password, presence: true, length: { in: 6..20 }
   validates_attachment :profile_pic, presence: true, content_type: { content_type: ["image/jpeg", "image/jpg", "image/gif", "image/png"] }

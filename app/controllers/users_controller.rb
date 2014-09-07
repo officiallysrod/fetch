@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id.to_s
       redirect_to users_path
     else
-      redirect_to root_path
+      render new_user_path
     end
   end
 
@@ -66,8 +66,12 @@ private
   #verifies user access and redirects to users_path
   #if user is not authorized
   def verify_user
-    @user = User.find(params[:id])
-    redirect_to users_path unless @user == current_user
+    if current_user
+      @user = User.find(params[:id])
+      redirect_to users_path unless @user == current_user
+    else
+      redirect_to new_user_path
+    end
   end
 
   def available_users
