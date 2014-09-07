@@ -19,10 +19,6 @@ class User < ActiveRecord::Base
   has_many :reverse_likes, foreign_key: "likee_id", class_name: "Like", dependent: :destroy
   has_many :likers, through: :reverse_likes
 
-  #lorin's like relationships
-  # has_many :likers, foreign_key: "liker_id", class_name: "Like", inverse_of: :likers, dependent: :destroy
-  # has_many :likees, foreign_key: "likee_id", class_name: "Like", inverse_of: :likees, dependent: :destroy
-
   #match relationships
   has_many :user_matches, dependent: :destroy
   has_many :matches, through: :user_matches, dependent: :destroy 
