@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  resource :session, only: [:new, :create, :destroy]
   resources :users
   resources :matches, only: [:index, :show, :new, :create, :destroy] do
     collection { get :events }
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
     resources :messages, only: [:new, :create], defaults: { format: :json }
   end
 
-  resource :session, only: [:new, :create, :destroy]
   resources :usermatches, only: [:new, :create, :destroy]
 
   #=========================================================

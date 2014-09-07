@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4 form_styles">
+
+    <h1 class="text-center">Sign in to your account.</h1>
+
+    <p>
+      Not a member yet? <%= link_to "Sign up", new_user_path %>
+    </p>
+
+    <%= form_for @user, url: session_path do |f| %>
+
+      <% if flash[:error] %>
+        <div id="error_explanation">
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-danger"><%= flash[:error] %></li>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon" id="at-symbol-glyph">@</div>
+          <%= f.email_field :email, placeholder: "Email address", class: "form-control" %><br />
+        </div>
+        <div class="input-group">
+          <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+          <%= f.password_field :password, placeholder: "Password", :class => "form-control" %>
+        </div>
+      </div>
+    <div>
+      <%= f.submit "Sign in", class: 'btn btn-primary btn-fetch-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
