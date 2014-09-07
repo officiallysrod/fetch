@@ -29,7 +29,6 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, 
     $scope.friends = json;
 
     //sets an initial value for friend so the friendshow partial has something to render on load
-    //will need to be refactored when polling is added
     $scope.friend = $scope.friends[0];
     $scope.messages = $scope.friend.conversation;
   });

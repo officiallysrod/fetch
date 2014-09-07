@@ -1,5 +1,5 @@
 class MatchSerializer < ActiveModel::Serializer
-  attributes :id, :fname, :lname, :dog_name, :bio, :short_bio, :profile_pic, :profile_pic_large, :profile_pic_medium, :profile_pic_small, :profile_pic_thumb, :conversation_id, :conversation
+  attributes :id, :fname, :lname, :dog_name, :bio, :short_bio, :profile_pic, :profile_pic_large, :profile_pic_medium, :profile_pic_small, :profile_pic_thumb, :conversation_id, :conversation, :last_message_received
 
   delegate :current_user, to: :scope
 
@@ -24,7 +24,6 @@ class MatchSerializer < ActiveModel::Serializer
   end
 
   def conversation_id
-    
     @arr = []
     conversations = object.conversations.all
     conversations.each do |c|
@@ -36,7 +35,6 @@ class MatchSerializer < ActiveModel::Serializer
     conversation_id = @arr.first.id
   end
 
-
   def conversation
     object.conversations.all.each do |c|
       if c.user_ids.include?(current_user.id)
@@ -44,6 +42,12 @@ class MatchSerializer < ActiveModel::Serializer
       end
     end
     @conversation_messages = @user_conversation.messages.all
+  end
+
+  def last_message_received
+    conversation
+    @conversation_messages.where(recipient_id: current_user.id).last
+    # current_user.messages.where(recipient_id: current_user.id).last
   end
 
 end
