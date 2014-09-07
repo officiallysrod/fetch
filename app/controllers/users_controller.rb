@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @is_signup = true
+    redirect_to users_path if current_user
   end
 
   def create
