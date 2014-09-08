@@ -5,6 +5,8 @@ fetchApp.controller('UserCtrl', ['$scope', 'User', function($scope, User){
     $scope.users = json;
   });
 
+  //called inside the triggerAnimate function.  
+  //reruns users index query when all users in the view have been liked or rejected.
   var i = 0;
   $scope.getMoreUsers = function(){
     i++;
@@ -16,13 +18,6 @@ fetchApp.controller('UserCtrl', ['$scope', 'User', function($scope, User){
       })
     }
   }
-
-  // source = new EventSource('/matches/events');
-  // source.addEventListener('message', function(e){
-  //   User.query(function(json){
-  //     $scope.users = json;
-  //   })
-  // })
 
   // Trigger Animation ... Refactor into service!
   $scope.triggerAnimate = function(type) {
@@ -37,6 +32,8 @@ fetchApp.controller('UserCtrl', ['$scope', 'User', function($scope, User){
           self.blocked = false;
       });
     }
+
+    setTimeout(function(){$scope.getMoreUsers()}, 500);
   }
 
 }]);

@@ -15,12 +15,12 @@
           <div class="controls">
             <div class="button no" ng-controller="RejectionCtrl as rejection">
               <form ng-submit="rejection.add(user.id)">
-                <input type="submit" value="" class="trigger" ng-mousedown="getMoreUsers(); triggerAnimate('reject')">
+                <input type="submit" value="" class="trigger" ng-mousedown="triggerAnimate('reject')">
               </form>
             </div>
             <div class="button yes" ng-controller="LikeCtrl as like">
               <form ng-submit="like.add(user.id)">
-                <input type="submit" value="" class="trigger" ng-click="getMoreUsers()" ng-mousedown="triggerAnimate('like')">
+                <input type="submit" value="" class="trigger" ng-mousedown="triggerAnimate('like')">
               </form>
             </div>
           </div>
