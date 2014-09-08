@@ -46,13 +46,13 @@ body {
 	font-family: 'Open Sans';
 }
 
-.welcome,
 .edit { margin-top: 100px; }
 .matches { margin-top: 50px; }
 
 .btn-fetch-primary { 
 	background-color: $primary-color; 
 	border: none;
+	&:hover { background-color: darken($primary-color, 10%); }
 }
 
 /* Global Nav 
@@ -60,19 +60,22 @@ body {
 .navbar-default { 
 	background-color: #fff; 
 	border-color: #fff; 
-	.container-fluid { padding-right: 85px; padding-left: 85px; }
 	.nav-logo { width: 25px; }
 	.nav-logo-name { width: 75px; }
 	.navbar-nav > li > a { font-size: 15px; }
+}
+@media (min-width: 40rem) {
+	.container-fluid { padding-right: 85px; padding-left: 85px; }
 }
 
 /* Global Cards
 =============== */
 .cards { 
 	overflow: hidden;
-	width: 280px;
+	width: 253px;
 	height: 400px;
 	position: absolute;
+	margin: auto; left: 0; right: 0;
 }
 .card {
 	width: 250px;

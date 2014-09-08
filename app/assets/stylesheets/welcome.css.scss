@@ -2,55 +2,89 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$primary-color: #55BEFA;
+$primary-color: #FF5555;
 $bg-color: #f8f8f8;
 
 /* Landing Page
 ================ */
-.welcome { margin-top: 100px; background-color: $bg-color; }
+.welcome { margin-top: 0; background-color: $bg-color; }
 .tight-container { 
 	margin: 0 auto;
 	padding: 0 50px;
 	width: 90%;
-	textarea {resize: none;}
+	textarea { resize: none; }
 	max-width: 60rem;
 	.controls {
 			top: 270px;
 	}
+	.row { float:none; }
+	.cards { margin: auto; right:0; left: 0; }
+	.signup-button { 
+		font-size: 19px;
+		height: 55px; 
+		font-weight: 400;
+		display: block; 
+		border-radius: 8px;
+		padding-top: 14px;
+		color: $primary-color;
+		background-color: $bg-color;
+		border: 1px solid $primary-color;
+		margin: 10px auto;
+		-webkit-transition: all .5 ease;
+		transition: all .5 ease;
+		&:hover { 
+			background-color: $primary-color; 
+			color: white; 
+		}
+	}
 }
-.logo { max-width: 50px; }
-.logo-name { max-width: 150px; }
-.signup-button { 
-	display: none; 
-	font-size: 19px;
-}
+.logo { max-width: 66px; }
+.logo-name { max-width: 200px; }
 .headline { 
-	h2 { display: none; }
-	margin: 50px 0;
-	width: 100%;
-	float: none;
-}
-#welcome-signup-card {
-	a { display: block; }
-}
-@media (min-width: 40rem) {
-	.logo { max-width: 92px; }
-	.logo-name { max-width: 300px; margin-left: 15px; }
-	.headline h2 {
+	h2 {
 		color: #BDC3C7;
 		margin-bottom: 20px;
 		display: block; 
 		font-weight: 600;
 		span { font-weight: 800; }
 	}
-	.signup-button { 
-		height: 55px; 
-		font-weight: 400;
-		display: block; 
-		border-radius: 8px;
-		padding-top: 14px;
-		width: 38%;
-		&:nth-child(1) { margin-left: 14px; }
+	margin: 25px 0;
+	width: 100%;
+	float: none;
+}
+#welcome-signup-card {
+	a { display: block; }
+}
+@media (min-width: 45rem) {
+	.welcome { margin-top: 100px; }
+	.tight-container {
+		.cards { margin-left: 8.333333%; right:auto; left: auto; }
+		.signup-button { 
+			float: right;
+			height: 55px; 
+			font-weight: 400;
+			display: block; 
+			border-radius: 8px;
+			padding-top: 14px;
+			width: 38%;
+			color: white;
+			background-color: $primary-color;
+			&:nth-child(1) { margin-left: 14px; }
+		}
+	}
+	.headline-logo { float:right; }
+	.logo { max-width: 92px; }
+	.logo-name { max-width: 300px; margin-left: 15px; }
+	.headline {
+		margin: 25px 0;
+		h2 {
+			float: right;
+			color: #BDC3C7;
+			margin-bottom: 20px;
+			display: block; 
+			font-weight: 600;
+			span { font-weight: 800; }
+		}
 	}
 	.column {
     float: left;
