@@ -46,7 +46,9 @@ body {
 	font-family: 'Open Sans';
 }
 
-.wrapper { margin-top: 50px; }
+.dash,
+.matches, 
+.edit { margin-top: 50px; }
 
 .btn-fetch-primary { 
 	background-color: $primary-color; 
