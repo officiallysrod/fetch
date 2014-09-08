@@ -5,7 +5,7 @@
 	
 	<div class="">
 		<div class="bio col-sm-4">
-			<%= image_tag 'User Image' %>
+			<%= image_tag @user.profile_pic(:large) %>
 			<h3 class="bio-name"><%= @user.fname %> <%= @user.lname %></h3>
 			<p class="bio-description"><%= @user.bio %></p>
 		</div>
