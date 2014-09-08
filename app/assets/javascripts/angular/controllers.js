@@ -5,6 +5,20 @@ fetchApp.controller('UserCtrl', ['$scope', 'User', function($scope, User){
     $scope.users = json;
   });
 
+  //called inside the triggerAnimate function.  
+  //reruns users index query when all users in the view have been liked or rejected.
+  var i = 0;
+  $scope.getMoreUsers = function(){
+    i++;
+    console.log(i);
+    if(i == $scope.users.length){
+      User.query(function(json){
+        $scope.users = json;
+        i = 0;
+      })
+    }
+  }
+
   // Trigger Animation ... Refactor into service!
   $scope.triggerAnimate = function(type) {
     var animationEndEvent = "webkitAnimationEnd mozAnimationEnd animationend";
@@ -18,6 +32,8 @@ fetchApp.controller('UserCtrl', ['$scope', 'User', function($scope, User){
           self.blocked = false;
       });
     }
+
+    setTimeout(function(){$scope.getMoreUsers()}, 500);
   }
 
 }]);
@@ -90,8 +106,6 @@ fetchApp.controller('RejectionCtrl', ['$scope', 'Rejection', function($scope, Re
 
   this.add = function(rejectee_id){
     $scope.newRejection.rejectee_id = rejectee_id;
-    console.log($scope.newRejection.rejector_id);
-    console.log($scope.newRejection.rejectee_id);
     $scope.newRejection.$save();
   }
 
