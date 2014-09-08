@@ -40,6 +40,8 @@ fetchApp.controller('UserCtrl', ['$scope', 'User', function($scope, User){
 
 fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, Match, Message){
 
+  var objDiv = document.getElementById("activity-stream");
+
   // GET the #index of friends (matches) from API
   Match.query(function(json){
     $scope.friends = json;
@@ -47,6 +49,10 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, 
     //sets an initial value for friend so the friendshow partial has something to render on load
     $scope.friend = $scope.friends[0];
     $scope.messages = $scope.friend.conversation;
+
+    // Push messenger to bottom when a new message is made,
+    // Not the best solution
+    setTimeout(function(){objDiv.scrollTop = objDiv.scrollHeight + 9999;}, 2000);
   });
 
   $scope.showMatch = function(index){
@@ -66,6 +72,9 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, 
       $scope.newMessage = new Message();
       $scope.message_body = null;
     });
+    // Push messenger to bottom when a new message is made,
+    // Not the best solution
+    setTimeout(function(){objDiv.scrollTop = objDiv.scrollHeight + 9999;}, 200);
   }
 
   source = new EventSource('/matches/events');
@@ -81,7 +90,7 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, 
       };
       
       $scope.messages = $scope.friend.conversation;
-    })
+    });
   })
 
 }]);

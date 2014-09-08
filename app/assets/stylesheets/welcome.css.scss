@@ -38,8 +38,8 @@ $bg-color: #f8f8f8;
 		}
 	}
 }
-.logo { max-width: 66px; }
-.logo-name { max-width: 200px; }
+.logo { max-width: 50px; }
+.logo-name { max-width: 150px; }
 .headline { 
 	h2 {
 		color: #BDC3C7;
@@ -54,6 +54,10 @@ $bg-color: #f8f8f8;
 }
 #welcome-signup-card {
 	a { display: block; }
+}
+@media (min-width: 40rem) {
+	.logo { max-width: 66px; }
+	.logo-name { max-width: 200px; }
 }
 @media (min-width: 45rem) {
 	.welcome { margin-top: 100px; }

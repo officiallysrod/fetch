@@ -50,16 +50,24 @@ $border-gray: 1px solid $gray-object-color;
 	.row {
 		h4 { color: $gray-text-color; }
 		p { 
-			font-size: 13px; 
+			color: darken($gray-text-color, 30%);
+		  width: 100px;
+		  white-space: nowrap;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+			font-size: 13px;
 			word-wrap: break-word; 
-			color: black;
+			-webkit-transition: color .2s linear;
+			transition: color .2s linear;
 		}
 		cursor: pointer;
 		min-height: 80px;
 		border-bottom: $border-gray;
 		padding: 0 0 0 15px;
+		&:hover {
+			background-color: $gray-object-color;
+			p { color: black; }
+		}
 	}
-	.row:hover {
-		background-color: $gray-object-color;
-	}
+
 }
