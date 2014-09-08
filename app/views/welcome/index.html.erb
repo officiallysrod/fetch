@@ -2,22 +2,18 @@
 <div class="welcome" ng-controller="WelcomeCtrl">
 <%= render 'partials/loginSignupModals' %>
 
-	<% if current_user %>
-		<%= link_to "Go Fetch", users_path %>
-	<% else %>
-		<a href="#" class="nav-links" data-toggle="modal" data-target="#loginModal">Log in</a>
-		<a href="#" class="nav-links" data-toggle="modal" data-target="#signupModal">Sign up</a>
-	<% end %>
-
 	<div class="tight-container clearfix text-center">
 		<div class="column half headline">
-			<div class="text-center">
+			<div class="row pull-right">
 				<%= image_tag 'Group.png', class: 'logo' %>
 				<%= image_tag 'Fetch.png', class: 'logo-name' %>
-				<h2>Are you #DTF(etch)?</h2>
+				<h2 class="pull-right">Are you <span>#DTFetch?</span></h2>
 			</div>
 			
-			<a href="#" class="btn-primary signup-button btn-fetch-primary btn btn-lg col-sm-4 pull-right" data-toggle="modal" data-target="#signupModal">Sign up</a>
+			<div class="row">
+				<a href="#" class="btn-primary pull-right signup-button btn-fetch-primary btn btn-lg col-sm-4" data-toggle="modal" data-target="#signupModal">Sign up</a>
+				<a href="#" class="btn-primary pull-right signup-button btn-fetch-primary btn btn-lg col-sm-4" data-toggle="modal" data-target="#loginModal">Log In</a>
+			</div>
 		</div>
 	
 		<div class="column half">
@@ -59,7 +55,10 @@
 			      <div class="trigger" ng-mousedown="triggerAnimate('like')"></div>
 			    </div>
 			  </div>
+
 			</div>
 		</div>
+
+
 	</div>
 </div>

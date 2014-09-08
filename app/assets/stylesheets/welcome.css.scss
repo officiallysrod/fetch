@@ -3,22 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $primary-color: #55BEFA;
+$bg-color: #f8f8f8;
 
 /* Landing Page
 ================ */
+.welcome { margin-top: 100px; background-color: $bg-color; }
 .tight-container { 
 	margin: 0 auto;
 	padding: 0 50px;
 	width: 90%;
 	textarea {resize: none;}
-	max-width: 48rem;
+	max-width: 60rem;
 	.controls {
 			top: 270px;
 	}
 }
 .logo { max-width: 50px; }
 .logo-name { max-width: 150px; }
-.signup-button { display: none; }
+.signup-button { 
+	display: none; 
+	font-size: 19px;
+}
 .headline { 
 	h2 { display: none; }
 	margin: 50px 0;
@@ -29,8 +34,29 @@ $primary-color: #55BEFA;
 	a { display: block; }
 }
 @media (min-width: 40rem) {
-	.logo { max-width: 100px; }
-	.logo-name { max-width: 300px; }
-	.headline h2 { display: block; }
-	.signup-button { height: 49px; display: block; }
+	.logo { max-width: 92px; }
+	.logo-name { max-width: 300px; margin-left: 15px; }
+	.headline h2 {
+		color: #BDC3C7;
+		margin-bottom: 20px;
+		display: block; 
+		font-weight: 600;
+		span { font-weight: 800; }
+	}
+	.signup-button { 
+		height: 55px; 
+		font-weight: 400;
+		display: block; 
+		border-radius: 8px;
+		padding-top: 14px;
+		width: 38%;
+		&:nth-child(1) { margin-left: 14px; }
+	}
+	.column {
+    float: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+	.column.full { width: 100%; }
+  .column.half { width: 50%; }
 }
