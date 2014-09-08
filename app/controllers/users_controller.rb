@@ -82,7 +82,7 @@ private
       LEFT OUTER JOIN likes AS l_requestee ON u.id = l_requestee.likee_id AND l_requestee.liker_id = #{current_user.id} 
       LEFT OUTER JOIN rejections AS r_rejector ON u.id = r_rejector.rejector_id AND r_rejector.rejectee_id = #{current_user.id} 
       LEFT OUTER JOIN rejections AS r_rejectee ON u.id = r_rejectee.rejectee_id AND r_rejectee.rejector_id = #{current_user.id} 
-      WHERE u.id != #{current_user.id} AND l_requestee.id IS NULL AND r_rejector.id IS NULL AND r_rejectee.id IS NULL;")
+      WHERE u.id != #{current_user.id} AND l_requestee.id IS NULL AND r_rejector.id IS NULL AND r_rejectee.id IS NULL LIMIT 5;")
   end
 
 end

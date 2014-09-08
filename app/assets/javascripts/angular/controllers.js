@@ -5,6 +5,25 @@ fetchApp.controller('UserCtrl', ['$scope', 'User', function($scope, User){
     $scope.users = json;
   });
 
+  var i = 0;
+  $scope.getMoreUsers = function(){
+    i++;
+    console.log(i);
+    if(i == $scope.users.length){
+      User.query(function(json){
+        $scope.users = json;
+        i = 0;
+      })
+    }
+  }
+
+  // source = new EventSource('/matches/events');
+  // source.addEventListener('message', function(e){
+  //   User.query(function(json){
+  //     $scope.users = json;
+  //   })
+  // })
+
   // Trigger Animation ... Refactor into service!
   $scope.triggerAnimate = function(type) {
     var animationEndEvent = "webkitAnimationEnd mozAnimationEnd animationend";
@@ -90,8 +109,6 @@ fetchApp.controller('RejectionCtrl', ['$scope', 'Rejection', function($scope, Re
 
   this.add = function(rejectee_id){
     $scope.newRejection.rejectee_id = rejectee_id;
-    console.log($scope.newRejection.rejector_id);
-    console.log($scope.newRejection.rejectee_id);
     $scope.newRejection.$save();
   }
 
