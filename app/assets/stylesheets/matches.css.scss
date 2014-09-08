@@ -191,7 +191,7 @@ $border-gray: 1px solid $gray-object-color;
 /* Media Queries
 ================= */
 @media (max-width: 45rem) {
-	.message-widget { margin: 20px 0; }
+	.message-widget { margin: 20px auto; }
 	.send-message-button { font-size: 13px; }
 	.bio { overflow: visible; max-height: none; }
 }
