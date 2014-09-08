@@ -28,7 +28,6 @@ gem "paperclip", "~> 4.2"
 #for AWS storage of user photos
 gem "aws-sdk"
 
-
 group :development do
   gem 'rspec-rails', '~> 3.0.0'
 
