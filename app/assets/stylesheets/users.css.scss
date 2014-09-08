@@ -19,6 +19,8 @@ $border-gray: 1px solid $gray-object-color;
 	&:hover { text-decoration: none; }
 }
 
+.center-block { float:none; }
+
 /* Profile Modal
 ============== */
 .profileModal .modal-dialog { 
@@ -32,10 +34,15 @@ $border-gray: 1px solid $gray-object-color;
 /* Conversations
 ================ */
 .conversations {
+	.img-circle {  
+		margin: 28px 15px auto auto;
+	}
+	h3 { color: #D1D1D1; font-weight: 300; }
 	.conversations-title { padding: 18px 0; }
 	border-right: $border-gray;
 	max-height: 93vh;
 	height: 92vh;
+	background-color: #fff;
 	overflow: scroll;
 	overflow-x: hidden;
 	.row {

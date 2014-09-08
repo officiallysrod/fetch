@@ -1,10 +1,12 @@
+<%= render 'partials/nav' %>
+
 <!-- Matches -->
 <div class="matches" ng-controller="MatchCtrl">
   <div class="profile">
 		<%= render 'partials/conversations' %>
-		<%= link_to "Back to Fetching!", users_path, class: 'back-btn' %>
+		<%# link_to "Back to Fetching!", users_path, class: 'back-btn' %>
 		
-		<div class="">
+		<div class="profile-bio-messenger">
 			<%= render 'partials/friendshow' %>
 			<%= render 'partials/messenger' %>
 		</div>

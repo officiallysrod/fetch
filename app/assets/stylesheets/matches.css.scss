@@ -12,6 +12,7 @@ $border-gray: 1px solid $gray-object-color;
 .matches {
 	.back-btn { margin: 20px 0 10px 60px; }
 }
+.profile-bio-messenger { padding-top: 41px; }
 .bio {
 	img { width: 90%; height: 90%; }
 	padding: 0 13px 13px 13px;
@@ -33,7 +34,7 @@ $border-gray: 1px solid $gray-object-color;
   overflow: scroll;
   max-height: 80vh;
 }
-// .messages { overflow: scroll; }
+.messages { height: 100%; }
 .activity-stream { 
 	list-style: none; 
 	// overflow: scroll; 
@@ -41,7 +42,7 @@ $border-gray: 1px solid $gray-object-color;
 	padding: 10px;
 	background-color: white;
 	min-height: 100px;
-	// max-height: 400px;
+	height: 100%;
 	margin-right: 10px;
 }
 .activity {
@@ -126,6 +127,7 @@ $border-gray: 1px solid $gray-object-color;
 	}
 	.send-message-btn {
 		border: none;
+		font-family: 'Helvetica', sans-serif;
 	  letter-spacing:1px;
 		font-weight: bold;
 		float:right;

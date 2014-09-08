@@ -15,10 +15,14 @@
  *= require_self
  */
 
+// Open Sans
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,800,400,600);
+
 /* Global Variables
 ==================== */
-$primary-color: #55BEFA;
-$gray-object-color: #f3f3f3;
+$primary-color: #FF5555;
+$bg-color: #F8F8F8;
+$gray-object-color: #F3F3F3;
 $main-text-color: #000;
 $gray-text-color: #d1d1d1;
 $border-gray: 1px solid $gray-object-color;
@@ -31,8 +35,17 @@ $border-radius: 2px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+html, 
+body, 
+.wrapper,
+.dash { height:100%; }
 
-html { font-size: 100%; height: 100%; }
+html { font-size: 100%; }
+body { 
+	background-color: $bg-color; 
+	font-family: 'Open Sans';
+}
+
 .wrapper { margin-top: 50px; }
 
 .btn-fetch-primary { 
@@ -40,14 +53,15 @@ html { font-size: 100%; height: 100%; }
 	border: none;
 }
 
-@media (min-width: 40rem) {
-	.column {
-    float: left;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-	.column.full { width: 100%; }
-  .column.half { width: 50%; }
+/* Global Nav 
+=============== */
+.navbar-default { 
+	background-color: #fff; 
+	border-color: #fff; 
+	.container-fluid { padding-right: 85px; padding-left: 85px; }
+	.nav-logo { width: 25px; }
+	.nav-logo-name { width: 75px; }
+	.navbar-nav > li > a { font-size: 15px; }
 }
 
 /* Global Cards
@@ -136,14 +150,20 @@ html { font-size: 100%; height: 100%; }
 	width: 250px;
 
 	.button {
-		width: 65px; 
-		height: 65px;
+		width: 72px; 
+		height: 72px;
 		background: #eee;
 		position: absolute;
 		top: 5px;
 		border-radius: 50%;
 		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
 		box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+		&:hover { 
+			-webkit-transition: all .2s ease;
+			transition: all .2s ease;
+			-webkit-transform: scale(1.05); 
+			transform: scale(1.05);
+		}
 	}
 
 	.trigger {
@@ -161,8 +181,8 @@ html { font-size: 100%; height: 100%; }
     -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     cursor: pointer; 
-		width: 65px; 
-		height: 65px;
+		width: 72px; 
+		height: 72px;
 		position: absolute;
 		border: 5px solid rgba(0,0,0,.05);
 		border-radius: 50%;
@@ -185,16 +205,17 @@ html { font-size: 100%; height: 100%; }
 
 	.no { left: 38px; }
 	.no .trigger { 
+		background-size: 93px;
 		background-image: url('x.svg'); 
-		background-position: -20px -18px;;
+		background-position: -14px -12px;;
 	}
 	.yes { right: 38px; }
 	.yes .trigger { 
 		left: 0;
 		background-image: url('heart.svg');
 		background-repeat: no-repeat;
-		background-size: 37px;
-		background-position: 9.5px 13px;
+		background-size: 36px;
+		background-position: 14.5px 17px;
 	}
 }
 
