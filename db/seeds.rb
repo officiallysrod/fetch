@@ -15,7 +15,7 @@ users = User.create([
     bio: "Hi, I’m Mosby and this is my mom Jillian. She’s Italian and she’s a great cook. I love it when she makes chicken picatta or lasagne bolognese and forgets to clear the table. I usually never have to eat dry food out of a bag. I am a happy dog.",
     password: "password",
     password_confirmation: "password",
-    profile_pic: File.open("https://www.dropbox.com/s/uvjxiym9rjj3o7t/0d773440-f3ab-11e3-8b68-a9f47df85ff6_RITA-ORA.jpg?dl=0")
+    profile_pic: File.open("https://photos-6.dropbox.com/t/0/AAClj1NeyuW-3ezvLtvyM2blqe2So6WfVqWanKN_Fk5uog/12/25441638/jpeg/32x32/3/_/1/2/1-140306161319C4.jpg/JSWrMu4zRHb5-7a5nxwDwJF7RWIndSqtzbEzHtc52Is?size=1024x768")
   } #,
   # { 
   #   email: "laurie@example.com",
