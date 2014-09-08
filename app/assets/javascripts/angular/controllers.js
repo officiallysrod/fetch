@@ -52,7 +52,7 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, 
 
     // Push messenger to bottom when a new message is made,
     // Not the best solution
-    setTimeout(function(){objDiv.scrollTop = objDiv.scrollHeight + 9999;}, 2000);
+    setTimeout(function(){objDiv.scrollTop = objDiv.scrollHeight + 9999;}, 1500);
   });
 
   $scope.showMatch = function(index){
@@ -91,7 +91,11 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, 
       
       $scope.messages = $scope.friend.conversation;
     });
-  })
+  });
+
+  $scope.$on('onLast', function($scope) {
+    setTimeout(function(){objDiv.scrollTop = objDiv.scrollHeight + 9999;}, 500);
+  });
 
 }]);
 

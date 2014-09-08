@@ -5,7 +5,7 @@
 			
 			<ul class="activity-stream" id="activity-stream">
 				
-				<li class="activity" ng-repeat="message in messages" ng-class="{ currentUserMessage: message.sender_id != friend.id }" >
+				<li class="activity" ng-repeat="message in messages" on-last ng-class="{ currentUserMessage: message.sender_id != friend.id }">
 					<div class="activity-row">
 						<div class="content-text">{{message.body}}</div>
 					</div>
