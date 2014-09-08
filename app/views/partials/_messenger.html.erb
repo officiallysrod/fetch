@@ -3,7 +3,7 @@
 	<div class="message-widget">
 		<div class="messages">
 			
-			<ul class="activity-stream">
+			<ul class="activity-stream" id="activity-stream">
 				
 				<li class="activity" ng-repeat="message in messages" ng-class="{ currentUserMessage: message.sender_id != friend.id }" >
 					<div class="activity-row">

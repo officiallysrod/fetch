@@ -91,7 +91,7 @@
         <%= form_for @user, url: session_path do |f| %>
           <div class="form-group">
             <div class="input-group">
-              <div class="input-group-addon">@</div>
+              <div class="input-group-addon" id="at-symbol-glyph">@</div>
               <%= f.email_field :email, placeholder: "Enter email", :class => "form-control" %><br />
             </div>
             <div class="input-group">

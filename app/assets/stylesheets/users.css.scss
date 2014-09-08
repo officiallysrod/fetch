@@ -35,7 +35,9 @@ $border-gray: 1px solid $gray-object-color;
 ================ */
 .conversations {
 	.img-circle {  
-		margin: 28px 15px auto auto;
+		width: 50px;
+		height: 50px;
+		margin: 13px 15px auto auto;
 	}
 	h3 { color: #D1D1D1; font-weight: 300; }
 	.conversations-title { padding: 18px 0; }
