@@ -7,16 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = User.create([
-  { 
-    email: "jillian@example.com",
-    fname: "Jillian",
-    lname: "Jansen",
-    dog_name: "Mosby",
-    bio: "Hi, I’m Mosby and this is my mom Jillian. She’s Italian and she’s a great cook. I love it when she makes chicken picatta or lasagne bolognese and forgets to clear the table. I usually never have to eat dry food out of a bag. I am a happy dog.",
-    password: "password",
-    password_confirmation: "password",
-    profile_pic: File.open("/Users/shawnrodriguez/Dropbox/fetch-photos/cropped_images(USE_THESE_IMAGES)/0f0c26b5ade690fd_3543b056e25b11e1b4d31231380f8c75_7.jpeg")
-  },
+  # { 
+  #   email: "jillian@example.com",
+  #   fname: "Jillian",
+  #   lname: "Jansen",
+  #   dog_name: "Mosby",
+  #   bio: "Hi, I’m Mosby and this is my mom Jillian. She’s Italian and she’s a great cook. I love it when she makes chicken picatta or lasagne bolognese and forgets to clear the table. I usually never have to eat dry food out of a bag. I am a happy dog.",
+  #   password: "password",
+  #   password_confirmation: "password",
+  #   profile_pic: File.open("/Users/shawnrodriguez/Dropbox/fetch-photos/cropped_images(USE_THESE_IMAGES)/0f0c26b5ade690fd_3543b056e25b11e1b4d31231380f8c75_7.jpeg")
+  # },
   { 
     email: "laurie@example.com",
     fname: "Laurie",
