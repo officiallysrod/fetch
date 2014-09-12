@@ -7,7 +7,7 @@
    
         <div ng-repeat="f in friends" ng-show="friends.length >= 1" ng-click="showMatch(friends.indexOf(f))">
           <div class="row">
-            <img src="{{f.profile_pic_small}}" class='pull-left img-circle'>
+            <img ng-src="{{f.profile_pic_small}}" class='pull-left img-circle'>
             <div class="row-details pull-left">
               <h4>{{f.dog_name}} &amp; {{f.fname}}</h4>
               <p>{{ f.last_message_received.body }}</p>
