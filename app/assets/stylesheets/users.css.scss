@@ -9,7 +9,7 @@
 /* Profile Modal
 ============== */
 .profileModal .modal-dialog { 
-	width: 600px; 
+	width: 360px; 
 	.picture { 
 		width: 220px; 
 		height: 220px;
@@ -61,7 +61,9 @@
 	}
 
 }
-
+@media (min-width: 40rem) {
+	.profileModal .modal-dialog { width: 600px; }
+}
 @media (max-width: 40rem) {
 	.conversations { 	overflow: visible; }
 }
