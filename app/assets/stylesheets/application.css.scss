@@ -63,6 +63,7 @@ body {
 	.nav-logo { width: 25px; }
 	.nav-logo-name { width: 75px; }
 	.navbar-nav > li > a { font-size: 15px; }
+	.navbar-brand { padding: 12px 15px; }
 }
 @media (min-width: 40rem) {
 	.container-fluid { padding-right: 85px; padding-left: 85px; }
@@ -80,6 +81,7 @@ body {
 .card {
 	width: 250px;
 	height: 265px;
+	background: url() no-repeat center center;
 }
 .people {
 	position: relative;
@@ -119,7 +121,7 @@ body {
 	border-radius: 5px;
 	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,.2);
 	box-shadow: 0 1px 5px rgba(0,0,0,.2);
-	border: 1px solid  rgba(0,0,0,.2);
+	// border: 1px solid  rgba(0,0,0,.2);
 	-webkit-transition: all .1s linear;
 	transition: all .1s linear;	
 	&:before {
