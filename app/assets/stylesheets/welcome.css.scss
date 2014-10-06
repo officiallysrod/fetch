@@ -56,6 +56,7 @@
 	.logo-name { max-width: 200px; }
 }
 @media (min-width: 45rem) {
+	#welcome-signup-card { padding-right: 2rem;	}
 	.welcome { margin-top: 100px; }
 	.tight-container {
 		.cards { margin-left: 8.333333%; right: auto; left: auto; }
