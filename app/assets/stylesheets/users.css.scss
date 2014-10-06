@@ -10,11 +10,16 @@
 ============== */
 .profileModal .modal-dialog { 
 	width: 360px; 
+	.people { 
+		width: 100%; 
+		float: none;
+	}
 	.picture { 
 		width: 220px; 
 		height: 220px;
 		background: url() no-repeat center center;
 		background-size: cover;
+		margin: 0 auto;
 	}
 }
 
@@ -62,7 +67,15 @@
 
 }
 @media (min-width: 40rem) {
-	.profileModal .modal-dialog { width: 600px; }
+	.profileModal .modal-dialog { 
+		width: 600px; 
+		
+		.people { 
+			width: inherit; 
+			float: left;
+		}
+		.picture { margin: 0; }
+	}
 }
 @media (max-width: 40rem) {
 	.conversations { 	overflow: visible; }
