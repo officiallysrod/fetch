@@ -2,8 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$primary-color: #FF5555;
-$bg-color: #f8f8f8;
+@import 'base';
 
 /* Landing Page
 ================ */
@@ -14,15 +13,13 @@ $bg-color: #f8f8f8;
 	width: 90%;
 	textarea { resize: none; }
 	max-width: 60rem;
-	.controls {
-			top: 270px;
-	}
+	.controls { top: 16.875rem; }
 	.row { float:none; }
-	.cards { margin: auto; right:0; left: 0; }
+	.cards { margin: auto; right: 0; left: 0; }
 	.signup-button { 
 		font-size: 19px;
 		height: 55px; 
-		font-weight: 400;
+		font-weight: $regular;
 		display: block; 
 		border-radius: 8px;
 		padding-top: 14px;
@@ -30,7 +27,6 @@ $bg-color: #f8f8f8;
 		background-color: $bg-color;
 		border: 1px solid $primary-color;
 		margin: 10px auto;
-		-webkit-transition: all .5 ease;
 		transition: all .5 ease;
 		&:hover { 
 			background-color: $primary-color; 
@@ -45,8 +41,8 @@ $bg-color: #f8f8f8;
 		color: #BDC3C7;
 		margin-bottom: 20px;
 		display: block; 
-		font-weight: 600;
-		span { font-weight: 800; }
+		font-weight: $semibold;
+		span { font-weight: $bold; }
 	}
 	margin: 25px 0;
 	width: 100%;
@@ -62,11 +58,11 @@ $bg-color: #f8f8f8;
 @media (min-width: 45rem) {
 	.welcome { margin-top: 100px; }
 	.tight-container {
-		.cards { margin-left: 8.333333%; right:auto; left: auto; }
+		.cards { margin-left: 8.333333%; right: auto; left: auto; }
 		.signup-button { 
 			float: right;
 			height: 55px; 
-			font-weight: 400;
+			font-weight: $regular;
 			display: block; 
 			border-radius: 8px;
 			padding-top: 14px;
@@ -86,8 +82,8 @@ $bg-color: #f8f8f8;
 			color: #BDC3C7;
 			margin-bottom: 20px;
 			display: block; 
-			font-weight: 600;
-			span { font-weight: 800; }
+			font-weight: $semibold;
+			span { font-weight: $bold; }
 		}
 	}
 	.column {

@@ -2,22 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$gray-object-color: #f3f3f3;
-$gray-text-color: #d1d1d1; 
-$border-gray: 1px solid $gray-object-color;
-
-.back-btn { 
-	background: url('back.svg') no-repeat;  
-	display: inline-block;
-	height: 30px;
-	padding-left: 17px;
-	padding-top: 2px;
-	margin: 10px 0 20px 0;
-	background-size: 23px;
-	background-position-x: -5px;
-	font-size: 13px;
-	&:hover { text-decoration: none; }
-}
+@import 'base';
 
 .center-block { float:none; }
 
@@ -45,7 +30,7 @@ $border-gray: 1px solid $gray-object-color;
 		background: url() no-repeat center center; 
 		background-size: cover;
 	}
-	h3 { color: #D1D1D1; font-weight: 300; }
+	h3 { color: #D1D1D1; font-weight: $light; }
 	.conversations-title { padding: 18px 0; }
 	border-right: $border-gray;
 	max-height: 93vh;
@@ -63,7 +48,6 @@ $border-gray: 1px solid $gray-object-color;
 		  text-overflow: ellipsis;
 			font-size: 13px;
 			word-wrap: break-word; 
-			-webkit-transition: color .2s linear;
 			transition: color .2s linear;
 		}
 		cursor: pointer;

@@ -1,0 +1,36 @@
+// Font-Size: 1rem = 16px (@ html font-size 100%)
+
+/* Global Variables
+============================== */
+$primary-color: #FF5555;
+$bg-color: #F8F8F8;
+$gray-object-color: #F3F3F3;
+$main-text-color: #000;
+$gray-text-color: #d1d1d1;
+$border-gray: 1px solid $gray-object-color;
+$border-radius: 2px;
+
+// Typography
+$bold: 800;
+$semibold: 600;
+$regular: 400;
+$light: 300;
+
+// Base Font
+$base-font-family: 'Open Sans';
+$base-font-weight: $regular;
+
+// Nav
+$nav-background-color: #fff;
+$nav-border-color: #fff;
+
+
+/* Matches
+=============================== */
+// 20rem = 320px
+$bio-pic-wrapper-width: 17rem;
+$bio-pic-wrapper-height: 17rem;
+// .9375rem = 15px
+$bio-pic-wrapper-padding: .9375rem;
+$bio-pic-width: ($bio-pic-wrapper-width) - ($bio-pic-wrapper-padding*2);
+$bio-pic-height: ($bio-pic-wrapper-height) - ($bio-pic-wrapper-padding*2);

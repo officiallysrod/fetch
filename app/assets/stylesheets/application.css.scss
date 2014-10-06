@@ -18,15 +18,7 @@
 // Open Sans
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,800,400,600);
 
-/* Global Variables
-==================== */
-$primary-color: #FF5555;
-$bg-color: #F8F8F8;
-$gray-object-color: #F3F3F3;
-$main-text-color: #000;
-$gray-text-color: #d1d1d1;
-$border-gray: 1px solid $gray-object-color;
-$border-radius: 2px;
+@import 'base';
 
 /* Global Properties
 ===================== */
@@ -38,12 +30,12 @@ $border-radius: 2px;
 html, 
 body, 
 .wrapper,
-.dash { height:100%; }
+.dash { height: 100%; }
 
 html { font-size: 100%; }
 body { 
 	background-color: $bg-color; 
-	font-family: 'Open Sans';
+	font-family: $base-font-family;
 }
 
 .edit { margin-top: 100px; }
@@ -55,11 +47,19 @@ body {
 	&:hover { background-color: darken($primary-color, 10%); }
 }
 
+@media (min-width: 40rem) {
+	html { font-size: 112.5%; }
+}
+@media (min-width: 60rem) {
+	html { font-size: 120%; }
+}
+
 /* Global Nav 
 =============== */
 .navbar-default { 
-	background-color: #fff; 
-	border-color: #fff; 
+	background-color: $nav-background-color; 
+	border-color: $nav-border-color; 
+
 	.nav-logo { width: 25px; }
 	.nav-logo-name { width: 75px; }
 	.navbar-nav > li > a { font-size: 15px; }
@@ -73,14 +73,17 @@ body {
 =============== */
 .cards { 
 	overflow: hidden;
-	width: 253px;
-	height: 400px;
+	width: 16.6875rem;
+	height: 25rem;
 	position: absolute;
-	margin: auto; left: 0; right: 0;
+	margin: auto; 
+	left: 0; 
+	right: 0;
 }
+
 .card {
-	width: 250px;
-	height: 265px;
+	width: 15.625rem;
+	height: 16.5625rem;
 	background: url() no-repeat center center;
 	background-size: cover;
 }
@@ -99,18 +102,15 @@ body {
 	&:nth-child(2) .card { 
 		z-index: 4;
 		top: 7px;
-		-webkit-transform: scale(0.98);
 		transform: scale(0.98);
 	}
 	&:nth-child(3) .card {
 		z-index: 3;
 		top: 14px;
-		-webkit-transform: scale(0.96);
 		transform: scale(0.96);
 	}
 	&:nth-child(n+4) .card {
 		z-index: 2;
-		-webkit-transform: scale(.7);
 		transform: scale(.7);
 	}
 }
@@ -120,10 +120,8 @@ body {
 	background-color: #fff;
 	cursor: pointer;
 	border-radius: 5px;
-	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,.2);
 	box-shadow: 0 1px 5px rgba(0,0,0,.2);
 	// border: 1px solid  rgba(0,0,0,.2);
-	-webkit-transition: all .1s linear;
 	transition: all .1s linear;	
 	&:before {
 		position: absolute;
@@ -164,12 +162,9 @@ body {
 		position: absolute;
 		top: 5px;
 		border-radius: 50%;
-		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
 		box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
 		&:hover { 
-			-webkit-transition: all .2s ease;
 			transition: all .2s ease;
-			-webkit-transform: scale(1.05); 
 			transform: scale(1.05);
 		}
 	}
@@ -182,11 +177,8 @@ body {
     margin: 0 auto;
     position: relative;
     top: 50%;
-    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    -webkit-transition: all .05s linear;
     transition: all .05s linear;
-    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     cursor: pointer; 
 		width: 72px; 
@@ -197,16 +189,13 @@ body {
 		background-color: #fff;
 
 	  &:active {
-	  	-webkit-transform: translateY(-50%) scale(0.75);
 	  	transform: translateY(-50%) scale(0.75);
-	  	-webkit-transition: all .05s linear;
 	  	transition: all .05s linear;
 	  }
   	&:before {
 	  	position: absolute;
 	  	top: 50%;
 	  	left: 50%;
-	  	-webkit-transform: translateY(-50%) scale(-50%);
 	  	transform: translateY(-50%) scale(-50%);
   	}
 	}
@@ -230,61 +219,49 @@ body {
 /* Animations
 ================ */
 
-@-webkit-keyframes yes {
+@keyframes yes {
   0% {
-    -webkit-transform: scale(1) rotateZ(0deg);
     transform: scale(1) rotateZ(0deg);
     left: 0;
   }
   30% { 
-    -webkit-transform: scale(1.05) rotateZ(0deg);
     transform: scale(1.05) rotateZ(0deg);
     left: 0;
   }
   100% {
-    -webkit-transform: rotateZ(45deg);
     transform: rotateZ(45deg);
     left: 400px;
   }
 }
 
 .animateYes {
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation: yes 0.6s linear;
   animation: yes 0.6s linear;
 	&:before {
-		-webkit-transform: rotateZ(-35deg);
 	  transform: rotateZ(-35deg);
 	  background: url(http://i.imgur.com/Zkwj970.png) no-repeat center 10px;
 	}
 }
 
-@-webkit-keyframes no {
+@keyframes no {
   0% {
-    -webkit-transform: scale(1) rotateZ(360deg);
     transform: scale(1) rotateZ(360deg);
     right: 0;
   }
   30% {
-    -webkit-transform: scale(1.05) rotateZ(360deg);
     transform: scale(1.05) rotateZ(360deg);
     right: 0;
   }
   100% {
-    -webkit-transform: rotateZ(315deg);
     transform: rotateZ(315deg);
     right: 400px;
   } 
 }
 
 .animateNo {
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation: no 0.6s linear;
   animation: no 0.6s linear;
 	&:before {
-		-webkit-transform: rotateZ(35deg);
 	  transform: rotateZ(35deg);  
 	  background: url(http://i.imgur.com/XqQZ4KR.png) no-repeat center 10px;
 	}

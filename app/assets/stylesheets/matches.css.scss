@@ -2,26 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$gray-object-color: #f3f3f3;
-$gray-text-color: #d1d1d1; 
-$border-gray: 1px solid $gray-object-color;
-$bio-pic-wrapper-width: 320px;
-$bio-pic-wrapper-height: 320px;
-$bio-pic-wrapper-padding: 15px;
-$bio-pic-width: ($bio-pic-wrapper-width) - ($bio-pic-wrapper-padding*2);
-$bio-pic-height: ($bio-pic-wrapper-height) - ($bio-pic-wrapper-padding*2);
+@import 'base';
 
 /* Matches Page
 ================== */
-.profile,
-.matches {
-	.back-btn { margin: 20px 0 10px 60px; }
-}
 .profile-bio-messenger { padding-top: 41px; }
 .bio {
 	img { width: 90%; height: 90%; }
 	padding: 0 13px 13px 13px;
 	overflow: scroll;
+	overflow-x: hidden;
 	margin: 0 0 0 47px;
 	max-height: 85vh;
 }
@@ -31,16 +21,17 @@ $bio-pic-height: ($bio-pic-wrapper-height) - ($bio-pic-wrapper-padding*2);
 	height: $bio-pic-wrapper-height; 
 	padding: $bio-pic-wrapper-padding; 
 	background-color: #fff;
-	-webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+	max-width: 100%;
 }
 .bio-pic { 
 	background: url() no-repeat center center; 
 	background-size: cover;
 	width: $bio-pic-width;
 	height: $bio-pic-height;
+	max-width: 100%;
 }
-.bio-description { font-size: 15px; width: 93%; font-weight: 300; }
+.bio-description { font-size: 15px; width: 93%; font-weight: $light; }
 .dash .cards { margin-top: 100px; }
 
 /* Chat Widget
@@ -90,67 +81,32 @@ $bio-pic-height: ($bio-pic-wrapper-height) - ($bio-pic-wrapper-padding*2);
   padding: 0.5em 1em;
   background: #e5e5ea;
   max-width: 75%;
-	// &::before {
-	//   border-color: #EBEBEB;
-	//   border-radius: 50% 50% 50% 50%;
-	//   border-style: solid;
-	//   border-width: 0 20px;
-	//   bottom: 0;
-	//   clip: rect(20px, 35px, 42px, 0px);
-	//   content: " ";
-	//   height: 40px;
-	//   position: absolute;
-	//   right: -50px;
-	//   width: 30px;
-	// }
- //  &::after {
- //    // content: "";
- //    // position: absolute;
- //    // left: -0.5em;
- //    // bottom: 0;
- //    // width: 0.5em;
- //    // height: 1em;
- //    // border-right: 0.5em solid #cfdae1;
- //    // border-bottom-right-radius: 1em 0.5em;
- //  }
+	
+	&:before {
+    // border-color: #E5E4E9;
+    // border-radius: 0 200% 0 50%;
+    // border-style: solid;
+    // border-width: 0 20px;
+    // bottom: 0;
+    // clip-path: rect(0 20px, 0 35px, 0 42px, 0 0);
+    // content: " ";
+    // height: 40px;
+    // position: absolute;
+    // width: 30px;
+    // left: -50px;
+    // transform: rotateY(180deg);
+	}
 }
-.currentUserMessage {
+.activity.currentUserMessage {
 	float: right;
   background-color: #227FBB;
   color: white;
- //  &::before {
- //    border-color: #E5E4E9;
- //    left: -50px;
- //    -webkit-transform: rotateY(180deg);
- //    -moz-transform: rotateY(180deg);
- //    transform: rotateY(180deg);
- //  }
-	// &::before {
- //    -webkit-transform: rotateY(180deg);
- //    -moz-transform: rotateY(180deg);
- //    transform: rotateY(180deg);
- //    border-color: #2095FE;
- //    border-radius: 50% 50% 50% 50%;
- //    border-style: solid;
- //    border-width: 0 20px;
- //    bottom: 0;
- //    clip: rect(20px, 35px, 42px, 0px);
- //    content: " ";
- //    height: 40px;
- //    position: absolute;
- //    right: -50px;
- //    width: 30px;
-	// }
-  // &::after {
-		// content: "";
-  //   position: absolute;
-  //   right: -0.5em;
-  //   bottom: 0;
-  //   width: 0.5em;
-  //   height: 1em;
-  //   border-left: 0.5em solid #1289fe;
-  //   border-bottom-left-radius: 1em 0.5em;
-  // }
+  
+  &:before {
+    // border-color: #227FBB;
+    // right: -3px;
+    // transform: rotateY(180deg);
+  }
 }
 .activity-row {
 	display: block;
@@ -192,7 +148,7 @@ $bio-pic-height: ($bio-pic-wrapper-height) - ($bio-pic-wrapper-padding*2);
 		border: none;
 		font-family: 'Helvetica', sans-serif;
 	  letter-spacing:1px;
-		font-weight: bold;
+		font-weight: $bold;
 		float:right;
 		line-height: 30px;
 		cursor: pointer;
@@ -200,8 +156,6 @@ $bio-pic-height: ($bio-pic-wrapper-height) - ($bio-pic-wrapper-padding*2);
 		color: #8E8E93;
 		outline: none;
 		width: 20%;
-		-webkit-transition: color .5s ease;
-		-o-transition: color .5s ease;
 		transition: color .5s ease;
 		&:hover { color: #1289fe; }
 	}
