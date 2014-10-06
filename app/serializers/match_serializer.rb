@@ -41,7 +41,7 @@ class MatchSerializer < ActiveModel::Serializer
         @user_conversation = c
       end
     end
-    @conversation_messages = @user_conversation.messages.all
+    @conversation_messages = @user_conversation.messages.all.order(created_at: :asc)
   end
 
   def last_message_received

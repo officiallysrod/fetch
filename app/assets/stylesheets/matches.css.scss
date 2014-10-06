@@ -5,6 +5,11 @@
 $gray-object-color: #f3f3f3;
 $gray-text-color: #d1d1d1; 
 $border-gray: 1px solid $gray-object-color;
+$bio-pic-wrapper-width: 320px;
+$bio-pic-wrapper-height: 320px;
+$bio-pic-wrapper-padding: 15px;
+$bio-pic-width: ($bio-pic-wrapper-width) - ($bio-pic-wrapper-padding*2);
+$bio-pic-height: ($bio-pic-wrapper-height) - ($bio-pic-wrapper-padding*2);
 
 /* Matches Page
 ================== */
@@ -21,6 +26,20 @@ $border-gray: 1px solid $gray-object-color;
 	max-height: 85vh;
 }
 .bio-name { font-size: 30px; color: #454545; }
+.bio-pic-wrapper { 
+	width: $bio-pic-wrapper-width; 
+	height: $bio-pic-wrapper-height; 
+	padding: $bio-pic-wrapper-padding; 
+	background-color: #fff;
+	-webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+.bio-pic { 
+	background: url() no-repeat center center; 
+	background-size: cover;
+	width: $bio-pic-width;
+	height: $bio-pic-height;
+}
 .bio-description { font-size: 15px; width: 93%; font-weight: 300; }
 .dash .cards { margin-top: 100px; }
 
