@@ -36,6 +36,10 @@ fetchApp.controller('UserCtrl', ['$scope', 'User', function($scope, User){
     setTimeout(function(){$scope.getMoreUsers()}, 500);
   }
 
+  $scope.passUser = function(userData) {
+    $scope.selectedUser = userData;
+  }
+
 }]);
 
 fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, Match, Message){

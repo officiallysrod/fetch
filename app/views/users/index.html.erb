@@ -1,16 +1,16 @@
 <%= render 'partials/nav' %>
 <!-- Dash Page -->
 <div class="dash" ng-controller="UserCtrl">
+  
+  <!-- profileModal partial -->
+  <%= render partial: 'partials/profileModal' %>
+
     <!-- Cards -->
     <div class="cards col-sm-offset-5">
       <div class="people">
         <div class="person" ng-repeat="user in users">
           
-          <!-- profileModal partial -->
-          <%= render partial: 'partials/profileModal' %>
-          
-          <div class="card" data-toggle="modal" data-target="#{{user.id}}" bg-image="{{user.profile_pic_large}}">
-            <!-- <img src="{{user.profile_pic_large}}"> -->
+          <div class="card" data-toggle="modal" ng-click="passUser(user)" data-target="#profileModal" bg-image="{{user.profile_pic_large}}">
           </div>
 
           <div class="controls">
