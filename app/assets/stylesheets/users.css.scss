@@ -26,25 +26,38 @@
 /* Conversations
 ================ */
 .conversations {
-	.img-circle {  
-		width: 50px;
-		height: 50px;
-		margin: 13px 15px auto auto;
-	}
-	.friend-thumb {
-		background: url() no-repeat center center; 
-		background-size: cover;
-	}
-	h3 { color: #D1D1D1; font-weight: $light; }
-	.conversations-title { padding: 18px 0; }
 	border-right: $border-gray;
 	max-height: 93vh;
 	height: 92vh;
 	background-color: #fff;
 	overflow: scroll;
 	overflow-x: hidden;
+
+	.img-circle {  
+		width: 65px;
+		height: 65px;
+		margin: 9px 15px 8px auto;
+	}
+	.friend-thumb {
+		background: url() no-repeat center center; 
+		background-size: cover;
+	}
+	h3 { 
+		color: #D1D1D1; 
+		font-weight: $light; 
+		margin: 0; 
+	}
+	.conversations-title { padding: 18px 0; }
 	.row {
-		h4 { color: $gray-text-color; }
+		cursor: pointer;
+		min-height: 80px;
+		border-bottom: $border-gray;
+		padding: 0 0 0 15px;
+
+		h4 { 
+			color: $gray-text-color; 
+			margin-bottom: 5px;
+		}
 		p { 
 			color: darken($gray-text-color, 30%);
 		  width: 100px;
@@ -55,16 +68,12 @@
 			word-wrap: break-word; 
 			transition: color .2s linear;
 		}
-		cursor: pointer;
-		min-height: 80px;
-		border-bottom: $border-gray;
-		padding: 0 0 0 15px;
+
 		&:hover {
 			background-color: $gray-object-color;
 			p { color: black; }
 		}
 	}
-
 }
 @media (min-width: 40rem) {
 	.profileModal .modal-dialog { 

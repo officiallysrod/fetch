@@ -47,6 +47,24 @@ body {
 	&:hover { background-color: darken($primary-color, 10%); }
 }
 
+#chatIconSVG {
+	width: 60px;
+	height: 60px;
+}
+.chatIconBubble {
+	fill: $chatIconColor;
+}
+
+@media (max-width: 47rem) {
+	#chatIconSVG {
+		width: 70px;
+		height: 70px;
+	}
+	.chatIconBubble {
+		fill: $chatIconColor;
+	}
+}
+
 @media (min-width: 40rem) {
 	html { font-size: 112.5%; }
 }
@@ -56,17 +74,27 @@ body {
 
 /* Global Nav 
 =============== */
+.navbar { 
+	padding-top: 4px;
+	padding-bottom: 2px;
+	min-height: 55px; 
+}
 .navbar-default { 
 	background-color: $nav-background-color; 
-	border-color: $nav-border-color; 
+	border-bottom: 1px solid #E9E9E9;
 
-	.nav-logo { width: 25px; }
-	.nav-logo-name { width: 75px; }
-	.navbar-nav > li > a { font-size: 15px; }
+	.nav-logo { width: 27px; }
+	.nav-logo-name { width: 77px; }
+	.navbar-nav li a { 
+		font-size: 15px; 
+		color: $gray-text-color;
+		transition: color .3s ease;
+		&:hover { color: #333; }
+	}
 	.navbar-brand { padding: 12px 15px; }
 }
 @media (min-width: 40rem) {
-	.container-fluid { padding-right: 85px; padding-left: 85px; }
+	.container-fluid { padding: 0 85px; }
 }
 
 /* Global Cards

@@ -6,7 +6,7 @@ $primary-color: #FF5555;
 $bg-color: #F8F8F8;
 $gray-object-color: #F3F3F3;
 $main-text-color: #000;
-$gray-text-color: #d1d1d1;
+$gray-text-color: #D1D1D1;
 $border-gray: 1px solid $gray-object-color;
 $border-radius: 2px;
 
@@ -28,9 +28,11 @@ $nav-border-color: #fff;
 /* Matches
 =============================== */
 // 20rem = 320px
-$bio-pic-wrapper-width: 17rem;
-$bio-pic-wrapper-height: 17rem;
+$bio-pic-wrapper-width: 18rem;
+$bio-pic-wrapper-height: 18rem;
 // .9375rem = 15px
 $bio-pic-wrapper-padding: .9375rem;
 $bio-pic-width: ($bio-pic-wrapper-width) - ($bio-pic-wrapper-padding*2);
 $bio-pic-height: ($bio-pic-wrapper-height) - ($bio-pic-wrapper-padding*2);
+$user-message-color: #227FBB;
+$chatIconColor: #ddd;
