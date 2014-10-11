@@ -14,7 +14,7 @@
 	textarea { resize: none; }
 	max-width: 60rem;
 	.controls { top: 16.875rem; }
-	.row { float:none; }
+	.row { float: none; }
 	.cards { margin: auto; right: 0; left: 0; }
 	.signup-button { 
 		font-size: 19px;
@@ -34,8 +34,16 @@
 		}
 	}
 }
-.logo { max-width: 50px; }
-.logo-name { max-width: 150px; }
+.logo-dog,
+.logo-name { display: inline-block; }
+.logo-dog { 
+	max-width: 50px; 
+	width: 24%;
+}
+.logo-name { 
+	max-width: 150px; 
+	width: 73%;
+}
 .headline { 
 	h2 {
 		color: #BDC3C7;
@@ -48,12 +56,18 @@
 	width: 100%;
 	float: none;
 }
-#welcome-signup-card {
-	a { display: block; }
-}
+#welcome-signup-card a { display: block; }
+
 @media (min-width: 40rem) {
-	.logo { max-width: 66px; }
-	.logo-name { max-width: 200px; }
+	.logo { 
+
+		.logo-dog { 
+			max-width: 66px; 
+		}
+		.logo-name { 
+			max-width: 200px; 
+		}
+	}
 }
 @media (min-width: 45rem) {
 	#welcome-signup-card { padding-right: 2rem;	}
@@ -74,8 +88,17 @@
 		}
 	}
 	.headline-logo { float:right; }
-	.logo { max-width: 92px; }
-	.logo-name { max-width: 300px; margin-left: 15px; }
+	.logo { 
+		float: right; 
+	
+		.logo-dog,
+		.logo-name { float: left; }
+		.logo-dog { max-width: 92px; }
+		.logo-name { 
+			max-width: 300px; 
+			margin-left: 3%; 
+		}
+	}
 	.headline {
 		margin: 25px 0;
 		h2 {
