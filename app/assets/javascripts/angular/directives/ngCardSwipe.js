@@ -8,7 +8,10 @@ fetchApp.directive('ngCardSwipe', function() {
 	        animate = (type == 'like') ? 'animateYes' : 'animateNo',
 	        self = this,
 	        topCard = $('.card').eq(0),
-	        topPerson = $('.person').eq(0);
+	        topPerson = $('.person').eq(0),
+
+	        // Google: How do you pass a parameter into an angular directive?
+	        type = attrs;
 
 				element.bind('click', function(type) {
 			    if (!this.blocked) {

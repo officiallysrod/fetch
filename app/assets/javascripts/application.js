@@ -22,7 +22,7 @@
 
 ready = function() {
 	// Prevent links with href="#" from doing their default action
-	$('a[href*=#]').click(function(){ preventDefault(); });
+	$('a[href*=#]').click(function(e){ e.preventDefault(); });
 
 	// Clicking the email button reveals the signup/login form .. Refactor into WelcomeCTRL
 	$('.modal-dialog').on('click', '.btn-email', function(e) {

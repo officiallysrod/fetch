@@ -38,7 +38,14 @@ body {
 	font-family: $base-font-family;
 }
 
-.edit { margin-top: 100px; }
+.edit { 
+	margin-top: 100px;
+	
+	h1 { 
+		text-align: center; 
+		margin-bottom: 25px;
+	}
+}
 .matches { margin-top: 50px; }
 
 .btn-fetch-primary { 
@@ -93,31 +100,23 @@ body {
 	}
 	.navbar-brand { padding: 12px 15px; }
 }
-@media (min-width: 40rem) {
-	.container-fluid { padding: 0 85px; }
-}
 
 /* Global Cards
 =============== */
 .cards { 
+	width: 18.7rem;
+	height: 25.9375rem;
+	min-height: 100%;
 	overflow: hidden;
-	width: 16.6875rem;
-	height: 25rem;
 	position: absolute;
-	margin: auto; 
 	left: 0; 
 	right: 0;
+	margin: auto;
 }
 
-.card {
-	width: 15.625rem;
-	height: 16.5625rem;
-	background: url() no-repeat center center;
-	background-size: cover;
-}
 .people {
 	position: relative;
-	margin: 0 auto;
+	margin: 20px auto;
 }
 .person {
 	position: absolute;
@@ -143,6 +142,10 @@ body {
 	}
 }
 .card {
+	width: $card-width;
+	height: $card-height;
+	background: url() no-repeat center center;
+	background-size: cover;
 	overflow: hidden;
 	position: relative;
 	background-color: #fff;
@@ -151,6 +154,7 @@ body {
 	box-shadow: 0 1px 5px rgba(0,0,0,.2);
 	// border: 1px solid  rgba(0,0,0,.2);
 	transition: all .1s linear;	
+	
 	&:before {
 		position: absolute;
 		top:0;
@@ -175,6 +179,15 @@ body {
 		line-height: 30px;
 		color: #555;
 	}
+}
+.card-name {
+	background-color: #FFF;
+	font-size: 22px;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	padding: 0.5rem 0.75rem;
+	color: rgba(0,0,0,.7);
 }
 
 // Card Controls
@@ -347,3 +360,9 @@ body {
 /* Form Styles
 ========================= */
 .form_styles { padding: 0 30px; }
+
+/* Media Queries
+========================= */
+@media (min-width: 40rem) {
+	.container-fluid { padding: 0 85px; }
+}
