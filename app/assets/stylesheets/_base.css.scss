@@ -24,6 +24,22 @@ $base-font-weight: $regular;
 $nav-background-color: #fff;
 $nav-border-color: #fff;
 
+
+
+/* Fonts
+============================== */
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,800,400,600);
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: font_url('glyphicons-halflings-regular.eot');
+  src: 	font_url('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+			  font_url('glyphicons-halflings-regular.woff') format('woff'), 
+			  font_url('glyphicons-halflings-regular.ttf') format('truetype'), 
+			  font_url('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+
+
 /* User 
 ===============================*/
 $card-width: 18.5rem;

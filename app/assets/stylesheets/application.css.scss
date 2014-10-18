@@ -1,38 +1,22 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require bootstrap
  *= require_tree .
  *= require_self
  */
 
-// Open Sans
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,800,400,600);
-
-@import 'base';
+@import "bootstrap-custom";
+@import "base";
 
 /* Global Properties
 ===================== */
-*, *:before, *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+*, *:before, *:after { box-sizing: border-box; }
+
 html, 
 body, 
 .wrapper,
 .dash { height: 100%; }
 
 html { font-size: 100%; }
+
 body { 
 	background-color: $bg-color; 
 	font-family: $base-font-family;
@@ -40,6 +24,7 @@ body {
 
 .edit { 
 	margin-top: 100px;
+	float: none;
 	
 	h1 { 
 		text-align: center; 
@@ -98,7 +83,7 @@ body {
 		transition: color .3s ease;
 		&:hover { color: #333; }
 	}
-	.navbar-brand { padding: 12px 15px; }
+	.navbar-brand { padding: 10px 15px; }
 }
 
 /* Global Cards
