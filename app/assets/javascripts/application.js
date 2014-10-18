@@ -20,6 +20,11 @@
 
 
 ready = function() {
+	
+	$(function() {
+    FastClick.attach(document.body);
+	});
+
 	// Prevent links with href="#" from doing their default action
 	$('a[href*=#]').click(function(e){ e.preventDefault(); });
 

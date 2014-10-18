@@ -47,7 +47,7 @@ body {
 	fill: $chatIconColor;
 }
 
-@media (max-width: 47rem) {
+@media (max-width: 752px) {
 	#chatIconSVG {
 		width: 70px;
 		height: 70px;
@@ -55,13 +55,6 @@ body {
 	.chatIconBubble {
 		fill: $chatIconColor;
 	}
-}
-
-@media (min-width: 40rem) {
-	html { font-size: 112.5%; }
-}
-@media (min-width: 60rem) {
-	html { font-size: 120%; }
 }
 
 /* Global Nav 
@@ -105,6 +98,8 @@ body {
 }
 .person {
 	position: absolute;
+	width: 100%;
+
 	// if an element is not the first person
 	&:not(:nth-child(1)) { 
 		pointer-events: none; 
@@ -128,6 +123,7 @@ body {
 }
 .card {
 	width: $card-width;
+	max-width: 100%;
 	height: $card-height;
 	background: url() no-repeat center center;
 	background-size: cover;
@@ -348,6 +344,10 @@ body {
 
 /* Media Queries
 ========================= */
-@media (min-width: 40rem) {
+@media (min-width: 640px) {
+	html { font-size: 112.5%; }
 	.container-fluid { padding: 0 85px; }
+}
+@media (min-width: 960px) {
+	html { font-size: 120%; }
 }

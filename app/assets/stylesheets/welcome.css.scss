@@ -13,9 +13,15 @@
 	width: 90%;
 	textarea { resize: none; }
 	max-width: 60rem;
-	.controls { top: 16.875rem; }
+	.controls { top: 20.35rem; }
 	.row { float: none; }
-	.cards { margin: auto; right: 0; left: 0; }
+	.cards { 
+		margin: auto; 
+		right: 0; 
+		left: 0; 
+		width: 17.7rem;
+		height: 14.938rem;
+	}
 	.signup-button { 
 		font-size: 19px;
 		height: 55px; 
