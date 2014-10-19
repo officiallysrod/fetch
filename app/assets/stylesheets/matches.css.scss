@@ -6,6 +6,7 @@
 
 /* Matches Page
 ================== */
+.matches { margin-top: 50px; }
 .profile-bio-messenger { padding-top: 60px; }
 .bio {
 	img { width: 90%; height: 90%; }
@@ -167,8 +168,83 @@
 	}
 }
 
+/* Conversations
+================ */
+.conversations {
+	border-right: $border-gray;
+	max-height: 93vh;
+	height: 92vh;
+	background-color: #fff;
+	overflow: scroll;
+	overflow-x: hidden;
+
+	.img-circle {  
+		width: 65px;
+		height: 65px;
+		margin: 9px 15px 8px auto;
+	}
+	.friend-thumb {
+		background: url() no-repeat center center; 
+		background-size: cover;
+	}
+	h3 { 
+		color: #D1D1D1; 
+		font-weight: $light; 
+		margin: 0; 
+	}
+	.conversations-title { padding: 18px 0; }
+	.row {
+		cursor: pointer;
+		min-height: 80px;
+		border-bottom: $border-gray;
+		padding: 0 0 0 15px;
+
+		h4 { 
+			color: $gray-text-color; 
+			margin-bottom: 5px;
+		}
+		p { 
+			color: darken($gray-text-color, 30%);
+		  width: 100px;
+		  white-space: nowrap;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+			font-size: 13px;
+			word-wrap: break-word; 
+			transition: color .2s linear;
+		}
+
+		&:hover {
+			background-color: $gray-object-color;
+			p { color: black; }
+		}
+	}
+}
+
+#chatIconSVG {
+	width: 60px;
+	height: 60px;
+}
+.chatIconBubble {
+	fill: $chatIconColor;
+}
+
+@media (max-width: 752px) {
+	#chatIconSVG {
+		width: 70px;
+		height: 70px;
+	}
+	.chatIconBubble {
+		fill: $chatIconColor;
+	}
+}
+
 /* Media Queries
 ================= */
+@media (max-width: 40rem) {
+	.conversations { 	overflow: visible; }
+}
+
 @media (max-width: 48rem) {
 	.message-widget { margin: 20px auto; }
 	.send-message-button { font-size: 13px; }

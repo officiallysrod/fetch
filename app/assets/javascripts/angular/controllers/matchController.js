@@ -8,7 +8,10 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, 
 
     //sets an initial value for friend so the friendshow partial has something to render on load
     $scope.friend = $scope.friends[0];
-    $scope.messages = $scope.friend.conversation;
+    
+    if ($scope.friend) {
+      $scope.messages = $scope.friend.conversation;      
+    }
   });
 
   $scope.showMatch = function(index){

@@ -4,8 +4,6 @@
 
 @import 'base';
 
-.center-block { float:none; }
-
 /* Profile Modal
 ============== */
 .profileModal .modal-dialog { 
@@ -24,58 +22,6 @@
 	}
 }
 
-/* Conversations
-================ */
-.conversations {
-	border-right: $border-gray;
-	max-height: 93vh;
-	height: 92vh;
-	background-color: #fff;
-	overflow: scroll;
-	overflow-x: hidden;
-
-	.img-circle {  
-		width: 65px;
-		height: 65px;
-		margin: 9px 15px 8px auto;
-	}
-	.friend-thumb {
-		background: url() no-repeat center center; 
-		background-size: cover;
-	}
-	h3 { 
-		color: #D1D1D1; 
-		font-weight: $light; 
-		margin: 0; 
-	}
-	.conversations-title { padding: 18px 0; }
-	.row {
-		cursor: pointer;
-		min-height: 80px;
-		border-bottom: $border-gray;
-		padding: 0 0 0 15px;
-
-		h4 { 
-			color: $gray-text-color; 
-			margin-bottom: 5px;
-		}
-		p { 
-			color: darken($gray-text-color, 30%);
-		  width: 100px;
-		  white-space: nowrap;
-		  overflow: hidden;
-		  text-overflow: ellipsis;
-			font-size: 13px;
-			word-wrap: break-word; 
-			transition: color .2s linear;
-		}
-
-		&:hover {
-			background-color: $gray-object-color;
-			p { color: black; }
-		}
-	}
-}
 @media (min-width: 40rem) {
 	.profileModal .modal-dialog { 
 		max-width: 600px; 
@@ -87,6 +33,16 @@
 		.picture { margin: 0; }
 	}
 }
-@media (max-width: 40rem) {
-	.conversations { 	overflow: visible; }
+
+/* Edit Page
+================= */
+
+.edit { 
+	margin-top: 100px;
+	float: none;
+	
+	h1 { 
+		text-align: center; 
+		margin-bottom: 25px;
+	}
 }

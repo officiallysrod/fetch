@@ -19,19 +19,8 @@ html { font-size: 100%; }
 
 body { 
 	background-color: $bg-color; 
-	font-family: $base-font-family;
+	font-family: $base-font-family, $backup-font;
 }
-
-.edit { 
-	margin-top: 100px;
-	float: none;
-	
-	h1 { 
-		text-align: center; 
-		margin-bottom: 25px;
-	}
-}
-.matches { margin-top: 50px; }
 
 .btn-fetch-primary { 
 	background-color: $primary-color; 
@@ -39,23 +28,7 @@ body {
 	&:hover { background-color: darken($primary-color, 10%); }
 }
 
-#chatIconSVG {
-	width: 60px;
-	height: 60px;
-}
-.chatIconBubble {
-	fill: $chatIconColor;
-}
-
-@media (max-width: 752px) {
-	#chatIconSVG {
-		width: 70px;
-		height: 70px;
-	}
-	.chatIconBubble {
-		fill: $chatIconColor;
-	}
-}
+.center-block { float: none; }
 
 /* Global Nav 
 =============== */
@@ -83,8 +56,7 @@ body {
 =============== */
 .cards { 
 	width: 18.7rem;
-	height: 25.9375rem;
-	min-height: 100%;
+	min-height: 85%;
 	overflow: hidden;
 	position: absolute;
 	left: 0; 
@@ -182,7 +154,7 @@ body {
 		height: 72px;
 		background: #eee;
 		position: absolute;
-		top: 5px;
+		top: .3125em;
 		border-radius: 50%;
 		box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
 		&:hover { 
@@ -194,10 +166,7 @@ body {
 	.trigger {
 		outline: none;
     border-radius: 50%;
-    width: 75px;
-    height: 75px;
     margin: 0 auto;
-    position: relative;
     top: 50%;
     transform: translateY(-50%);
     transition: all .05s linear;
@@ -222,23 +191,23 @@ body {
   	}
 	}
 
-	.no { left: 38px; }
+	.no { left: 36px; }
 	.no .trigger { 
 		background-size: 93px;
 		background-image: url('x.svg'); 
-		background-position: -14px -12px;;
+		background-position: -14px -12px;
 	}
-	.yes { right: 38px; }
+	.yes { right: 46px; }
 	.yes .trigger { 
 		left: 0;
 		background-image: url('heart.svg');
 		background-repeat: no-repeat;
 		background-size: 36px;
-		background-position: 14.5px 17px;
+		background-position: 13.5px 16px;
 	}
 }
 
-/* Animations
+/* Card Animations
 ================ */
 
 @keyframes yes {
@@ -261,7 +230,7 @@ body {
   animation: yes 0.6s linear;
 	&:before {
 	  transform: rotateZ(-35deg);
-	  background: url(http://i.imgur.com/Zkwj970.png) no-repeat center 10px;
+	  background: url('http://i.imgur.com/Zkwj970.png') no-repeat center 10px;
 	}
 }
 
@@ -285,62 +254,14 @@ body {
   animation: no 0.6s linear;
 	&:before {
 	  transform: rotateZ(35deg);  
-	  background: url(http://i.imgur.com/XqQZ4KR.png) no-repeat center 10px;
+	  background: url('http://i.imgur.com/XqQZ4KR.png') no-repeat center 10px;
 	}
-}
-
-/* Global Modals
-================ */
-#at-symbol-glyph { font-size: 12px; }
-.email-hidden { display: none; }
-.modal-header { border-bottom: none; padding-bottom: 0;}
-.modal-title { font-size: 22px; }
-.glyphicon { font-size: 11px; }
-.modal-dialog {
-	width: 315px;
-	margin: 70px auto;
-	textarea { resize: none; }
-	.modal-content { border-radius: $border-radius; }
-
-	.divider { 
-		margin: 5px 0;
-		hr { margin-top: -15px; }
-		span {
-			color: $gray-text-color;
-			font-size: 17px;
-			display: inline-block; 
-			padding: 6px; 
-			background-color: white;
-		}
-	}
-
-	#facebook-img,
-	#email-img {		
- 			width: 40px; 
-			position: absolute;
-			z-index: 100; 
-			right: 139px; 
-	}
-	#facebook-img { top: 4px; right: 122px; }
-	#email-img { top: 123.5px; }
- 	.btn-facebook { 
- 		background-color: #3B5998;
- 		position: relative;
- 		width: 100%; 
- 		height: 51px;
- 		border-radius: $border-radius;
- 	}
- 	.btn-email {
- 		width: 100%; 
- 		height: 51px;
- 		background-color: $primary-color;
- 		border-radius: $border-radius;
- 	}
 }
 
 /* Form Styles
 ========================= */
 .form_styles { padding: 0 30px; }
+
 
 /* Media Queries
 ========================= */
