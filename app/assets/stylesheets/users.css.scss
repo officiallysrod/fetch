@@ -4,6 +4,9 @@
 
 @import 'base';
 
+.dash { min-height: $card-height + 5rem; }
+.dash .cards { margin-top: 50px; }
+
 /* Profile Modal
 ============== */
 .profileModal .modal-dialog { 
@@ -32,6 +35,8 @@
 		}
 		.picture { margin: 0; }
 	}
+
+	.dash .cards { margin-top: 100px; }
 }
 
 /* Edit Page

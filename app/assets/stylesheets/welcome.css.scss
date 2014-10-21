@@ -14,7 +14,7 @@
 	max-width: 60rem;
 	
 	textarea { resize: none; }
-	.controls { top: 20.35rem; }
+	.controls { top: 17.35rem; }
 	.row { float: none; }
 	.cards { 
 		margin: auto; 
@@ -22,6 +22,8 @@
 		left: 0; 
 		width: 17.7rem;
 		height: 14.938rem;
+
+		.card { height: 16.5625rem; }
 	}
 	.signup-button { 
 		font-size: 19px;
@@ -63,7 +65,12 @@
 	width: 100%;
 	float: none;
 }
-#welcome-signup-card a { display: block; }
+#welcome-signup-card a { 
+	margin: .5rem; 
+	display: block; 
+	color: white;
+	background-color: #ff5555;
+}
 
 /* Landing Modals
 ================ */

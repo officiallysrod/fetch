@@ -26,6 +26,7 @@ body {
 	background-color: $primary-color; 
 	border: none;
 	&:hover { background-color: darken($primary-color, 10%); }
+	&:focus { color: white; }
 }
 
 .center-block { float: none; }
@@ -56,8 +57,8 @@ body {
 =============== */
 .cards { 
 	width: 18.7rem;
-	min-height: 85%;
-	overflow: hidden;
+	min-height: 100%;
+	overflow-x: hidden;
 	position: absolute;
 	left: 0; 
 	right: 0;

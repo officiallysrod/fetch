@@ -34,7 +34,6 @@
 	max-width: 100%;
 }
 .bio-description { font-size: 15px; width: 93%; font-weight: $light; }
-.dash .cards { margin-top: 100px; }
 
 /* Chat Widget
 ================== */
@@ -174,6 +173,7 @@
 	border-right: $border-gray;
 	max-height: 93vh;
 	height: 92vh;
+	min-height: 400px;
 	background-color: #fff;
 	overflow: scroll;
 	overflow-x: hidden;
@@ -242,7 +242,7 @@
 /* Media Queries
 ================= */
 @media (max-width: 40rem) {
-	.conversations { 	overflow: visible; }
+	.conversations { overflow: visible; }
 }
 
 @media (max-width: 48rem) {
