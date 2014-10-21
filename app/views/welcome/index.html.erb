@@ -5,14 +5,16 @@
 	<div class="tight-container clearfix text-center">
 		<div class="column half headline">
 			<div class="row headline-logo">
-				<%= image_tag 'Group.png', class: 'logo' %>
-				<%= image_tag 'Fetch.png', class: 'logo-name' %>
+				<div class="logo clearfix">
+					<%= image_tag 'Group.png', class: 'logo-dog' %>
+					<%= image_tag 'Fetch.png', class: 'logo-name' %>
+				</div>
 				<h2>Are you <span>#DTFetch?</span></h2>
 			</div>
 			
 			<div class="row">
-				<a href="#" class="btn-primary signup-button btn-fetch-primary btn btn-lg col-sm-4" data-toggle="modal" data-target="#signupModal">Sign up</a>
-				<a href="#" class="btn-primary signup-button btn-fetch-primary btn btn-lg col-sm-4" data-toggle="modal" data-target="#loginModal">Log In</a>
+				<a href="#" class="signup-button btn-fetch-primary btn btn-lg col-sm-4" data-toggle="modal" data-target="#signupModal">Sign up</a>
+				<a href="#" class="signup-button btn-fetch-primary btn btn-lg col-sm-4" data-toggle="modal" data-target="#loginModal">Log In</a>
 			</div>
 		</div>
 	
@@ -22,22 +24,13 @@
 			  <div class="people center-block">
 			    
 			    <div class="person">
-			    	<div class="card">
-			    		<img src="http://www.freestockphotos.biz/pictures/14/14669/dog.jpg" alt="">
-			    	</div>
+			    	<div class="card" bg-image="<%= asset_path 'samsung.jpg' %>" style="background: url() center center no-repeat; background-size: cover;"></div>
 			    </div>
 			    <div class="person">
-			    	<div class="card">
-			    		<img src="http://www.liveeco.co.za/wp-content/uploads/2013/02/girl-with-dog-2.jpg" alt="">
-			    	</div>
+			    	<div class="card" bg-image="http://www.liveeco.co.za/wp-content/uploads/2013/02/girl-with-dog-2.jpg" style="background: url() center center no-repeat; background-size: cover;"></div>
 			    </div>
 			    <div class="person">
-			    	<div class="card">
-			    		<img src="http://www.dog-obedience-training-review.com/sites/default/files/girl-puppy-names.jpg" alt="">
-			    	</div>
-			    </div>
-			    <div class="person">
-			    	<div class="card"></div>
+			    	<div class="card" bg-image="http://www.dog-obedience-training-review.com/sites/default/files/girl-puppy-names.jpg" style="background: url() center center no-repeat; background-size: cover;"></div>
 			    </div>
 	
 				  <div class="person">
@@ -45,9 +38,9 @@
 				  		<br />
 				  		<br />
 				  		<p>Let's get to Fetching!</p>
-				  		<div id="welcome-signup-card">
-				  			<a href="#" class="btn-primary signup-button btn col-sm-4 col-sm-offset-2" data-toggle="modal" data-target="#loginModal">Log in</a>
-				  			<a href="#" class="btn-primary signup-button btn-fetch-primary btn col-sm-4" data-toggle="modal" data-target="#signupModal">Sign up</a>
+				  		<div id="welcome-signup-card" class="clearfix">
+				  			<a href="#" class="signup-button btn col-sm-4 col-sm-offset-2" data-toggle="modal" data-target="#loginModal">Log in</a>
+				  			<a href="#" class="signup-button btn-fetch-primary btn col-sm-4" data-toggle="modal" data-target="#signupModal">Sign up</a>
 				  		</div>
 				  	</div>
 				  </div>

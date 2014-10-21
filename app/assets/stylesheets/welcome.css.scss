@@ -2,8 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$primary-color: #FF5555;
-$bg-color: #f8f8f8;
+@import 'base';
 
 /* Landing Page
 ================ */
@@ -12,17 +11,24 @@ $bg-color: #f8f8f8;
 	margin: 0 auto;
 	padding: 0 50px;
 	width: 90%;
-	textarea { resize: none; }
 	max-width: 60rem;
-	.controls {
-			top: 270px;
+	
+	textarea { resize: none; }
+	.controls { top: 17.35rem; }
+	.row { float: none; }
+	.cards { 
+		margin: auto; 
+		right: 0; 
+		left: 0; 
+		width: 17.7rem;
+		height: 14.938rem;
+
+		.card { height: 16.5625rem; }
 	}
-	.row { float:none; }
-	.cards { margin: auto; right:0; left: 0; }
 	.signup-button { 
 		font-size: 19px;
 		height: 55px; 
-		font-weight: 400;
+		font-weight: $regular;
 		display: block; 
 		border-radius: 8px;
 		padding-top: 14px;
@@ -30,7 +36,6 @@ $bg-color: #f8f8f8;
 		background-color: $bg-color;
 		border: 1px solid $primary-color;
 		margin: 10px auto;
-		-webkit-transition: all .5 ease;
 		transition: all .5 ease;
 		&:hover { 
 			background-color: $primary-color; 
@@ -38,47 +43,127 @@ $bg-color: #f8f8f8;
 		}
 	}
 }
-.logo { max-width: 50px; }
-.logo-name { max-width: 150px; }
+.logo-dog,
+.logo-name { display: inline-block; }
+.logo-dog { 
+	max-width: 50px; 
+	width: 24%;
+}
+.logo-name { 
+	max-width: 150px; 
+	width: 73%;
+}
 .headline { 
 	h2 {
 		color: #BDC3C7;
 		margin-bottom: 20px;
 		display: block; 
-		font-weight: 600;
-		span { font-weight: 800; }
+		font-weight: $semibold;
+		span { font-weight: $bold; }
 	}
 	margin: 25px 0;
 	width: 100%;
 	float: none;
 }
-#welcome-signup-card {
-	a { display: block; }
+#welcome-signup-card a { 
+	margin: .5rem; 
+	display: block; 
+	color: white;
+	background-color: #ff5555;
 }
+
+/* Landing Modals
+================ */
+#at-symbol-glyph { font-size: 12px; }
+.email-hidden { display: none; }
+.modal-header { border-bottom: none; padding-bottom: 0;}
+.modal-title { font-size: 22px; }
+.glyphicon { font-size: 11px; }
+.modal-dialog {
+	width: 315px;
+	margin: 70px auto;
+	textarea { resize: none; }
+	.modal-content { border-radius: $border-radius; }
+
+	.divider { 
+		margin: 5px 0;
+		hr { margin-top: -15px; }
+		span {
+			color: $gray-text-color;
+			font-size: 17px;
+			display: inline-block; 
+			padding: 6px; 
+			background-color: white;
+		}
+	}
+
+	#facebook-img,
+	#email-img {		
+ 			width: 40px; 
+			position: absolute;
+			z-index: 100; 
+			right: 139px; 
+	}
+	#facebook-img { top: 4px; right: 122px; }
+	#email-img { top: 123.5px; }
+ 	.btn-facebook { 
+ 		background-color: #3B5998;
+ 		position: relative;
+ 		width: 100%; 
+ 		height: 51px;
+ 		border-radius: $border-radius;
+ 	}
+ 	.btn-email {
+ 		width: 100%; 
+ 		height: 51px;
+ 		background-color: $primary-color;
+ 		border-radius: $border-radius;
+ 	}
+}
+
+/* Media Queries
+=================== */
 @media (min-width: 40rem) {
-	.logo { max-width: 66px; }
-	.logo-name { max-width: 200px; }
+	.logo { 
+		.logo-dog { max-width: 66px; }
+		.logo-name { max-width: 200px; }
+	}
 }
 @media (min-width: 45rem) {
+	#welcome-signup-card { padding-right: 2rem;	}
 	.welcome { margin-top: 100px; }
 	.tight-container {
-		.cards { margin-left: 8.333333%; right:auto; left: auto; }
+		.cards {
+			left: auto;
+			right: auto;
+			margin-left: 8.333333%;
+		}
 		.signup-button { 
+			display: block; 
 			float: right;
 			height: 55px; 
-			font-weight: 400;
-			display: block; 
+			width: 38%;
 			border-radius: 8px;
 			padding-top: 14px;
-			width: 38%;
 			color: white;
+			font-weight: $regular;
 			background-color: $primary-color;
+
 			&:nth-child(1) { margin-left: 14px; }
 		}
 	}
 	.headline-logo { float:right; }
-	.logo { max-width: 92px; }
-	.logo-name { max-width: 300px; margin-left: 15px; }
+	.logo { 
+		float: right; 
+	
+		.logo-dog,
+		.logo-name { float: left; }
+		.logo-dog { max-width: 92px; }
+		.logo-name { 
+			max-width: 300px; 
+			margin-left: 3%; 
+		}
+	}
 	.headline {
 		margin: 25px 0;
 		h2 {
@@ -86,8 +171,8 @@ $bg-color: #f8f8f8;
 			color: #BDC3C7;
 			margin-bottom: 20px;
 			display: block; 
-			font-weight: 600;
-			span { font-weight: 800; }
+			font-weight: $semibold;
+			span { font-weight: $bold; }
 		}
 	}
 	.column {

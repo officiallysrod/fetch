@@ -1,92 +1,78 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require bootstrap
  *= require_tree .
  *= require_self
  */
 
-// Open Sans
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,800,400,600);
-
-/* Global Variables
-==================== */
-$primary-color: #FF5555;
-$bg-color: #F8F8F8;
-$gray-object-color: #F3F3F3;
-$main-text-color: #000;
-$gray-text-color: #d1d1d1;
-$border-gray: 1px solid $gray-object-color;
-$border-radius: 2px;
+@import "bootstrap-custom";
+@import "base";
 
 /* Global Properties
 ===================== */
-*, *:before, *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+*, *:before, *:after { box-sizing: border-box; }
+
 html, 
 body, 
 .wrapper,
-.dash { height:100%; }
+.dash { height: 100%; }
 
 html { font-size: 100%; }
+
 body { 
 	background-color: $bg-color; 
-	font-family: 'Open Sans';
+	font-family: $base-font-family, $backup-font;
 }
-
-.edit { margin-top: 100px; }
-.matches { margin-top: 50px; }
 
 .btn-fetch-primary { 
 	background-color: $primary-color; 
 	border: none;
 	&:hover { background-color: darken($primary-color, 10%); }
+	&:focus { color: white; }
 }
+
+.center-block { float: none; }
 
 /* Global Nav 
 =============== */
-.navbar-default { 
-	background-color: #fff; 
-	border-color: #fff; 
-	.nav-logo { width: 25px; }
-	.nav-logo-name { width: 75px; }
-	.navbar-nav > li > a { font-size: 15px; }
+.navbar { 
+	padding-top: 4px;
+	padding-bottom: 2px;
+	min-height: 55px; 
 }
-@media (min-width: 40rem) {
-	.container-fluid { padding-right: 85px; padding-left: 85px; }
+.navbar-default { 
+	background-color: $nav-background-color; 
+	border-bottom: 1px solid #E9E9E9;
+
+	.nav-logo { width: 27px; }
+	.nav-logo-name { width: 77px; }
+	.navbar-nav li a { 
+		font-size: 15px; 
+		color: $gray-text-color;
+		transition: color .3s ease;
+		&:hover { color: #333; }
+	}
+	.navbar-brand { padding: 10px 15px; }
 }
 
 /* Global Cards
 =============== */
 .cards { 
-	overflow: hidden;
-	width: 253px;
-	height: 400px;
+	width: 18.7rem;
+	min-height: 100%;
+	overflow-x: hidden;
 	position: absolute;
-	margin: auto; left: 0; right: 0;
+	left: 0; 
+	right: 0;
+	margin: auto;
 }
-.card {
-	width: 250px;
-	height: 265px;
-}
+
 .people {
 	position: relative;
-	margin: 0 auto;
+	margin: 20px auto;
 }
 .person {
 	position: absolute;
+	width: 100%;
+
 	// if an element is not the first person
 	&:not(:nth-child(1)) { 
 		pointer-events: none; 
@@ -96,32 +82,33 @@ body {
 	&:nth-child(2) .card { 
 		z-index: 4;
 		top: 7px;
-		-webkit-transform: scale(0.98);
 		transform: scale(0.98);
 	}
 	&:nth-child(3) .card {
 		z-index: 3;
 		top: 14px;
-		-webkit-transform: scale(0.96);
 		transform: scale(0.96);
 	}
 	&:nth-child(n+4) .card {
 		z-index: 2;
-		-webkit-transform: scale(.7);
 		transform: scale(.7);
 	}
 }
 .card {
+	width: $card-width;
+	max-width: 100%;
+	height: $card-height;
+	background: url() no-repeat center center;
+	background-size: cover;
 	overflow: hidden;
 	position: relative;
 	background-color: #fff;
 	cursor: pointer;
 	border-radius: 5px;
-	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,.2);
 	box-shadow: 0 1px 5px rgba(0,0,0,.2);
-	border: 1px solid  rgba(0,0,0,.2);
-	-webkit-transition: all .1s linear;
+	// border: 1px solid  rgba(0,0,0,.2);
 	transition: all .1s linear;	
+	
 	&:before {
 		position: absolute;
 		top:0;
@@ -147,6 +134,15 @@ body {
 		color: #555;
 	}
 }
+.card-name {
+	background-color: #FFF;
+	font-size: 22px;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	padding: 0.5rem 0.75rem;
+	color: rgba(0,0,0,.7);
+}
 
 // Card Controls
 .controls {
@@ -159,14 +155,11 @@ body {
 		height: 72px;
 		background: #eee;
 		position: absolute;
-		top: 5px;
+		top: .3125em;
 		border-radius: 50%;
-		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
 		box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
 		&:hover { 
-			-webkit-transition: all .2s ease;
 			transition: all .2s ease;
-			-webkit-transform: scale(1.05); 
 			transform: scale(1.05);
 		}
 	}
@@ -174,16 +167,10 @@ body {
 	.trigger {
 		outline: none;
     border-radius: 50%;
-    width: 75px;
-    height: 75px;
     margin: 0 auto;
-    position: relative;
     top: 50%;
-    -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    -webkit-transition: all .05s linear;
     transition: all .05s linear;
-    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     cursor: pointer; 
 		width: 72px; 
@@ -194,144 +181,95 @@ body {
 		background-color: #fff;
 
 	  &:active {
-	  	-webkit-transform: translateY(-50%) scale(0.75);
 	  	transform: translateY(-50%) scale(0.75);
-	  	-webkit-transition: all .05s linear;
 	  	transition: all .05s linear;
 	  }
   	&:before {
 	  	position: absolute;
 	  	top: 50%;
 	  	left: 50%;
-	  	-webkit-transform: translateY(-50%) scale(-50%);
 	  	transform: translateY(-50%) scale(-50%);
   	}
 	}
 
-	.no { left: 38px; }
+	.no { left: 36px; }
 	.no .trigger { 
 		background-size: 93px;
 		background-image: url('x.svg'); 
-		background-position: -14px -12px;;
+		background-position: -14px -12px;
 	}
-	.yes { right: 38px; }
+	.yes { right: 46px; }
 	.yes .trigger { 
 		left: 0;
 		background-image: url('heart.svg');
 		background-repeat: no-repeat;
 		background-size: 36px;
-		background-position: 14.5px 17px;
+		background-position: 13.5px 16px;
 	}
 }
 
-/* Animations
+/* Card Animations
 ================ */
 
-@-webkit-keyframes yes {
+@keyframes yes {
   0% {
-    -webkit-transform: scale(1) rotateZ(0deg);
     transform: scale(1) rotateZ(0deg);
     left: 0;
   }
   30% { 
-    -webkit-transform: scale(1.05) rotateZ(0deg);
     transform: scale(1.05) rotateZ(0deg);
     left: 0;
   }
   100% {
-    -webkit-transform: rotateZ(45deg);
     transform: rotateZ(45deg);
     left: 400px;
   }
 }
 
 .animateYes {
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation: yes 0.6s linear;
   animation: yes 0.6s linear;
 	&:before {
-		-webkit-transform: rotateZ(-35deg);
 	  transform: rotateZ(-35deg);
-	  background: url(http://i.imgur.com/Zkwj970.png) no-repeat center 10px;
+	  background: url('http://i.imgur.com/Zkwj970.png') no-repeat center 10px;
 	}
 }
 
-@-webkit-keyframes no {
+@keyframes no {
   0% {
-    -webkit-transform: scale(1) rotateZ(360deg);
     transform: scale(1) rotateZ(360deg);
     right: 0;
   }
   30% {
-    -webkit-transform: scale(1.05) rotateZ(360deg);
     transform: scale(1.05) rotateZ(360deg);
     right: 0;
   }
   100% {
-    -webkit-transform: rotateZ(315deg);
     transform: rotateZ(315deg);
     right: 400px;
   } 
 }
 
 .animateNo {
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  -webkit-animation: no 0.6s linear;
   animation: no 0.6s linear;
 	&:before {
-		-webkit-transform: rotateZ(35deg);
 	  transform: rotateZ(35deg);  
-	  background: url(http://i.imgur.com/XqQZ4KR.png) no-repeat center 10px;
+	  background: url('http://i.imgur.com/XqQZ4KR.png') no-repeat center 10px;
 	}
 }
 
-/* Global Modals
-================ */
-#at-symbol-glyph { font-size: 12px; }
-.email-hidden { display: none; }
-.modal-header { border-bottom: none; padding-bottom: 0;}
-.modal-title { font-size: 22px; }
-.glyphicon { font-size: 11px; }
-.modal-dialog {
-	width: 315px;
-	margin: 70px auto;
-	textarea { resize: none; }
-	.modal-content { border-radius: $border-radius; }
+/* Form Styles
+========================= */
+.form_styles { padding: 0 30px; }
 
-	.divider { 
-		margin: 5px 0;
-		hr { margin-top: -15px; }
-		span {
-			color: $gray-text-color;
-			font-size: 17px;
-			display: inline-block; 
-			padding: 6px; 
-			background-color: white;
-		}
-	}
 
-	#facebook-img,
-	#email-img {		
- 			width: 40px; 
-			position: absolute;
-			z-index: 100; 
-			right: 139px; 
-	}
-	#facebook-img { top: 4px; right: 122px; }
-	#email-img { top: 123.5px; }
- 	.btn-facebook { 
- 		background-color: #3B5998;
- 		position: relative;
- 		width: 100%; 
- 		height: 51px;
- 		border-radius: $border-radius;
- 	}
- 	.btn-email {
- 		width: 100%; 
- 		height: 51px;
- 		background-color: $primary-color;
- 		border-radius: $border-radius;
- 	}
+/* Media Queries
+========================= */
+@media (min-width: 640px) {
+	html { font-size: 112.5%; }
+	.container-fluid { padding: 0 85px; }
+}
+@media (min-width: 960px) {
+	html { font-size: 120%; }
 }

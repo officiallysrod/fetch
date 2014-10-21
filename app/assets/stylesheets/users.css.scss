@@ -2,76 +2,52 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$gray-object-color: #f3f3f3;
-$gray-text-color: #d1d1d1; 
-$border-gray: 1px solid $gray-object-color;
+@import 'base';
 
-.back-btn { 
-	background: url('back.svg') no-repeat;  
-	display: inline-block;
-	height: 30px;
-	padding-left: 17px;
-	padding-top: 2px;
-	margin: 10px 0 20px 0;
-	background-size: 23px;
-	background-position-x: -5px;
-	font-size: 13px;
-	&:hover { text-decoration: none; }
-}
-
-.center-block { float:none; }
+.dash { min-height: $card-height + 5rem; }
+.dash .cards { margin-top: 50px; }
 
 /* Profile Modal
 ============== */
 .profileModal .modal-dialog { 
-	width: 600px; 
+	width: 100%; 
+
+	.people { 
+		width: 100%; 
+		float: none;
+	}
 	.picture { 
 		width: 220px; 
-		height: 220px; 
+		height: 220px;
+		background: url() no-repeat center center;
+		background-size: cover;
+		margin: 0 auto;
 	}
 }
 
-/* Conversations
-================ */
-.conversations {
-	.img-circle {  
-		width: 50px;
-		height: 50px;
-		margin: 13px 15px auto auto;
-	}
-	h3 { color: #D1D1D1; font-weight: 300; }
-	.conversations-title { padding: 18px 0; }
-	border-right: $border-gray;
-	max-height: 93vh;
-	height: 92vh;
-	background-color: #fff;
-	overflow: scroll;
-	overflow-x: hidden;
-	.row {
-		h4 { color: $gray-text-color; }
-		p { 
-			color: darken($gray-text-color, 30%);
-		  width: 100px;
-		  white-space: nowrap;
-		  overflow: hidden;
-		  text-overflow: ellipsis;
-			font-size: 13px;
-			word-wrap: break-word; 
-			-webkit-transition: color .2s linear;
-			transition: color .2s linear;
+@media (min-width: 40rem) {
+	.profileModal .modal-dialog { 
+		max-width: 600px; 
+		
+		.people { 
+			width: inherit; 
+			float: left;
 		}
-		cursor: pointer;
-		min-height: 80px;
-		border-bottom: $border-gray;
-		padding: 0 0 0 15px;
-		&:hover {
-			background-color: $gray-object-color;
-			p { color: black; }
-		}
+		.picture { margin: 0; }
 	}
 
+	.dash .cards { margin-top: 100px; }
 }
 
-@media (max-width: 40rem) {
-	.conversations { 	overflow: visible; }
+/* Edit Page
+================= */
+
+.edit { 
+	margin-top: 100px;
+	float: none;
+	
+	h1 { 
+		text-align: center; 
+		margin-bottom: 25px;
+	}
 }
