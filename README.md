@@ -1,6 +1,7 @@
 # Fetch
+Fetch, a social network for dogs (and the owners who love them), was conceived at General Assembly during the Web Development Immersive program. Fetch gives dogs (and their owners) the opportunity to connect for doggy play dates.
 
-Fetch is a webapp using Angular on Rails that helps dogs and their owners socialize and meet others. Although the Fetch team will consistently be rolling out updates, you can visit the live site at [downtofetch.herokuapp.com](https://downtofetch.herokuapp.com)
+Fetch was built with AngularJS, Ruby on Rails, and PostgreSQL. 
 
 ![Imgur](http://i.imgur.com/fSRxK0a.png)
 
