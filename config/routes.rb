@@ -4,9 +4,7 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
   resources :users
-  resources :matches, only: [:index, :show, :new, :create, :destroy] do
-    collection { get :events }
-  end
+  resources :matches, only: [:index, :show, :new, :create, :destroy]
   resources :likes, only: [:new, :create]
   resources :rejections, only: [:new, :create]
   
@@ -17,7 +15,9 @@ Rails.application.routes.draw do
     resources :likes, only: [:new, :create], defaults: { format: :json }
     resources :rejections, only: [:new, :create], defaults: { format: :json }
 
-    resources :messages, only: [:new, :create], defaults: { format: :json }
+    resources :messages, only: [:new, :create], defaults: { format: :json } do
+      collection { get :events }
+    end
   end
 
   resources :usermatches, only: [:new, :create, :destroy]

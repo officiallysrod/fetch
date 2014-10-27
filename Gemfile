@@ -45,6 +45,9 @@ end
 #use Puma as our web server
 gem 'puma'
 
+#pub/sub for messages feature
+gem 'redis'
+
 #Use unicorn as the app server
 # gem 'unicorn'
 
