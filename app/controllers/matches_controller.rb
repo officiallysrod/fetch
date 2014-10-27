@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-  
+  require 'redis'
   include ActionController::Live
   # before_action :verify_user, only: [:show, :destroy]
 
@@ -28,24 +28,6 @@ class MatchesController < ApplicationController
     @match = Match.where(params[:id]).first
     @match.destroy
     redirect_to users_path
-  end
-
-  def events
-    response.headers["Content-Type"] = "text/event-stream"
-    start = Time.zone.now
-    50.times do
-      Message.uncached do
-        Message.where('created_at > ?', start).each do |message|
-          show_friends
-          response.stream.write "data: #{@friends.to_json}...\n\n"
-          start = message.created_at
-        end
-      end
-      sleep 2
-    end
-  rescue IOError
-  ensure
-    response.stream.close  
   end
 
 private

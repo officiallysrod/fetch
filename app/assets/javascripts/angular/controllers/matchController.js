@@ -33,8 +33,8 @@ fetchApp.controller('MatchCtrl', ['$scope', 'Match', 'Message',function($scope, 
     });
   }
 
-  source = new EventSource('/matches/events');
-  source.addEventListener('message', function(e){
+  source = new EventSource('api/messages/events');
+  source.addEventListener('messages.create', function(e){
     Match.query(function(json){
       $scope.friends = json;
       
