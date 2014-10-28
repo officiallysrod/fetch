@@ -1,9 +1,9 @@
 class MessagesController < ApplicationController
   require 'redis'
   include ActionController::Live
-
+    
   respond_to :json
-  
+
   def new
     @message = Message.new
   end
@@ -23,14 +23,19 @@ class MessagesController < ApplicationController
   def events
     response.headers["Content-Type"] = "text/event-stream"
     redis = Redis.new(:url => ENV['REDISTOGO_URL'])
-    redis.psubscribe('messages.*') do |on|
-      on.pmessage do |pattern, event, data|
-        response.stream.write("event: #{event}\n")
-        response.stream.write("data: #{data}\n\n")
+
+    sender = Thread.new do
+      redis.psubscribe('messages.*') do |on|
+        on.pmessage do |pattern, event, data|
+          response.stream.write("event: #{event}\n")
+          response.stream.write("data: #{data}\n\n")
+        end
       end
     end
+    sender.join
   rescue IOError
   ensure
+    Thread.kill(sender) if sender
     redis.quit
     response.stream.close  
   end
