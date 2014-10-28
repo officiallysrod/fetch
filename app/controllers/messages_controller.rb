@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
 
   def events
     response.headers["Content-Type"] = "text/event-stream"
-    redis = Redis.new
+    redis = Redis.new(:url => ENV['REDISTOGO_URL'])
     redis.psubscribe('messages.*') do |on|
       on.pmessage do |pattern, event, data|
         response.stream.write("event: #{event}\n")
